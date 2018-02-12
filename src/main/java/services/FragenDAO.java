@@ -27,7 +27,7 @@ public class FragenDAO {
 
             // loop through the result set
             while (rs.next()) {
-                fragenList.add(new Fragen(rs.getInt("id"), rs.getString("body"),rs.getString("a"),rs.getString("b"),rs.getString("c"),rs.getString("d"),rs.getInt("correct"),rs.getInt("level")));
+                fragenList.add(new Fragen(rs.getInt("questionID"), rs.getString("body"),rs.getString("a"),rs.getString("b"),rs.getString("c"),rs.getString("d"),rs.getInt("correct"),rs.getInt("level")));
             }
         } catch (SQLException e) {
             //LOGGER.log(Level.SEVERE, "BBB InsecureApp Cannot get all news, giving up.", e);
