@@ -4,25 +4,28 @@
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
     <h:head>
-        <title>Facelet Title</title>
+        <title>test Title</title>
     </h:head>
     <h:body>
-         <ui:repeat value="#{FragenController.getFragen}" var="fragenitem">                    
-                <h:form>
-                    <h:commandButton  class="btn btn-danger btn-xs" value="Admin" action="/index.xhml"/> 
-                        <div class="panel-heading">
-                            <h3 class="panel-title">#{fragenitem.fragenBody} 
-                                <h:panelGroup >
-                                    
-                                    
-                                </h:panelGroup></h3>
-                        </div>
-                        <div class="panel-body">
-                            <h:outputText value="#{newsitem.detail}"/>
-                        </div>                                 
-                    
-                </h:form>
-            </ui:repeat>
+        <h:outputText>Test</h:outputText>
+        <ui:repeat value="#{fragenController.getFrage(6)}" var="fragenitem">                    
+
+            <div class="panel-heading">
+                <h3 class="panel-title">#{fragenitem.fragenBody}  </h3>
+            </div>
+            
+            
+            <h:form>
+                <h:commandButton  value="#{fragenitem.fragenAntworten.get(0)}" action="#{fragenController.testAntwort(1,fragenitem)}"/> 
+                <h:commandButton  value="#{fragenitem.fragenAntworten.get(1)}" action="#{fragenController.testAntwort(2,fragenitem)}"/> 
+                <h:commandButton  value="#{fragenitem.fragenAntworten.get(2)}" action="#{fragenController.testAntwort(3,fragenitem)}"/> 
+                <h:commandButton  value="#{fragenitem.fragenAntworten.get(3)}" action="#{fragenController.testAntwort(4,fragenitem)}"/> 
+            </h:form>
+
+        </ui:repeat>
+       
+
+
     </h:body>
 </html>
 
