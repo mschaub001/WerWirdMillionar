@@ -1,0 +1,1116 @@
+CREATE DATABASE wwm
+USE wwm
+CREATE TABLE IF NOT EXISTS ADMIN (
+ id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+
+ adminName VARCHAR(100) NOT NULL UNIQUE,
+
+ adminPassword VARCHAR(100) NOT NULL,
+);
+
+-- 
+
+-- Insert base users
+
+INSERT INTO USER(id, userName, firstName, lastName, sex, emailAddress) VALUES
+
+(1, 'SYSTEM', NULL,'admin@example.org'),
+
+(2, 'admin', '1234'),
+
+(3, 'kirk', '5678'),
+
+
+BEGIN TRANSACTION;
+CREATE TABLE IF NOT EXISTS `questions` (
+	`questionID`	INTEGER,
+	`body`	TEXT,
+	`a`	TEXT,
+	`b`	TEXT,
+	`c`	TEXT,
+	`d`	TEXT,
+	`correct`	INTEGER,
+	`level`	INTEGER,
+	PRIMARY KEY(`questionID`)
+);
+INSERT INTO `questions` VALUES (1,'Wer war der Regisseur von ''Der weisse Hai'' ?','George Lucas','Steven Spielberg','Alfred Hitcock','John Carpenter',2,11);
+INSERT INTO `questions` VALUES (2,'Wer war der Regisseur von Terminator ?','James Cameron','John Landis','Steven Spielberg','Jhon Hoo',1,11);
+INSERT INTO `questions` VALUES (3,'Wer war der Regisseur von "Star Wars" ?','George Lucas','John Carpenter','Blake Edwards','John Landis',1,9);
+INSERT INTO `questions` VALUES (4,'Wer war der Regisseur von Blues Brothers ?','Victor Fleming','John Landis','Lindsay Anderson','Ridley Scott',2,9);
+INSERT INTO `questions` VALUES (5,'Wer war 1997 der Regisseur von ''Flucht aus New York'' ?','John Carpenter','George Lazenby	','John Woo','Mel Brooks',1,11);
+INSERT INTO `questions` VALUES (6,'Wer war 1933 der Regisseur von King Kong ?','Ernest Schoedsak','James Brown','Ridley Scott','John Woo',1,9);
+INSERT INTO `questions` VALUES (7,'Wie heisst die Schwester von Schneeweisschen ?','Fliederlila','Maisgelb','Rosenrot','Kornblumenblau',3,5);
+INSERT INTO `questions` VALUES (8,'Wer hat von Berufs wegen mit dem Spritzenhaus zu tun ?','Gaertner','Krankenschwester','Feuerwehrmann','Konditor',3,8);
+INSERT INTO `questions` VALUES (9,'Was ist die Amtssprache von Mexiko ?','Portugiesisch','Englisch','Franzoesisch','Spanisch',4,6);
+INSERT INTO `questions` VALUES (10,'Was ist ein Rebus ?','Kreditinstitut','Werkzeug','Weinstock','Bilderraetsel',4,6);
+INSERT INTO `questions` VALUES (11,'Wie nennt man von Gletschern transportierten Gesteinsschutt ?','Moraene','Muraene','Morelle','Murnau',1,8);
+INSERT INTO `questions` VALUES (12,'Wobei handelt es sich nicht um ein Insekt ?','Stechmuecke','Wintermuecke','Grasmuecke','Kriebelmuecke',3,9);
+INSERT INTO `questions` VALUES (13,'Wie heisst das traditionelle Pferderennen in Siena ?','Calcio','Palio','Barolo','Boccia',2,10);
+INSERT INTO `questions` VALUES (14,'Welcher deutsche Boxer schlug im Juni 1952 den Ringrichter Max Pippow zu Boden ?','Peter Mueller','Eckhard Dagge','Bubi Scholz','Max Schmeling',1,12);
+INSERT INTO `questions` VALUES (15,'Wo befindet sich der Hauptsitz der UNESCO ?','Bruessel','Paris','London','Helsinki',2,8);
+INSERT INTO `questions` VALUES (16,'Mit wem stand Edmund Hillary 1953 auf dem Gipfel des Mount Everest ?','Nasreddin Hodscha','Nursay Pimsorn','Tenzing Norgay','Abrindranath Singh',3,11);
+INSERT INTO `questions` VALUES (17,'Peter Kreuder komponierte 1936 den Schlager ''Ich wollt'' ich wär'' ein...','Hund','Huhn','Hummer','Huflattich',2,2);
+INSERT INTO `questions` VALUES (18,'Wobei handelt es sich um ein Notsignal im internationalen Funkverkehr ?','Mayday','Down Town','Jetset','Flower Power',1,3);
+INSERT INTO `questions` VALUES (19,'Wie nennt man großen Wirbel um eine beruehmte Persoenlichkeit ?','Prominentenkirmes','Starrummel','VIP-Jahrmarkt','Goetterzirkus',2,4);
+INSERT INTO `questions` VALUES (20,'Was steht ueber dem Haupteingang des Reichstagsgebaeudes in Berlin ?','Dem deutschen Volke','Achtung, Bundestag!','Nur fuer Abgeordnete','Bitte nicht stoeren!',1,6);
+INSERT INTO `questions` VALUES (21,'Wer davonlaeuft, der gibt einer Redewendung nach..','Wechselgeld','Kindergeld','Kleingeld','Fersengeld',4,5);
+INSERT INTO `questions` VALUES (22,'Durch welches Verfahren schickte man im alten Athen seine Mitbuerger in die Verbannung ?','Goetterspeise','Henkersmahlzeit','Scherbengericht','Grillteller',3,7);
+INSERT INTO `questions` VALUES (23,'Wie nennt man ein gedrucktes Rundschreiben des Papstes ?','Enzephalitis','Enzym','Enzyklopaedie','Enzyklika',4,8);
+INSERT INTO `questions` VALUES (24,'Wer schoss in 62 Fußball-Laenderspielen 68 Tore ?','Gerd Mueller','Horst Hrubesch','Helmut Rahn','Jupp Heynckes',1,9);
+INSERT INTO `questions` VALUES (25,'Was ist das so genannte Horn von Afrika ?','Sternbild','Halbinsel','fossiles Kultobjekt','Berg in Tansania',2,10);
+INSERT INTO `questions` VALUES (26,'Für was steht die bekannte Abkürzung "RAM" ?','Read Assembly Memory','Random Access Memory','Random Accept Memory','Read Advanced Memory',2,9);
+INSERT INTO `questions` VALUES (27,'Auf welcher Taste der Tastatur befinden sich zwei Pfeile ?','Mittlere Pfeiltaste','Eingabe- (Enter-) Taste','Druck Taste','Tabulator-Taste',4,12);
+INSERT INTO `questions` VALUES (28,'Was bewirkt der MS-DOS Befehl "DIR" ?','Auflistung der Verzeichnisse','Auflistung der Dateien','Fehler Überprüfung','Datei ausführen',1,9);
+INSERT INTO `questions` VALUES (29,'Wie viel Speicherplatz besitzt eine gewöhnliche 3,5"-Floppy-Diskette ?','650 MegaByte','1,4 KiloByte','1,2 MegaByte','1,44 MegaByte',4,9);
+INSERT INTO `questions` VALUES (30,'Welcher Firma verdanken wir das Betriebssystem "Windows 95" ?','Siemens','Microsoft','Borland','Intel',2,4);
+INSERT INTO `questions` VALUES (31,'Für was steht die Abkürzung "CPU" ?','Central Processing Unit','Class Performance User','Central Programming Unit','Central Painting Unit',1,4);
+INSERT INTO `questions` VALUES (32,'In welcher Reihenfolge werden "AUTOEXEC.BAT" & "CONFIG.SYS" beim Starten von Win95 geladen ?','Gar nicht','Zuerst die "Config.sys"','Zuerst die "Autoexec.bat"','Gleichzeitig',2,11);
+INSERT INTO `questions` VALUES (33,'Was bewirkt der Befehl "ls" in einer Linux-Shell','"Logout" und "Shutdown"','bestimmte Dateinamen aufgelistet','Listet alle SuperUser auf','startet den Bildschirmschoner',2,13);
+INSERT INTO `questions` VALUES (34,'Ist Windows 95 ein richtiges, vollständiges 32-Bit-Betriebssystem ?','Ja, nur aus 32-Bit-Code','Nein, erstes 64-Bit System','Schon der 128 Bit Code','Nein, aus echtem 32-Bit Code',4,10);
+INSERT INTO `questions` VALUES (35,'Wie nennt man einen kleinen, tragbaren Computer zum Aufklappen ?','Einen Pocket-PC','Ein Notebook','Einen Midi-PC','Ein Trackball',2,5);
+INSERT INTO `questions` VALUES (36,'Wozu benötigt man ein Modem beim Computer ?','Soundkarte','CPU Leistung','Datentransfer','Grafikkarte',3,6);
+INSERT INTO `questions` VALUES (37,'Welcher Hersteller vertreibt die Norton Utilities ?','Symantec','Microsoft','Borland','Siemens',1,7);
+INSERT INTO `questions` VALUES (38,'Was ist ein Makro ?','Computer-Viren','Befehlsfolgen','Funktionen in Programmen','Benutzereinstellungen',2,8);
+INSERT INTO `questions` VALUES (39,'Was versteht man unter "virtuellen Speicher" ?','Speicher aus ROM-Bausteinen','VirtualCD Speicher für CD''s','Speicher aus CPU-Registern','Festplattenspeicher',4,9);
+INSERT INTO `questions` VALUES (40,'Was ist ein Browser ?','"Surfen" durchs Internet','Telefonieren via Internet','eMails verschicken','Autorennsimulation',1,5);
+INSERT INTO `questions` VALUES (41,'Was wollen Fans von Ihrem Fan ?','Schifftonne','Bahnkilo','Radpfund','Autogramm',4,2);
+INSERT INTO `questions` VALUES (42,'Welcher Handwerker sorgt für schöne, glatte Wände ?','Trockner','Spüler','Putzer','Abstauber',3,5);
+INSERT INTO `questions` VALUES (43,'Welcher dieser Kuchen hat seinen Namen nicht nach einer darin enthaltenen Zutaten bekommen ?','Kirschkuchen ','Nusskuchen ','Hundekuchen ','Apfelkuchen',3,2);
+INSERT INTO `questions` VALUES (44,'Wer an der Oper die Hauptrolle singt, ist eine...','Klassehanna','Spitzensara','Primadonna','Superlaura',3,3);
+INSERT INTO `questions` VALUES (45,'Wem es gut geht, lebt wie...','der Wurm im Dreck','das Schiff ohne Leck','die Made im Speck','der Turner am Reck',3,1);
+INSERT INTO `questions` VALUES (46,'Wer besonders tief schläft, tut dies redensartlich wie ein...','Traumtänzer','Pennäler','Murmeltier','Schlafsack',3,1);
+INSERT INTO `questions` VALUES (47,'Ein Slogan der Friedensbewegung lautet : ','Tüte paffen!','ohne Waffen!','Kohle raffen!','ihr Ökoaffen!',2,5);
+INSERT INTO `questions` VALUES (48,'Wo wird in den Niederlanden zwar nicht legal, aber dennoch ungehindert Haschisch vertrieben ?','Campingplatz','Skihütte','Coffeeshop','Saftladen',3,3);
+INSERT INTO `questions` VALUES (49,'Welcher Ausdruck steht für "streng", "karg" und "anspruchslos" ?','athenisch','spartanisch','olympisch','trojanisch',2,4);
+INSERT INTO `questions` VALUES (50,'Wer war 1978 nicht Papst ?','Paul VI.','Johannes Paul I.','Johannes Paul II.','Sankt Pauli',4,3);
+INSERT INTO `questions` VALUES (51,'Wie nennt man einen südländischen Verführer ?','Don Juan','Don Camillo','Don King','Don Cosacco',1,4);
+INSERT INTO `questions` VALUES (52,'Durch wessen Kuss fühlen sich Künstler inspiriert ?','Suse','Muse','Druse','Uhse',2,7);
+INSERT INTO `questions` VALUES (53,'Wass ist ein Adjektiv ?','Kopfschmerzmittel','Eigenschaftswort','Gerichtsdiener','Zylinderkopfdichtung',2,2);
+INSERT INTO `questions` VALUES (54,'Wohin tritt man redensartlich durch eine unbedachte Äusserung ?','Milchkännchen','Schmalztropfchen','Bratpfännchen','Fettnäpfchen',4,9);
+INSERT INTO `questions` VALUES (55,'Wie hiess die erste deutsche Wimbledon-Gewinnerin ?','Cilly Aussem','Steffi Graf ','Hilde Sperling ','Hilde Krahwinkel',1,10);
+INSERT INTO `questions` VALUES (56,'Wie hiess das Forschungsschiff von Charles Darwin ?','Dolphin','Calypso','Beagle','Dove',3,11);
+INSERT INTO `questions` VALUES (57,'Wie heisst das zerkleinerte und getrocknete Mark der Kokosnuss ?','Krema','Kopra','Kroepoek','Krill',2,12);
+INSERT INTO `questions` VALUES (58,'Wen gebar Eva, nachdem Kain den Abel erschlagen hatte ?','Abraham','Isaak','Set','Gad',3,13);
+INSERT INTO `questions` VALUES (59,'Welche Weltreligion kennt keine Schutzengel ?','Judentum','Islam','Christentum','Buddhismus',4,14);
+INSERT INTO `questions` VALUES (60,'Welchen dieser Vögel gibt es ?','Klunkerkranich','Strasswachtel','Opalsumpfhuhn','Brillantschnepfe',1,15);
+INSERT INTO `questions` VALUES (61,'Was sind Bedeckungsveränderliche ?','Korallen','Sterne','Blütenstände','Wolkenformationen',2,10);
+INSERT INTO `questions` VALUES (62,'Ein Bonze ist ein...','buddhistischer Mönch','hinduistischer Tempel','japanischer Zwergbaum','indischer Gelehrter ',1,2);
+INSERT INTO `questions` VALUES (63,'Was versteht man unter einem Hypokaustum ?','zinsloser Kredit','antike Zentralheizung','gehörnter Ehemann','Volkszählung',2,11);
+INSERT INTO `questions` VALUES (64,'Wer bekam 1941 die erste Goldene Schallplatte ?','Frank Sinatra','Lale Andersen','Glenn Miller ','Edith Piaf',3,13);
+INSERT INTO `questions` VALUES (65,'Mieze Schindler war oder ist...','mit Lenin verheiratet ','eine Erdbeersorte ','Schillers erstes Drama','Prada-Chefdesignerin',2,9);
+INSERT INTO `questions` VALUES (66,'Alle meine Entchen schwimmen ...','auf dem Fluss','auf dem See','auf dem Bach','auf dem Wasser',2,2);
+INSERT INTO `questions` VALUES (67,'Hoppe, Hoppe Reiter, wenn er fällt, dann ...','ist es aus','fällt er','singt er','schreit er',4,1);
+INSERT INTO `questions` VALUES (68,'Last, but not ...','first','second','least','third',3,2);
+INSERT INTO `questions` VALUES (69,'In welches Meer mündet der Rhein ?','Mittelmeer','Atlantik','Nordsee','Schwarzes Meer',3,9);
+INSERT INTO `questions` VALUES (70,'In welcher Farbe gibt es keine Gummibärchen von der Firma Haribo ?','Grün','Gelb','Blau','Rot',3,1);
+INSERT INTO `questions` VALUES (71,'Mit welcher Währung zahlt man in der Schweiz ?','Pfund','Euro','Franken','Dollar',3,6);
+INSERT INTO `questions` VALUES (72,'Ein Zeppelin ist ein ...','Ballon','hoher Mast','Luftschiff','Spielzeug',3,2);
+INSERT INTO `questions` VALUES (73,'Die oberste Dachkante nennt man ...','Ort','First','Traufe','Giebel',2,8);
+INSERT INTO `questions` VALUES (74,'In welchem Land liegt die Region Apulien ?','Frankreich','Kroatien','Griechenland','Italien',4,7);
+INSERT INTO `questions` VALUES (75,'Der Mond ist ein ...','Planet','Trabant','Stern','Asteroid',2,9);
+INSERT INTO `questions` VALUES (76,'Welchen Beruf erlernte Stefan Raab ?','Friseur','Komiker','Metzger','Schreiner',3,8);
+INSERT INTO `questions` VALUES (77,'Was für ein Landsmann war der Schriftsteller Max Frisch ?','Österreicher','Schweizer','Deutscher','Liechtensteiner',2,12);
+INSERT INTO `questions` VALUES (78,'In welchem See liegt die Insel Mainau','Genfersee','Bielersee','Bodensee','Vierwaldstättersee',3,5);
+INSERT INTO `questions` VALUES (79,'Welches Weltwunder befand sich auf einer Insel vor Alexandria ?','Leuchtturm','Koloss von Rhodos','Tempel der Artemis','Zeusstatue',2,9);
+INSERT INTO `questions` VALUES (80,'Auf dem Cover welches Beatles-Album gehen die vier Bandmitglieder über einen Zebrastreifen','Please please me','Revolver','Let it be','Abbey Road',4,9);
+INSERT INTO `questions` VALUES (81,'Welche Tiere gehören nicht zu den Paarhufern ?','Ziege','Esel','Pferd','Kuh',3,6);
+INSERT INTO `questions` VALUES (82,'Zu welchem Staat gehört die Provinz Flevoland ?','Belgien','Luxemburg','Frankreich','Niederlande',4,7);
+INSERT INTO `questions` VALUES (83,'In welcher Stadt wurde Franz Kafka geboren ?','Moskau','Prag','Bratislava','Kiew',2,11);
+INSERT INTO `questions` VALUES (84,'Wie heißt die Hauptstadt des Libanon ?','Beirut','Eilat','Tripoli','Tyros',1,9);
+INSERT INTO `questions` VALUES (85,'Welches ist das leichteste chemische Element ?','Sauerstoff','Kohlenstoff','Lithium','Wasserstoff',4,10);
+INSERT INTO `questions` VALUES (86,'Was für ein Landsmann war der Dichter Henrik Ibsen ?','Finne','Schwede','Norweger','Däne',3,11);
+INSERT INTO `questions` VALUES (87,'Wie vielen Kilometern entspricht einer Seemeile ?','1,852','1,954','1,848','1,752',1,12);
+INSERT INTO `questions` VALUES (88,'Was ist ein Angström ?','10 Millimeter','0.1 Mikrometer','0.1 Millimeter','0.1 Nanometer',4,15);
+INSERT INTO `questions` VALUES (89,'Was ist ein Flughahn ?','Ein Hahn','Ein Vogel','Ein Fisch','Ein Insekt',3,14);
+INSERT INTO `questions` VALUES (90,'Was ist ein Judasohr ?','Frucht','Pflanze','Grasart','Pilz',4,15);
+INSERT INTO `questions` VALUES (91,'Was ist Grauwacke ?','Vogelart','Gesteinsart','Fischart','Holzart',3,10);
+INSERT INTO `questions` VALUES (92,'Auf welchem Planeten findet man den Großen Roten Fleck, einen gigantischen Wolkenwirbel ?','Mars','Saturn','Jupiter','Venus',3,9);
+INSERT INTO `questions` VALUES (93,'Welcher Kontinent ist die Heimat des Kaffebaums ?','Asien','Afrika','Südamerika','Europa',2,8);
+INSERT INTO `questions` VALUES (94,'Wer wurde einst als Volk der Lachen bekannt ?','Russen','Ungaren','Polen','Tschechen',3,10);
+INSERT INTO `questions` VALUES (95,'Welche Tiere töten in der griechischen Mythologie den Priester Laokoon ?','Löwen','Fische','Vögel','Schlangen',4,13);
+INSERT INTO `questions` VALUES (96,'Wie bezeichnet man ein Buch, das Teil eines mehrbändigen Werkes ist ?','Einzelwerk','Teilwerk','Volumen','Bruchwerk',3,7);
+INSERT INTO `questions` VALUES (97,'Wessen Stärke wird durch das Elo-System gemessen ?','Bodybuilder','Spitzensportler','Mathematiker','Schachspieler',4,13);
+INSERT INTO `questions` VALUES (98,'In welchem europäischen Land fließt ein Fluss namens Leba ?','Weissrussland','Ukraine','Polen','Serbien',3,13);
+INSERT INTO `questions` VALUES (99,'Was kann man mit einem Hygrometer messen ?','Niederschlagsmenge','Sonnenscheindauer','Luftfeuchtigkeit','Temperatur',3,9);
+INSERT INTO `questions` VALUES (100,'Wobei tritt die sogenannte REM-Phase ein ?','Computer','Raketenstart','Schlaf','Wellen',3,10);
+INSERT INTO `questions` VALUES (101,'Zu welchem Staat gehört die Halbinsel Chalkidike ?','Türkei','Kroatien','Griechenland','Spanien',3,11);
+INSERT INTO `questions` VALUES (102,'Welche Linien verbinden auf Wetterkarten Punkte mit gleichem Luftdruck ?','Isotherme','Isobaren','Isopunkte','Isomesspunkte',2,12);
+INSERT INTO `questions` VALUES (103,'Welcher Staat nannte sich Ende des 18. Jahrhunderts Helvetische Republik ?','Helvetien','Lichtenstein','Vaduz','Schweiz',4,9);
+INSERT INTO `questions` VALUES (104,'Wie heißt die größte Insel der Erde ?','Neu-Guinea','Grönland','Madagaskar','Grossbritannien',2,9);
+INSERT INTO `questions` VALUES (105,'Wie nennt man Menschen, die für ihren Glauben oder ihre Überzeugung gestorben sind ?','Helden','Märtyrer','Fanatiker','Freaks',2,8);
+INSERT INTO `questions` VALUES (106,'Was ist Mammon ?','Lust','Liebe','Geld','Sünde',3,8);
+INSERT INTO `questions` VALUES (107,'Was ist eine Enzyklopädie ?','Heilmittel','Gesundheitslehre','Lexikon','Fusspfelgebuch',3,2);
+INSERT INTO `questions` VALUES (108,'Wie heißt die Hauptstadt der Volksrepublik China ?','Schanghai','Peking','Wuhan','Nanjing',2,3);
+INSERT INTO `questions` VALUES (109,'Aus welchem Land stammt der Schaumwein "Cava"  ?','Italien','Spanien','Portugal','Frankreich',2,4);
+INSERT INTO `questions` VALUES (110,'In welchem Weinanbaugebiet liegt "Beaujolais"  ?','Rhone','Bordeaux','Cognac','Champagne',4,6);
+INSERT INTO `questions` VALUES (111,'Welches Land ist ein Weinproduzent in der "neuen" Welt ?','Portugal','England','Chile','Bulgarien',3,8);
+INSERT INTO `questions` VALUES (112,'Bier wird klassisch hergestellt aus Wasser, Malz und ... ','Hopfen','Zucker','Honig','Kartoffeln',1,3);
+INSERT INTO `questions` VALUES (113,'Wieviel enthaelt eine Mass Bier in Bayern ?','0.75 Liter','1 Liter','1.25 Liter','0.5 Liter',2,3);
+INSERT INTO `questions` VALUES (114,'Welcher ist der tiefste See der Welt ?','Lake Tahoe in USA','Vostoksee in Antarktis','Kaspisches Meer in Westasien','Baikalsee in Russland',4,13);
+INSERT INTO `questions` VALUES (115,'Welches ist das einwohnerreichste Land der Erde  ?','USA','Indien','China','Russland',3,8);
+INSERT INTO `questions` VALUES (116,'Welche Stadt hat die meisten Einwohner ?','Kairo','Mumbay','New York','Tokio',4,7);
+INSERT INTO `questions` VALUES (117,'Welches Land war 2006 der groesste Bierkonsument ?','Irland','Deutschland','Belgien','Tschechien',4,6);
+INSERT INTO `questions` VALUES (118,'In welcher Stadt ist das "Alt" Bier zuhause ?','München','Köln','Düsseldorf','Berlin',3,9);
+INSERT INTO `questions` VALUES (119,'Viele Köche verderben den ...','Brei','Kuchen','Braten','Pudding',1,1);
+INSERT INTO `questions` VALUES (120,'Wie nennt man Tischtennis auch noch ?','Plingplong','Pingpong','KingKong','Singsong',2,2);
+INSERT INTO `questions` VALUES (121,'Wie heißt das Märchenland, in dem Milch und Honig fließen ?','Honigland','Schlaraffenland','Milchland','Kakaoland',2,1);
+INSERT INTO `questions` VALUES (122,'Wie nennt man das erste Gebiss eines Kindes ?','Kakaozähne','Sahnezähne','Milchzähne','Butterzähne',3,2);
+INSERT INTO `questions` VALUES (123,'1,2,3,4,5,6,7  -  eine alte Frau kocht ...','Kartoffeln','Rüben','Möhren','Kaffee',2,3);
+INSERT INTO `questions` VALUES (124,'Was macht Popeye so stark ?','Döner','Hamburger','Pizza','Spinat',4,4);
+INSERT INTO `questions` VALUES (125,'Wer ist Tarzan ?','Prohet','Chinesischer Arzt','Urwaldheld','Tibetischer Kaiser',3,2);
+INSERT INTO `questions` VALUES (126,'Wie heißt das Gerät, mit dem man Fische fängt ?','Zange','Hammer','Angel','Diskus',3,6);
+INSERT INTO `questions` VALUES (127,'Womit isst man in China ?','Zangen','Schaufeln','Strohhalme','Stäbchen',4,7);
+INSERT INTO `questions` VALUES (128,'Wie heißt das Fabeltier,das ein Horn auf der Nase trägt ?','Eichhörnchen','Dreihorn','Hornisse','Einhorn',4,8);
+INSERT INTO `questions` VALUES (129,'Aus wie vielen Kreisen besteht eine Acht ?','Einem','Zwei','Drei','Vier',2,4);
+INSERT INTO `questions` VALUES (130,'Wie nennt man einen Formel 1 Rennwagen  noch ?','Schumi','Box','Pole','Bolide',4,4);
+INSERT INTO `questions` VALUES (131,'Welche ist keine Wurstsorte ?','Mozzarella','Mortadella','Salami','Schinken',1,3);
+INSERT INTO `questions` VALUES (132,'Worin brüten die meisten Vögel ihre Jungen ?','Nest','Haus','Stock','Brutkasten',1,3);
+INSERT INTO `questions` VALUES (133,'"Wickie" ist ein ...','Wikinger','Isländer','Grönländer','Feuerländer',1,5);
+INSERT INTO `questions` VALUES (134,'Wie nennt man ein Reh - Kind ?','Kalb
+','Lamm','Kitz','Rehli',3,1);
+INSERT INTO `questions` VALUES (135,'Eine Moschee ist eine islamische ...','Grossmutter','Schule','Gaststätte','Kirche',4,2);
+INSERT INTO `questions` VALUES (136,'Wie viele Spieler einer Mannschaft sind bei einem Fußballspiel auf dem Feld ?','22','15','13','11',4,1);
+INSERT INTO `questions` VALUES (137,'Was ist keine Hunderasse ?','Mops','Collie','Dackel','Haflinger',4,2);
+INSERT INTO `questions` VALUES (138,'Wie viele Zahlen sind am Zifferblatt einer Uhr ?','6','20','12','32',3,3);
+INSERT INTO `questions` VALUES (139,'Welches dieser Tiere ist mit dem Menschen am nächsten verwandt ?','Fuchs','Schimpanse','Löwe','Braunbär',2,4);
+INSERT INTO `questions` VALUES (140,'Welches Mädchen lässt im Märchen ihre Haare einen Turm hinab ?','Rapunzel','Schneewittchen','Dornröschen','Aschenputtel',1,4);
+INSERT INTO `questions` VALUES (141,'In welcher Stadt wurde Jesus laut Bibel geboren ?','Berlin','Wien','Bethlehem','Jericho',3,2);
+INSERT INTO `questions` VALUES (142,'Ein Hamburger von McDonald´s heißt ...','Big Fleck','Big Mac','Big Leck','Big Schmeck',2,1);
+INSERT INTO `questions` VALUES (143,'Wie heißen die Atmungsorgane der Fische ?','Kiefer','Flossen','Kiemen','Schuppen',3,5);
+INSERT INTO `questions` VALUES (144,'Welcher Vogel legt seine Eier in fremde Nester ?','Taube','Amsel','Kuckuck','Falke',3,1);
+INSERT INTO `questions` VALUES (145,'Von welchem Tier stammt Putenfleisch ?','Truthahn','Milchkalb','Junghammel','Stockente',1,4);
+INSERT INTO `questions` VALUES (146,'Wie nennt man eine Schnecke ohne Haus ?','FKK Schnecke','Oben ohne Schnecke','Nackapazl','Nacktschnecke',4,2);
+INSERT INTO `questions` VALUES (147,'Was musste Wilhelm Tell seinem Sohn vom Kopf schießen ?','Birne','Mütze','Apfel','Tasse',3,1);
+INSERT INTO `questions` VALUES (148,'In welches Tier verwandelt sich die gute Fee bei "Pinocchio" ?','Fuchs','Ente','Katze','Taube',4,8);
+INSERT INTO `questions` VALUES (149,'Wie heißt das Komikerduo "Laurel & Hardyl" noch ?','Rank & Schlank','Dumm & Schlau','Schick & Schön','Dick & Doof',4,2);
+INSERT INTO `questions` VALUES (150,'Was sind Hieroglyphen ?','Tongefässe','Berge','Schriftzeichen','Wilde Tiere',3,5);
+INSERT INTO `questions` VALUES (151,'Welches dieser Tiere gehört zu den Bremer Stadtmusikanten ?','Elefant','Hahn','Pferd','Schaf',2,1);
+INSERT INTO `questions` VALUES (152,'Welcher Bär ist kein lebendiges Tier ?','Gummibär','Waschbär','Braunbär','Eisbär',1,2);
+INSERT INTO `questions` VALUES (153,'Welche Tierchen züchtet ein Imker ?','Schnecken','Bienen','Igel','Spinnen',2,3);
+INSERT INTO `questions` VALUES (154,'Was kommt am Meer immer nach der Ebbe ?','Sturm','Flut','Bademeister','Regen',2,4);
+INSERT INTO `questions` VALUES (155,'Welches Tier heißt im Märchen auch Adebar ?','Storch','Bär','Adler','Fuchs',1,8);
+INSERT INTO `questions` VALUES (156,'Eine Sammlung von Büchern zu allen Themen findest du in der ...','Discothek','Vinothek','Schokothek','Bibliothek',4,5);
+INSERT INTO `questions` VALUES (157,'Wie nennt man einen Schmerz im unteren Rücken ?','Hexenschuss','Teufelshieb','Geisterschlag','Satansstich',1,3);
+INSERT INTO `questions` VALUES (158,'Was ist Basilikum ?','Kraut','Kirche','Landschaft','Handcreme',1,2);
+INSERT INTO `questions` VALUES (159,'Welche Bahn fährt nicht auf Schienen ?','U-Bahn','Strassenbahn','Eisenbahn','Autobahn',4,1);
+INSERT INTO `questions` VALUES (160,'Wie heißt das Pferd von Pippi Langstrumpf ?','Kleiner Onkel','Grosse Tante','Dicker Opa','Dünne Oma',1,3);
+INSERT INTO `questions` VALUES (161,'Was ist ein Substantiv ?','Hauptwort','Zeitwort','Eigenschaftswort','Satzzeichen',1,6);
+INSERT INTO `questions` VALUES (162,'Vollmond kommt alle ...','28 Tage','12 Tage','30 Tage','12 Monate',1,'10
+');
+INSERT INTO `questions` VALUES (163,'Zu welchem Teil des Körpers gehört das Trommelfell ?','Nase','Ohr','Auge','Mund',2,1);
+INSERT INTO `questions` VALUES (164,'Welche ist  keine  Nordfriesische Insel ?','Sylt','Amrum','Föhr','Mallorca',4,4);
+INSERT INTO `questions` VALUES (165,'Ein bekanntes Buch von Erich Kästner ist ...','Das doppelte Lottchen','Die einfache Anna','Die dreifache Maria','Die fröhliche Felicitas',1,7);
+INSERT INTO `questions` VALUES (166,'Wie heißt der Zauberfreund von "Räuber Hotzenplotz" ?','Petrosilius Zwackelmann','Peter Cornelius Wackel','Reprozillius Fackelspan','Spektrolius Zackelschwan',1,6);
+INSERT INTO `questions` VALUES (167,'Was ist das Gegenteil von Pessimismus ?','Pazifismus','Katechismus','Optimismus','Realismus',3,2);
+INSERT INTO `questions` VALUES (168,'Wie nennt man die Ehefrau einer Redensart nach ?','Das schönere Viertel','Das klügere Drittel','Das fleissige Ganze','Die bessere Hälfte',4,3);
+INSERT INTO `questions` VALUES (169,'Welche Zahl liegt auf einem Würfel genau gegenüber von der Eins ?','4','5','2','6',4,4);
+INSERT INTO `questions` VALUES (170,'Woraus besteht das Wattenmeer ?','aus Watte und Schlamm','aus Wasser und Schlamm','nur aus Wasser','aus Watte und Wasser',2,1);
+INSERT INTO `questions` VALUES (171,'Der Sohn vom Vater deiner Mutter ist dein ...','Onkel','Vater','Bruder','Cousin',1,3);
+INSERT INTO `questions` VALUES (172,'Der wievielte ist "Max und Moritz" letzter Streich ?','Siebente','Dritte','Zehnte','Dreizehnte',1,7);
+INSERT INTO `questions` VALUES (173,'Wie nennt man eine sichtbare Luftverschmutzung ?','Smog','Frog','Grog','Log',1,4);
+INSERT INTO `questions` VALUES (174,'Wie nennt man die kleinste Einheit chemischer Elemente ?','Atom','Betom','Cetom','Detom',1,1);
+INSERT INTO `questions` VALUES (175,'Welcher Hund hat eine blaue Zunge ?','Chow-Chow','Collie','Pudel','Dackel',1,5);
+INSERT INTO `questions` VALUES (176,'Das olympische Motto lautet: ...','dabei sein ist alles','ich will gewinnen','schneller, höher, weiter','jeder ein Sieger',1,9);
+INSERT INTO `questions` VALUES (177,'Wie heißen Kommazahlen mit dem Fachausdruck ?','Dezimalzahlen','Quadratzahlen','Nettozahlen','Bruttozahlen',1,6);
+INSERT INTO `questions` VALUES (178,'Wo findet man die Lebenslinien ?','in den Handflächen','im Horoskop','auf der Landkarte','auf den Fußsohlen',1,5);
+INSERT INTO `questions` VALUES (179,'Wer ist Clark Kent ?','Superman','Spiderman','Weltraumfahrer','Golfspieler',1,2);
+INSERT INTO `questions` VALUES (180,'Wie nennt man ein Gewicht von 1.000 Kilogramm ?','Megakilo','Barrel','Fass','Tonne',4,'3
+');
+INSERT INTO `questions` VALUES (181,'Wie nennt man ein Schauspiel mit eher lustigem Inhalt ?','Kicherstück','Drama','Komödie','Tragödie',3,2);
+INSERT INTO `questions` VALUES (182,'Was ist ein anderer Begriff für Hobby ?','Steckenpferd','Stangenesel','Stockkamel','Stielelefant',1,4);
+INSERT INTO `questions` VALUES (183,'Wie heiß der bekannte Freizeitpark in Brühl ?','Zauberwelten','Phantasialand','Märchenpark','Traumland',2,3);
+INSERT INTO `questions` VALUES (184,'Ein berühmtes Ballett von Tschaikowsky heißt ...','Ententeich','Möwenmeer','Schwanensee','Gänseweiher',3,9);
+INSERT INTO `questions` VALUES (185,'Wie heißt die Landeshauptstadt von Bayern ?','Nürnberg','Regensburg','Augsburg','München',4,5);
+INSERT INTO `questions` VALUES (186,'In welches Meer fließt der Rhein ?','Ostsee','Schwarzes Meer','Nordsee','Mittelmeer',3,6);
+INSERT INTO `questions` VALUES (187,'Welche Geschichte ist nicht von Wilhelm Busch ?','Max & Moritz','Hänsel & Gretel','Die fromme Helene','Fipps, der Affe',2,7);
+INSERT INTO `questions` VALUES (188,'Welche Farbe hat die Zunge von Giraffen ?','rosa','grün','gelb','blau',4,8);
+INSERT INTO `questions` VALUES (189,'Welches ist das flächenmäßig größte Bundesland Deutschlands ?','Hessen','Niedersachsen','Brandenburg','Bayern',4,9);
+INSERT INTO `questions` VALUES (190,'Wie heißt die bekannteste deutsche Fluggesellschaft ?','Neckermann','Air Berlin','Condor','Lufthansa',4,10);
+INSERT INTO `questions` VALUES (191,'Wie heißt der Schwanz der Ente ?','Bürzel','Stürzel','Würzel','Purzel',1,11);
+INSERT INTO `questions` VALUES (192,'Was ist ein Gimpel ?','Bergspitze','Dachvorsprung','Vogel','Giftschlange',3,8);
+INSERT INTO `questions` VALUES (193,'Was ist ein Monument ?','Rechnung','Grundplatte','Fusssohle','Denkmal',4,5);
+INSERT INTO `questions` VALUES (194,'Was ist der deutsche Begriff für Astronomie ?','Wahrsagen','Baumkunde','Vorspeise','Sternkunde',4,4);
+INSERT INTO `questions` VALUES (195,'Wie heißt ein bekanntes Werk von Franz Schubert ?','Barschquartett','Goldfischsextett','Haitrio','Forellenquintett',4,7);
+INSERT INTO `questions` VALUES (196,'Ein deutsches Wort für Dialekt ist ...','Fotoalbum','Mundart','Brücke','Kohlebergwerk',2,3);
+INSERT INTO `questions` VALUES (197,'Welcher Takt ist typisch für den Walzer ?','3/4','3/5','3/6','3/7',1,2);
+INSERT INTO `questions` VALUES (198,'Wie nennt man eine ringförmige Koralleninsel ?','Ringsel','Atoll','Atom','Koralling',2,8);
+INSERT INTO `questions` VALUES (199,'Welcher Himmelskörper ist kein Planet ?','Venus','Mars','Mond','Jupiter',3,10);
+INSERT INTO `questions` VALUES (200,'Wie nennt man eine Kobra wegen ihrer Rückenzeichnung noch ?','Rillenschlange','Lilienschlange','Brillenschlange','Grillenschlange',3,4);
+INSERT INTO `questions` VALUES (201,'Welches dieser Länder liegt am Meer ?','Österreich','Ungarn','Italien','Luxemburg',3,6);
+INSERT INTO `questions` VALUES (202,'Was sind "aunts" auf Deutsch ?','Steifmütter','Ameisen','Tanten','Antennen',2,7);
+INSERT INTO `questions` VALUES (203,'Wie heißt das Zeitwort noch ?','Substantiv','Nomen','Verb','Adjektiv',3,8);
+INSERT INTO `questions` VALUES (204,'Wie nennt man das Abziehen einer Zahl von einer anderen Zahl ?','Addieren','Dividieren','Multiplizieren','Subtrahieren',4,9);
+INSERT INTO `questions` VALUES (205,'In welchen Zeiten hat das Verb zwei Teile ?','Futur & Präsens','Präsens & Perfekt','Präsens und Präteritum','Perfekt und Futur',4,9);
+INSERT INTO `questions` VALUES (206,'Was ist eine Heidschnucke ?','Stechmücke','Bohneneintopf','Schafrasse','Babyschnuller',3,3);
+INSERT INTO `questions` VALUES (207,'Wer komponierte die deutsche Nationalhymne ?','Joseph Haydn','Richard Wagner','Willibald Gluck','Carl Orff',1,9);
+INSERT INTO `questions` VALUES (208,'Wie sagt man in Österreich zu einer Tüte ?','Tatü','Packerl','Sackerl','Kofferl',3,6);
+INSERT INTO `questions` VALUES (209,'Wo findet man die Achillessehne ?','am Fersenbein','am Hals','zwischen den Rippen','im Knie',1,12);
+INSERT INTO `questions` VALUES (210,'In welchem Erdteil finden wir die Wüste Gobi ?','Australien','Europa','Amerika','Asien',4,11);
+INSERT INTO `questions` VALUES (211,'Was ist eine Muräne ?','Lawine','länglischer Fisch','türkische Nachspeise','rasender Kopfschmerz',2,6);
+INSERT INTO `questions` VALUES (212,'Die Nationalflagge der USA heißt auf Grund ihrer Musterung ...','Tricolore','Union Jack','Hammer & Sichel','Stars and Stripes',4,2);
+INSERT INTO `questions` VALUES (213,'In welcher deutschen Stadt liegt der berühmte Alexanderplatz ?','Offenbach','Fulda','Bremen','Berlin',4,7);
+INSERT INTO `questions` VALUES (214,'Welche Stadt hat den größten Hafen in Deutschland ?','Hamburg','Bremen','Cuxhafen','Lübeck',1,7);
+INSERT INTO `questions` VALUES (215,'Wie heißt die Landeshauptstadt von Sachsen - Anhalt ?','Magdeburg','Halle','Erfurt','Cottbus',1,8);
+INSERT INTO `questions` VALUES (216,'Welche Sinneswahrnehmung ist für den Hund am bedeutendsten ?','hören','riechen','sehen','fühlen',2,6);
+INSERT INTO `questions` VALUES (217,'Was sind Parasiten ?','Steuereintreiber','Schmarotzer','Sonnenschirme','Regenschirme',2,6);
+INSERT INTO `questions` VALUES (218,'Was sind Klauen ?','Zehen von Widerkäuern','Diebe','Hautausschlag','Spassmacher',1,4);
+INSERT INTO `questions` VALUES (219,'In welcher Stadt steht die Semper Oper ?','Leipzig','Dresden','Potsdam','Erfurt',2,9);
+INSERT INTO `questions` VALUES (220,'Zu welchem Meer gehört die Pommersche Bucht ?','Ostsee','Nordsee','Mittelmeer','Pazifik',1,7);
+INSERT INTO `questions` VALUES (221,'Willy Brandt war ein deutscher ...','Feuerwehrmann','Bischof','Tennsispieler','Politiker',4,11);
+INSERT INTO `questions` VALUES (222,'Wie heißt die Landeshauptstadt von Thüringen ?','Erfurt','Gera','Jena','Weimar',1,12);
+INSERT INTO `questions` VALUES (223,'Was bedeutet "descrecendo" in der Musik ?','leiser werden','lauter werden','schneller werden','langsamer werden',1,13);
+INSERT INTO `questions` VALUES (224,'Welches Tier bringt seine Babys nicht lebend zur Welt ?','Schildkröte','Wal','Känguru','Fledermaus',1,9);
+INSERT INTO `questions` VALUES (225,'Welche Sportartikelfirma benennt sich nach einer griechischen Göttin ?','Nike','Puma','Adidas','Head',1,8);
+INSERT INTO `questions` VALUES (226,'In welchem Museum befindet sich Da Vincis Mona Lisa ?','Eremitage','Pinakothek','Albertina','Louvre',4,1);
+INSERT INTO `questions` VALUES (227,'Wovon ernähren sich Koalas hauptsächlich ?','Eukalyptusblätter','Bambus','Ahornblätter','Insekten',1,2);
+INSERT INTO `questions` VALUES (228,'Wie nennt man ein Rennen, das mit Segelbooten ausgetragen wird ?','Regatta','Turnier','Windspiel','Kriterium',1,3);
+INSERT INTO `questions` VALUES (229,'Welches dieser Tiere hat kein Beutel ?','Koala','Känguru','Wombat','Faultier',4,4);
+INSERT INTO `questions` VALUES (230,'"Faust" ist ein Drama von ...','Goethe','Schiller','Böll','Dürrenmatt',1,6);
+INSERT INTO `questions` VALUES (231,'An welches deutsche Bundesland grenzt Frankreich nicht ?','Hessen','Saarland','Baden-Württemberg','Rheinland-Pfalz',1,6);
+INSERT INTO `questions` VALUES (232,'Ein Minotaurus ist ein Zwitterwesen aus Mensch und ...','Stier','Löwe','Adler','Ziege',1,11);
+INSERT INTO `questions` VALUES (233,'Was ist Barock ?','Kleidungsstück','Stilrichtung','Insel','Wetterstation',2,3);
+INSERT INTO `questions` VALUES (234,'Tokio liegt in ...','Vietnam','China','Korea','Japan',4,9);
+INSERT INTO `questions` VALUES (235,'Der römische Kaiser Cäsar "kam, sah und ... "','siegte','verlor','schlief','lachte',1,10);
+INSERT INTO `questions` VALUES (236,'Wo wurde Sisi, Österreichs Kaiserin, geboren ?','München','Wien','Genf','Rosenheim',1,11);
+INSERT INTO `questions` VALUES (237,'Wie wird die Kongresshalle in Berlin im Volksmund genannt ?','trächtiger Seeigel','dicke Berta','schwangere Auster','fette Henne',3,12);
+INSERT INTO `questions` VALUES (238,'Wer ließ den Aachener Dom errichten ?','Heinrich IV.','Otto I.','Rudolf von Habsburg','Karl der Grosse',4,13);
+INSERT INTO `questions` VALUES (239,'Welches Wappentier hat Berlin ?','Bär','Hund','Löwe','Adler',1,9);
+INSERT INTO `questions` VALUES (240,'Wie viele Magenabschnitte haben Wiederkäuer ?','4','6','8','10',1,6);
+INSERT INTO `questions` VALUES (241,'Welche Blume wächst aus einer Zwiebel ?','Tulpe','Schlüsselblume','Veilchen','Buschwindröschen',1,9);
+INSERT INTO `questions` VALUES (242,'Wodurch wird Eisen aus Eisenerz gewonnen ?','Schmelzen','Klopfen','Einfrieren','Zerschlagen',1,8);
+INSERT INTO `questions` VALUES (243,'Was ist Mekka ?','Wallfahrtsort','Fluss','Berg','Kaffee',1,3);
+INSERT INTO `questions` VALUES (244,'Was ist ein Federbein ?','Handwerksgerät','Messgerärt','Bauteil am Auto','Körperteil vom Vogel',3,5);
+INSERT INTO `questions` VALUES (245,'Welcher Begriff hat nichts mit Sturm und Wind zu tun ?','Orkan','Zyklop','Hurrikan','Taifun',2,7);
+INSERT INTO `questions` VALUES (246,'Was ist ein Radiometer ?','Strahlungsmessgerät','Metermass','Radiosender','Kreisberechnung',1,6);
+INSERT INTO `questions` VALUES (247,'Wer umkreiste 1961 als erster Raumfahrer die Erde ?','Juri Gagarin','Neil Amstrong','Edwin Aldrin','Louis Amstrong',1,7);
+INSERT INTO `questions` VALUES (248,'Welcher Staat liegt zwischen Spanien und Frankreich ?','San Marino','Portugal','Andorra','Vatikan',3,13);
+INSERT INTO `questions` VALUES (249,'Wie heißt das Gebirge zwischen Frankreich und Spanien ?','Pyrenäen','Anden','Alpen','Himalaya',1,9);
+INSERT INTO `questions` VALUES (250,'Welche Stadt trägt den Beinamen "Goldene Stadt" ?','Peking','Moskau','Prag','Wien',3,11);
+INSERT INTO `questions` VALUES (251,'Wie heißt die südlichste Spitze von Südamerika ?','Kap Hoorn','Kap Haarn','Kap Hiirn','Kap Heern',1,10);
+INSERT INTO `questions` VALUES (252,'Was stellt ein Küfer her ?','Holzfässer','Kufen','Tierfutter','Kupferkessel',1,9);
+INSERT INTO `questions` VALUES (253,'Was befindet sich auf dem Landeswappen von Bremen ?','Schlüssel','Schloss','Krone','Burg',1,13);
+INSERT INTO `questions` VALUES (254,'An welches Bundesland grenzt Polen nicht ?','Mecklenburg-Vorpommern','Brandenburg','Sachsen','Sachsen-Anhalt',1,12);
+INSERT INTO `questions` VALUES (255,'Wie viele Augen hat ein Zyklop der griechischen Sage ?','drei','keins','eines','vier',3,7);
+INSERT INTO `questions` VALUES (256,'Was ist die Amtssprache in Brasilien ?','Portugiesisch','Englisch','Spanisch','Französisch',1,6);
+INSERT INTO `questions` VALUES (257,'Was ist die Amtssprache in Luxemburg ?','Luxemburgisch','Deutsch','Französisch','Belgisch',3,7);
+INSERT INTO `questions` VALUES (258,'Welcher dieser Haie ernährt sich von Plankton ?','Hundshai','Kateznhai','Riesenhai','Tigerhai',3,9);
+INSERT INTO `questions` VALUES (259,'Wie heißt der größte See in Afrika ?','Victoriasee','Tschadsee','Tanganjikasee','Malawisee',1,10);
+INSERT INTO `questions` VALUES (260,'Welcher deutsche Sagenheld blies das Horn Olifant ?','Hagen','Lohengrin','Siegfried','Roland',4,10);
+INSERT INTO `questions` VALUES (261,'Wie heißen die germanischen Schicksalsgöttinen ?','Nornen','Dianas','Notburgas','Nimaden',1,13);
+INSERT INTO `questions` VALUES (262,'Haydn komponierte die Sinfonie mit dem ...','Flöttenpfiff','Paukenschlag','Gitarrensolo','Trommelschlag',2,15);
+INSERT INTO `questions` VALUES (263,'Der Durchmesser der Erde ist ca. 12.750 km, der des Mondes ist ungefähr ...','5075 km','2275 km','3475 km','13985 km',3,14);
+INSERT INTO `questions` VALUES (264,'Die Körpertemperatur des Igels sinkt im Winterschlaf auf etwa ...','20 Grad','15 Grad','10 Grad','5 Grad',4,11);
+INSERT INTO `questions` VALUES (265,'Was ist der Yeti ?','legendärer Schneemensch','Vulkan in Alaska','Bruder von Superman','Schluckauf auf Chinesisch',1,2);
+INSERT INTO `questions` VALUES (266,'Wie heißt das Kinderhilfswerk der Vereinten Nationen ?','UNILEVER','UNIVERSI','UNICEF','UNIMOG',3,3);
+INSERT INTO `questions` VALUES (267,'Welches Instrument zeigt die Himmelsrichtung an ?','Fernglas','Kompass','Mikroskop','Sanduhr',2,2);
+INSERT INTO `questions` VALUES (268,'Womit jagen Taucher ?','Frisbee','Bumerang','Tomahawk','Harpune',4,3);
+INSERT INTO `questions` VALUES (269,'Welcher Hund wird in Deutschland oft als Blindenhund eingesetzt ?','Dackel','Bernhardiener','Pudel','Schäferhund',4,4);
+INSERT INTO `questions` VALUES (270,'Was bedeutet DFB ?','Dänische Frauenbewegung','Dortmunder Fliegerbehörde','Deutscher Fußball Bund','Deutsches Fassbier',3,2);
+INSERT INTO `questions` VALUES (271,'Welcher Monat ist der kürzeste ?','Februar','Juli','Mai','Januar',1,1);
+INSERT INTO `questions` VALUES (272,'Wo steht der berühmte Schiefe Turm ?','Prag','Pula','Pisa','Passau',3,1);
+INSERT INTO `questions` VALUES (273,'Wohin führte die weiteste Reise, die ein Mensch jemals gemacht hat ?','Sonne','Mars','Mond','Venus',3,9);
+INSERT INTO `questions` VALUES (274,'Welche Frucht ist kein Steinobst ?','Kirsche','Marille','Kiwi','Pflaume',3,3);
+INSERT INTO `questions` VALUES (275,'Was ist Asthma ?','Atemwegserkrankung','Sportwagen','Mandelentzündung','Schokoriegel',1,2);
+INSERT INTO `questions` VALUES (276,'In welcher Staatsform findet man einen amtierenden König ?','Monarchie','Kommunismus','Anarchie','Demokratie',1,7);
+INSERT INTO `questions` VALUES (277,'Was ist der Himalaya ?','Asiatisches Gericht','Zeichentricktier','Gebirge','Jupitermond',3,6);
+INSERT INTO `questions` VALUES (278,'Wie sagte man früher in Deutschland, und heute noch in Österreich, zur Mohrrübe ?','Karotte','Erdrübe','Marotte','Weissrübe',1,5);
+INSERT INTO `questions` VALUES (279,'Welche Nahrungsmittel vermehrte Jesus bei der Speisung von 5.000 Menschen ?','5 Brote & 2 Fische','7 Äpfel','1 Schaf & 1 Rind','12 Oliven & 3 Datteln',1,11);
+INSERT INTO `questions` VALUES (280,'Wofür steht die Abkürzung "PC" ?','Lungenkrankheit','PostCard','Personal Computer','Akademischer Titel',3,5);
+INSERT INTO `questions` VALUES (281,'Was ist ein Bison ?','Decke','Auto','Tier','Teppich',3,8);
+INSERT INTO `questions` VALUES (282,'Was ist ein Xylophon ?','Füllfederhalter','Musikinstrument','Hörgerät','Bügeleisen',2,5);
+INSERT INTO `questions` VALUES (283,'Was ist eine Squaw ?','Salbe','Elektrische Zahnbürste','Schlittenhündin','Indianerfrau',4,6);
+INSERT INTO `questions` VALUES (284,'Wie heißt die Landeshauptstadt vom Bundesland Hamburg ?','Köln','Hamburg','Bremen','Berlin',2,4);
+INSERT INTO `questions` VALUES (285,'Welcher deutsche Schriftsteller schrieb "Hans Huckebein, der Unglücksrabe" ?','Wilhelm Busch','Karl Valentin','Eugen Roth','Karl May',1,8);
+INSERT INTO `questions` VALUES (286,'Wie heißt die Landeshauptstadt vom Bundesland Saarland ?','Saarstege','Saartäler','Saarbrücken','Saarbalken',3,6);
+INSERT INTO `questions` VALUES (287,'Wozu braucht das Eichhörnchen seinen Schwanz ?','Steuern beim Springen','Nüsseknacken','Pfotenputzen','Nestbauen',1,7);
+INSERT INTO `questions` VALUES (288,'Bei welchem Ereignis steht der Mond im Schatten der Erde ?','Winteranfang','Neumond','Mondfinsternis','Sonnenfinsternis',3,6);
+INSERT INTO `questions` VALUES (289,'Welche beiden Farben gibt es sowohl auf der Flagge Österreichs als auch der Schweiz ?','gelb-grau','blau-gelb','weiss-rot','grün-lila',3,9);
+INSERT INTO `questions` VALUES (290,'Wie lange braucht das Licht etwa von der Erde bis zum Mond ?','einen Tag','eine Minute','eine Stunde','eine Sekunde',4,8);
+INSERT INTO `questions` VALUES (291,'Wie heißt der teuerste Platz im Theater ?','Schleudersitz','Hochsitz','Kaiserstuhl','Loge',4,4);
+INSERT INTO `questions` VALUES (292,'Wie nennt man eine kleine französische Gastwirtschaft ?','Intro','Bistro','Metro','Castro',2,3);
+INSERT INTO `questions` VALUES (293,'Wie heißt ein rhythmischer Tanz aus Spanien ?','Bali','Balallaika','Bizeps','Bolero',4,5);
+INSERT INTO `questions` VALUES (294,'Wovon ernähren sich Termiten hauptsächlich ?','Holz','Ameisen','Teer','Honig',1,5);
+INSERT INTO `questions` VALUES (295,'Wie lange lebt eine Eintagsfliege ?','2 Monate','3 Wochen','3 Tage','1 bis 2 Tage',4,7);
+INSERT INTO `questions` VALUES (296,'Was ist der Duden ?','Drache','Wörterbuch','Zauberer','Marterpfahl',2,1);
+INSERT INTO `questions` VALUES (297,'Wo findet man den Meniskus ?','im Kniegelenk','in einem Motor','auf der Wiese','in einem Liebesfilm',1,6);
+INSERT INTO `questions` VALUES (298,'Wie heißen die Zahlen, die nur durch eins und sich selbst teilbar sind ?','Dualzahlen','Imaginäre Zahlen','Quadratzahlen','Primzahlen',4,5);
+INSERT INTO `questions` VALUES (299,'Wie nennt man den Vormagen bei Wiederkäuern ?','Hansen','Nansen','Pansen','Fransen',3,4);
+INSERT INTO `questions` VALUES (300,'Mit wem sind Igel verwandt ?','Maulwürfe','Schweine','Echsen','Insekten',1,8);
+INSERT INTO `questions` VALUES (301,'Durch welche Stadt fließt der Rhein nicht ?','Berlin','Bonn','Köln','Düsseldorf',1,10);
+INSERT INTO `questions` VALUES (302,'Mario Basler ist ein berühmter ... ?','Maler','Fussballer','Politiker','Clown',2,4);
+INSERT INTO `questions` VALUES (303,'Was ist der Schwarzwald ?','Wüste','Steppe','Mittelgebirge','Wald',3,4);
+INSERT INTO `questions` VALUES (304,'Welche Farbe hat des Trikot des Spitzenreiters bei der Tour de France ?','grün','gelb','blau','rot',2,6);
+INSERT INTO `questions` VALUES (305,'Wie heißt das Heilverfahren, bei dem Medikamente iin sehr starken Verdünnungen verabreicht werden ?','Allopathie','Telepathie','Sympathie','Homöopathie',4,8);
+INSERT INTO `questions` VALUES (306,'Was ist eine Quitte ?','kleine Quittung','indisches Instrument','gelbe Frucht','ein Tier',3,5);
+INSERT INTO `questions` VALUES (307,'Was bestellt man in Italien, wenn man Lust auf eine Gemüsesuppe hat ?','Anemone','Schablone','Minestrone','Galeone',3,6);
+INSERT INTO `questions` VALUES (308,'Wie nennt man Meeresbuchten in Norwegen ?','Lagune','Klippe','Bucht','Fjorde',4,6);
+INSERT INTO `questions` VALUES (309,'Wie nennt man den Weihnachtsmann in Amerika ?','Air Jordan','Lichterkönig','Santa Claus','Väterchen Frost',3,3);
+INSERT INTO `questions` VALUES (310,'Was ist keine Gangart des Pferdes ?','Galopp','Spagat','Schritt','Trab',2,4);
+INSERT INTO `questions` VALUES (311,'Wann war der Erste Weltkrieg ?','1939-1945','1967-1971','1914-1918','1889-1885',3,9);
+INSERT INTO `questions` VALUES (312,'Wann war der Zweite Weltkrieg ?','1939-1945','1967-1971','1914-1918','1889-1895',1,10);
+INSERT INTO `questions` VALUES (313,'Wann war der Dreißigjährige Krieg ?','1618-1648','1718-1748','1518-1548','1418-1448',1,11);
+INSERT INTO `questions` VALUES (314,'Wodurch wurde der Dreißigjährige Krieg 1648 beendet ?','Sächsischer Frieden','Hessischer Frieden','Bayerischer Frieden','Westfälischer Frieden',4,9);
+INSERT INTO `questions` VALUES (315,'Wie heißt der Bundeskanzler Schröder mit Vornamen ?','Heinz','Helmut','Gerhard','Konrad',3,5);
+INSERT INTO `questions` VALUES (316,'Wer war nicht deutscher Bundeskanzler?','Helmut Kohl','Walter Scheel','Konrad Adenauer','Kurt Georg Kisinger',2,11);
+INSERT INTO `questions` VALUES (317,'Wer war vor Helmut Kohl Bundeskanzler ?','Rainer Barzel','Ludwig Erhard','Helmut Schmidt','Kurt Geor Kiesinger',3,13);
+INSERT INTO `questions` VALUES (318,'Wie hieß der letzte deutsche Kaiser ?','Johannes XXIII','Paul VI','August II','Wilhelm II',4,12);
+INSERT INTO `questions` VALUES (319,'Von Wann bis wann bestand die Weimarer Republik ?','1919 - 1933','1871 - 1918','1914 - 1918','1933 - 1945',1,11);
+INSERT INTO `questions` VALUES (320,'Wie heißt die Vertretung der Bundesländer ?','Bundesversammlung','Länderrat','Bundestag','Bundesrat',4,10);
+INSERT INTO `questions` VALUES (321,'Wer wählt den Bundeskanzler ?','Der Bundesrat','Der Bundestag','Die Bundesversammlung','Das Volk direkt',2,11);
+INSERT INTO `questions` VALUES (322,'Wann öffneten sich die Grenzen zur DDR ?','1987','1990','1989','1987',3,9);
+INSERT INTO `questions` VALUES (323,'Wer war nicht deutscher Bundespräsident ?','Gustav Heinemann','Heinrich Lübke','Ludwig Erhard','Walter Scheel',3,10);
+INSERT INTO `questions` VALUES (324,'Wer war der erste deutsche Reichskanzler ?','Otto von Bismarck','Paul von Hindenburg','Adolf Hitler','Wilhelm II.',1,11);
+INSERT INTO `questions` VALUES (325,'Wie viele Bundesländer gibt es in Deutschland ?','11','12','16','18',3,11);
+INSERT INTO `questions` VALUES (326,'Wie viele Bundesländer gab es in Deutschland vor der Wiedervereinigung ?','13','11','14','8',2,10);
+INSERT INTO `questions` VALUES (327,'Kein Bundesland ist','Bayern','Hessen','Niedersachsen','Mecklenburg-Anhalt',4,2);
+INSERT INTO `questions` VALUES (328,'Kein Bundesland ist','Niederbayern','Sachsen-Anhalt','Bremen','Meckelnburg-Vorpommern',1,3);
+INSERT INTO `questions` VALUES (329,'Wer wählt den Bundespräsidenten ?','Der Bundesrat','Der Bundestag','Die Bundesversammlung','Das Volk direkt',3,12);
+INSERT INTO `questions` VALUES (330,'Welcher Bundeskanzler musste wegen einer Spionage-Affäre zurücktreten ?','Willy Brandt
+','Helmut Schmidt
+','Kurt-Georg Kiesingerl','Rainer Barzel',1,11);
+INSERT INTO `questions` VALUES (331,'Welcher Bundeskanzler hatte die längste Amtszeit ?','Helmut Kohl
+','Willi Brand
+','Helmut Schmidt','Konrad Adenauer',1,12);
+INSERT INTO `questions` VALUES (332,'Ein Abstimmungsverfahren im Parlament ist der','Hammelsprung
+','Seitensprung','Eisprung','Bocksprung',1,10);
+INSERT INTO `questions` VALUES (333,'Keine Partei im deutschen Bundestag','CDU','FDP','FDK','SPD',3,8);
+INSERT INTO `questions` VALUES (334,'Wer hat im Verteidigungsfall die Befehls- und Kommandogewalt über die deutschen Streitkräfte?','der Bundeskanzler','der Verteidigungsminister
+','der Bundespräsident','der Generalfeldmarschall',1,9);
+INSERT INTO `questions` VALUES (335,'Wer war vor Wolfgang Clement Ministerpräsident in Nordrhein-Westfalen?','Johannes Rau','Erwin Teufel','Oskar Lafontaine','Gerhard Schröder',1,10);
+INSERT INTO `questions` VALUES (336,'Für welches Land kämpfte die Armada?','Frankreich','Portugal','Spanien','Niederlande',3,11);
+INSERT INTO `questions` VALUES (337,'Wer war der erste Kanzler der Bundesrepublik Deutschland ?','Konrad Adenauer','Willy Brandt','Ludwig Erhard','Kurt Schumacher',1,10);
+INSERT INTO `questions` VALUES (338,'Wann trat  (in den alten Bundesländern)  das Grundgesetz in Kraft ?','01.11.1947','24.05.1949','08.05.1948','17.06.1953',2,13);
+INSERT INTO `questions` VALUES (339,'Wie oft wird ein neuer Bundespräsident gewählt ?','Alle 5 Jahre','Alle 4 Jahre','Alle 3 Jahre','Alle 2 Jahre',1,11);
+INSERT INTO `questions` VALUES (340,'Wie viele Wählerstimmen braucht eine Partei mindestens, um in den deutschen Bundestag einzuziehen?','11 %','Eine','5 %','15',3,9);
+INSERT INTO `questions` VALUES (341,'Wer schrieb ›Die Entwicklung des Kapitalismus in Rußland‹ ?','Lenin','Stalin','Marx','Engels',1,10);
+INSERT INTO `questions` VALUES (342,'Welcher römische Feldherr eroberte ›ganz Gallien‹ ?','Nero','Cäsar','Augustus','Pluto',2,14);
+INSERT INTO `questions` VALUES (343,'Wann war die Französische Revolution ?','1848','1648','1789','1881',3,13);
+INSERT INTO `questions` VALUES (344,'Was erfand der französische Arzt Joseph Ignace Guillotin im 18. Jahrhundert ?','Das Skalpell','Das Stethoskop','Die Spritze','Das Fallbeil',4,12);
+INSERT INTO `questions` VALUES (345,'Wann fand der erste bemannte Flug zum Mond statt ?','1973','1965','1969','1965',1,11);
+INSERT INTO `questions` VALUES (346,'Wer erfand den Buchdruck mit beweglichen Metalllettern ?','Johannes Gutenberg
+','Martin Luther','Nikolaus Kopernikus','Friedrich Schiller',1,10);
+INSERT INTO `questions` VALUES (347,'Einen Euro kann man wechseln in 100 ...','Cent','Eurinchen','Lire','Pennys',1,5);
+INSERT INTO `questions` VALUES (348,'Wie hieß der letzte Amtsvorgänger des amerikanischen Präsidenten George W. Bush ?','George Bush','Bill Clinton','Gerhard Schröder','Albert Einstein',2,8);
+INSERT INTO `questions` VALUES (349,'Kein Präsident der Vereinigten Staaten von Amerika war','Jimmy Carter','George Washington','Theodore Roosevelt','Winston Churchill',4,7);
+INSERT INTO `questions` VALUES (350,'Welcher amerikanische Präsident wurde 1963 in Dallas erschossen ?','Lyndon B. Johnson','Richard Nixon','John F. Kennedy','Jimmy Carter',3,6);
+INSERT INTO `questions` VALUES (351,'Welcher amerikanische Präsident war in die Watergate-Affäre verwickelt ?','Lyndon B. Johnson','Richard Nixon','Jimmy Carter','John F. Kennedy',2,12);
+INSERT INTO `questions` VALUES (352,'Nicht beteiligt am Potsdamer Abkommen war','Charles de Gaulle','Harry S. Truman','Winston Churchill','Josef Stalin',1,13);
+INSERT INTO `questions` VALUES (353,'Welche Hannoveraner Rockgruppe nennt sich nach einem gefährlichen Insekt ?','Libellen','Scorpions','Hornissen','Moskitos',2,6);
+INSERT INTO `questions` VALUES (354,'Alle meine Entchen schwimmen ... ','in der Toilette','auf dem Bach','auf dem See','auf dem Meer',3,2);
+INSERT INTO `questions` VALUES (355,'Wer sang, dass das Leben erst mit 66 Jahren anfängt ?','Herr Wilmes','Roland Kaiser','Udo Jürgens','Wolfgang Petry',3,5);
+INSERT INTO `questions` VALUES (356,'Wofür stehen die Buchstaben ABBA ?','Agnetha, Björn, Benny, Anni-Frid','Anton-Berta-Berta-Anton','Auch bekloppte Bauern angeln','Alle bekloppte Bauern angeln',1,3);
+INSERT INTO `questions` VALUES (357,'Welcher der Beatles wurde 1980 auf offener Straße erschossen?','Ringo','George','Paul','John',4,11);
+INSERT INTO `questions` VALUES (358,'Welcher der Beatles starb 2001 an Krebs ?','John','George','Paul','Ringo',2,10);
+INSERT INTO `questions` VALUES (359,'Welcher war der jüngste der Beatles ?','John','Paul','George','Ringo',3,9);
+INSERT INTO `questions` VALUES (360,'Welcher Name passt hier nicht zu den Beatles ?','George','Paul','John','Phil',4,8);
+INSERT INTO `questions` VALUES (361,'Von wem sind die »Vier Jahreszeiten« ?','Vivaldi','Händel','Mozart','Beethoven',1,14);
+INSERT INTO `questions` VALUES (362,'Welchen Beinamen hat Franz Schuberts  8. Sinfonie ?','Jupitersinfonie','Mondscheinsinfonie','Die Unvollendete','Schicksalssinfonie',3,13);
+INSERT INTO `questions` VALUES (363,'Welcher Künstler verbirgt sich hinter dem Namen Gerhard Höllerich?','Roland Kaiser','Roy Black','Rex Gildo','Nino de Angelo',2,7);
+INSERT INTO `questions` VALUES (364,'»Barbara Ann« und »Good Vibrations« stammen von den','Bee Gees','Beach Boys','Beatles','Lords',2,6);
+INSERT INTO `questions` VALUES (365,'Kein Song der Beatles war','Sgt. Pepper
+','Magical Mystory Tour','Yellow Submarine','Help',1,8);
+INSERT INTO `questions` VALUES (366,'»Eine kleine Nachtmusik« schrieb','Wolfgang Amadeus Mozart
+','Franz Schubert','Ludwig van Beethoven','Richard Wagner',1,9);
+INSERT INTO `questions` VALUES (367,'Die »Symphonie mit dem Paukenschlag« stammt von','Johann Sebastian Bach','Joseph Haydn
+','Franz Schubert
+','Ludwig van Beethoven
+',2,10);
+INSERT INTO `questions` VALUES (368,'Den Walzer »An der schönen, blauen Donau« schrieb','Georg Friedrich Händel','Friedrich Smetana','Johann Strauss','Edvard Grieg',3,11);
+INSERT INTO `questions` VALUES (369,'Wer war der »König des Rock''n Roll« ?','Jimmy Hendrix','Phil Collins','Cat Stevens','Elvis Presley',4,6);
+INSERT INTO `questions` VALUES (370,'»Yellow Submarine« stammt von den','Lords','Beatles','Rolling Stones','Bee Gees',2,7);
+INSERT INTO `questions` VALUES (371,'»Sah'' ein Knab'' ..... «','ein Röslein steh''n.','einen Streifenwagen
+','ein Fräulein geh''n.','eine Eiche fallen',1,4);
+INSERT INTO `questions` VALUES (372,'Ene mene miste, es rappelt in der ...','Liste','Piste','Kiste','Eisenbahn',3,1);
+INSERT INTO `questions` VALUES (373,'Von dieser Musikgruppe gibt es mehrere CDs.','Telly Family','Kelly Family','Selly Family','Pet Shop Family',2,2);
+INSERT INTO `questions` VALUES (374,'Wie beginnt die deutsche Nationalhymne ?','Einigkeit und Recht und Freiheit','Deutschland, Deutschland über alles
+','Hol'' mir mal ''ne Flasche Bier
+','In München steht ein Hofbräuhaus',1,3);
+INSERT INTO `questions` VALUES (375,'Von wem stammt der Titel »Frozen« ?','Kelly Family','Tic Tac Toe','Madonna','Brittney Spears',3,4);
+INSERT INTO `questions` VALUES (376,'Welche Note folgt in der Tonleiter auf h ?','f','i','g','c',4,8);
+INSERT INTO `questions` VALUES (377,'Hollywood liegt in der Nähe von','Boston','New York','Los Angeles','San Fransisco',3,6);
+INSERT INTO `questions` VALUES (378,'Kein James Bond Film','Octopussy','Golden Eye','Casino Fatal','Goldfinger',3,7);
+INSERT INTO `questions` VALUES (379,'Kein Film von Alfred Hitchcock','Familiengrab','Krieg der Welten','Der unsichtbare Dritte','Die Vögel',2,8);
+INSERT INTO `questions` VALUES (380,'Kein Film von Alfred Hitchcock','Das Fenster zur Strasse','Psycho','Marnie','Eine Dame verschwindet',1,9);
+INSERT INTO `questions` VALUES (381,'Kein Film von Stephen King','Sie','Es','Wir','Carie',3,7);
+INSERT INTO `questions` VALUES (382,'Wie hieß der große Stummfilm-Komiker Chaplin mit Vornamen?','Jack','Charlie','Gerhald','Joseph',2,6);
+INSERT INTO `questions` VALUES (383,'Wie hießen die Film-Komiker Dick und Doof im richtigen Leben ?','Holmes und Watson','Meckie und Messer','Laurel und Hardy','Pat und Patachon',3,6);
+INSERT INTO `questions` VALUES (384,'Wer spielte den trotteligen Inspektor in »Der rosarote Panter«?','David Niven','Peter Sellers','Gary Grant','Jeryy Lewis',2,13);
+INSERT INTO `questions` VALUES (385,'Wer spielte den James Bond in Golden Eye ?','Roger Moore
+','Timothy Dalton
+','Jean Connery','Pierce Brosnan
+',4,11);
+INSERT INTO `questions` VALUES (386,'Welcher Schauspieler war in mehreren Filmen Don Camillos Gegenspieler Peppone ?','Gary Grant','Lino Ventura','Gino Cervi','Marcello Mastrojani',3,15);
+INSERT INTO `questions` VALUES (387,'Wer spielte Mundharmonika in »Spiel mir das Lied vom Tod« ?','Charles Bronson','Clint Eastwood
+','Gary Cooper','Henry Fonda
+',1,9);
+INSERT INTO `questions` VALUES (388,'Wie hieß der Freund von Miss Marple?','Mr. Stringer','Mr. Witherspoon','Mr. Spinalzo','Mr. Buchanan',1,14);
+INSERT INTO `questions` VALUES (389,'Wer spielte 1958 die Hauptrolle in »Der alte Mann und das Meer« ?','Charlton Heston','Anthony Quinn','Spencer Tracy','Henry Fonda
+',3,13);
+INSERT INTO `questions` VALUES (390,'Wer spielte den Nero in »Quo vadis« ?','Charlton Heston
+','Gerd Fröbe','Peter Ustinov','Sean Connery
+',3,12);
+INSERT INTO `questions` VALUES (391,'Wer spielte den dicken Bärtigen in »Vier Fäuste für ein Halleluja« ?','Mario Adorf','Bud Spencer','Bruce Willis','Orson Welles',2,9);
+INSERT INTO `questions` VALUES (392,'Wer spielte in den 60ern in mehreren Filmen den Grafen Dracula ?','Henry Fonda','Charlton Heston','Christopher Lee','Peter Ustinov',3,10);
+INSERT INTO `questions` VALUES (393,'In welcher Weltraum-Saga ist oft von der »Macht« die Rede ?','Krieg der Welten','Orion','Star Trek','Kreig der Sterne',4,9);
+INSERT INTO `questions` VALUES (394,'Welches Monster verwüstet in mehreren Filmen die Küstenstädte Japans ?','Pokemon','Mozilla','Gozilla','Albatros',3,8);
+INSERT INTO `questions` VALUES (395,'Wie heißt der einbeinige Kapitän, der hinter Moby Dick her ist ?','Blaubär','Nemo','Ahab','Jean Luc Picard',3,7);
+INSERT INTO `questions` VALUES (396,'In welchem Film sinkt ein Ozeanriese, nachdem er einen Eisberg gerammt hat ?','Tauchfahr des Grauens','Titanic','Poseidon','Untergang der Andrea Doria',2,5);
+INSERT INTO `questions` VALUES (397,'In diesem Film musste der Hauptdarsteller sehr viel laufen','Rambo','Mana Manta','Forest Gump','Terminator',3,5);
+INSERT INTO `questions` VALUES (398,'Kein Film mit Heinz Rühmann ?','Immer diese Autofahrer','Der Hauptmann von Köpenick','Keine Angst vor großen Tieren','Ein Mann geht durch die Wand',1,8);
+INSERT INTO `questions` VALUES (399,'Wer ging als »Schätzchen« in die deutsche Filmgeschichte ein ?','Romy Schneider','Uschi Glas','Nena','Hildegard Knef',2,7);
+INSERT INTO `questions` VALUES (400,'Wer kämpft in Krieg der Sterne mit einem Laserschwert gegen Darth Vader ?','Ben Kenobi','Captain Kirk','Mr. Spock','Perry Rhodan',1,5);
+INSERT INTO `questions` VALUES (401,'Wen spielt Harrison Ford in "Der Jäger des verlorenen Schatzes" ?','Peter Pan','Crocodile Dundee','James Bond','Indiana Jones',4,13);
+INSERT INTO `questions` VALUES (402,'Nicht bei der Wochenshow war','Anke Engelke','Ingolf Lück','Bastian Pastevka','Esther Schweins',4,5);
+INSERT INTO `questions` VALUES (403,'Wer gehörte *nicht* zur englischen Komikertruppe »Monty Python« ?','Benny Hill','Eric Idle','John Cleese','Michael Palin',1,8);
+INSERT INTO `questions` VALUES (404,'Keine Fernsehsendung','Zack Zack','Ruck Zuck','Talk Talk Talk','Dalli Dalli',1,4);
+INSERT INTO `questions` VALUES (405,'Wie heißt der berühmteste Fernsehpanther mit Vornamen ?','Hänschen','Paulchen','Karlchen','Fritzchen',2,5);
+INSERT INTO `questions` VALUES (406,'Wie heißt der Chef von Adelheid in der gleichnamigen Krimiserie ?','Neumann','Schnabel','Baumann','Strobel',4,6);
+INSERT INTO `questions` VALUES (407,'Diesen Fernsehsender gibt es','SAT1  COMEDY','MTL','KABEL 3','DAS FÜNFTE',1,7);
+INSERT INTO `questions` VALUES (408,'Wer spielte den »Inspektor Columbo« ?','Martin Landau','Charles Bronson','Peter Falk','Telly Savalas',3,8);
+INSERT INTO `questions` VALUES (409,'Wer gehörte nicht zur ersten Staffel von »Raumschiff Enterprise« ?','Riker','Scotty','Kirk','Spock',1,6);
+INSERT INTO `questions` VALUES (410,'Wie heißt der Androide in der SF-Serie »Raumschiff Enterprise« ?','Gamma','Delta','Alpha','Data',4,8);
+INSERT INTO `questions` VALUES (411,'Nicht von der Augsburger Puppenkiste ist','Der fliegende Ferdinand','Urmel aus dem Eis','Jim Knopf und die wilde 13
+','Kleiner König Kalle Wirsch',1,8);
+INSERT INTO `questions` VALUES (412,'Berühmte Krimiserie, schon etwas älter
+','Stahlnetz','Waffenschein','Panzerglas','Stahlbeton',1,8);
+INSERT INTO `questions` VALUES (413,'Keine Nachrichtensendung','Heute','Tagesschau','Weltspiegel','Tagesshow',4,4);
+INSERT INTO `questions` VALUES (414,'Wer moderierte über viele Jahre die Sendung »Einer wird gewinnen« ?','Hans Rosenthal','Eduard Zimmermann','Hans Joachim Kulenkampf','Peter Frankenfeld',3,8);
+INSERT INTO `questions` VALUES (415,'Wer moderierte früher die Ratesendung »Was bin ich«  ?','Illja Richter','Heinz Mägerlein','Thomas Gottschalk','Robert Lemke',4,7);
+INSERT INTO `questions` VALUES (416,'Wo fanden die Olympischen Sommerspiele 1972 statt ?','München','Tokio','Rom','Athen',1,11);
+INSERT INTO `questions` VALUES (417,'Wie nennt man im Turnen einen Handstützüberschlag rückwärts aus dem Stand heraus ?','Rittberger','Klickklack','Zickzack','Flickflack',4,7);
+INSERT INTO `questions` VALUES (418,'Wie lange dauert ein normales Fußballspiel ?','120 Minuten','2 Stunden','1 - 1/2 Stunden','80 Minuten',3,4);
+INSERT INTO `questions` VALUES (419,'In welchem Jahr gewann Boris Becker zum ersten mal in Wimbledon ?','1982','1983','1984','1985',4,9);
+INSERT INTO `questions` VALUES (420,'Diese Stadt gibt es wirklich ','Heinzohr','Willikopf','Ottobein','Mühlenbach',4,5);
+INSERT INTO `questions` VALUES (421,'Wie heißt die Hauptstadt von Venezuela ?','Monte Video','Brasilia','Lima','Caracas',4,6);
+INSERT INTO `questions` VALUES (422,'Wie heißt die Hauptstadt von Rumänien ?','Bukarest','Sofia','Prag','Budapest',1,7);
+INSERT INTO `questions` VALUES (423,'Wie heißt die Hauptstadt von Ungarn ?','Sofia','Budapest','Prag','Bukarest',2,8);
+INSERT INTO `questions` VALUES (424,'Welche Stadt war vor Berlin die Hauptstadt Deutschlands ?','München','Köln','Bonn','Düsseldorf',3,9);
+INSERT INTO `questions` VALUES (425,'Wie heißt die Hauptstadt der Schweiz ?','Zwickau','Zürich','Basel','Bern',4,6);
+INSERT INTO `questions` VALUES (426,'Wie heisst die Hauptstadt von Luxemburg ?','Mersch','Esch/Alzette','Wiltz','Luxemburg',4,8);
+INSERT INTO `questions` VALUES (427,'Welche Stadt liegt an der Ostsee ?','Danzig','München','Düsseldorf','Dresden',1,6);
+INSERT INTO `questions` VALUES (428,'Wie heißt die Meerenge zwischen England und Frankreich ?','Panamakanal','Ärmelkanal','Nordseekanal','Überseekanal',2,7);
+INSERT INTO `questions` VALUES (429,'Welche italienische Stadt steht auf Pfählen ?','Mailand','Turin','Venedig','Rom',3,4);
+INSERT INTO `questions` VALUES (430,'In welcher Stadt steht der von Gustave Eiffel gebaute Turm ?','Brüssel','Venedig','Paris','London',3,2);
+INSERT INTO `questions` VALUES (431,'An welches Land gab England die Kolonie Hong Kong zurück ?','Peking','Asien','Japan','China',4,9);
+INSERT INTO `questions` VALUES (432,'An welchem Ozean liegt Los Angeles ?','Pazifik','Atlantik','Indischer Ozean','Kaspisches Meer',1,8);
+INSERT INTO `questions` VALUES (433,'Auf welchem Kontinent liegt die Kalahari- Wüste ?','Afrika','Australien','Asien','Europa',1,6);
+INSERT INTO `questions` VALUES (434,'In welchem Ozean liegen die Fidschi-Inseln ?','Atlantik','Pazifik','Kaspisches Meer','Indischer Ozean',2,11);
+INSERT INTO `questions` VALUES (435,'Auf welchem Kontinent liegt die Sahara ?','Asien','Amerika','Australien','Afrika',4,10);
+INSERT INTO `questions` VALUES (436,'Welcher europäische Staat reicht weit in den Norden ?','Dänemark','Finnland','Schweden','Norwegen',4,6);
+INSERT INTO `questions` VALUES (437,'Von wo aus berechnet man die Höhe eines Berges ?','Boden des Berges','Mitte des Berges','Spitze des Berges','Meeresspiegel',4,6);
+INSERT INTO `questions` VALUES (438,'In welchem europäischen Land kaufte man bis 2001 noch mit Lire ein ?','Frankreich','Spanien','Luxemburg','Italien',4,8);
+INSERT INTO `questions` VALUES (439,'Aus welchem Land kommt ein Käse namens Greyerzer ?','Schweiz','Frankreich','Italien','Niederlande',1,9);
+INSERT INTO `questions` VALUES (440,'In welchem deutschen Bundesland gehört die Lodenjacke zur Tracht ?','Bayern','Sachsen','Thüringen','Saarland',1,10);
+INSERT INTO `questions` VALUES (441,'Aus welchem Land kommen die Jaffa - Orangen ?','Türkei','Asien','Israel','Mittelafrika',3,11);
+INSERT INTO `questions` VALUES (442,'Wie heißt der höchste Berg im Sauerland ?','Kahler Asten','Vogelberg','Langenberg','Wasserkuppe',3,12);
+INSERT INTO `questions` VALUES (443,'Welcher Fluss entspringt in  Deutschland und mündet in Rumänien ins Meer ?','Donau','Rhein','Elbe','Wolga',1,13);
+INSERT INTO `questions` VALUES (444,'An welchem Meer liegt Rumänien ?','Schwarzes Meer','Mittelmeer','Totes Meer','Kaspisches Meer',1,13);
+INSERT INTO `questions` VALUES (445,'Wie heißt der Vulkan auf Sizilien ?','Surivo','Vesuv','Ätna','Stromboli',3,6);
+INSERT INTO `questions` VALUES (446,'Der Vulkan bei Neapel heißt ...','Surivo','Vesuv','Ätna','Stromboli',2,4);
+INSERT INTO `questions` VALUES (447,'Welcher europäische Staat sieht aus wie ein Stiefel ?','Portugal','Luxemburg','Italien','Griechenland',3,2);
+INSERT INTO `questions` VALUES (448,'Welcher europäische Staat sieht aus wie ein Schuh ?','Luxemburg','Italien','Griechenlang','Spanien',1,6);
+INSERT INTO `questions` VALUES (449,'Diese Silbe hat etwas mit Erdkunde zu tun ','Deo','Neo','Leo','Geo',4,5);
+INSERT INTO `questions` VALUES (450,'Was nimmt man zuerst wahr, Blitz oder Donner ?','Donner','Beides gleichzeitig','Blitz','Hängt von der Entfernung ab',3,5);
+INSERT INTO `questions` VALUES (451,'Wer ist für das milde Klima in Europa verantwortlich ?','Die Alpen','Die Arktis','Der Golfstrom','Der Humboldstrom',3,9);
+INSERT INTO `questions` VALUES (452,'Wie heißt in userem Sonnensystem der sonnennächste Planet ?','Mars','Merkur','Venus','Jupiter',2,7);
+INSERT INTO `questions` VALUES (453,'Wie nennt man einen Feuer speienden Berg ?','Volkan','Vorlon','Vulkan','Wutach',3,4);
+INSERT INTO `questions` VALUES (454,'Hier kommen sich Afrika und Europa sehr nahe.','Bosporus','Strasse von Gibraltar','Dardanellen','Ärmelkanal',2,8);
+INSERT INTO `questions` VALUES (455,'Die Quellen von Euphrat und Tigris','Türkei','Griechenland','Jordanien','Bulgarien',1,13);
+INSERT INTO `questions` VALUES (456,'Kein Mond ist','Europa','Io','Merkur','Gsnymed',3,11);
+INSERT INTO `questions` VALUES (457,'Kein Kontinent ist','Arabien','Asien','Australien','Südpol',1,12);
+INSERT INTO `questions` VALUES (458,'Diese Himmelsrichtungen liegen sich gegenüber','Süden und Norden','Westen und Norden','Süden und Westen','Osten und Norden
+',1,3);
+INSERT INTO `questions` VALUES (459,'Hier der längste Fluss ist','Mosel','Rhein','Donau','Wolga',4,14);
+INSERT INTO `questions` VALUES (460,'Welche Stadt liegt am nullten Längenkreis ?','Madrid','Rom','London','Paris',3,12);
+INSERT INTO `questions` VALUES (461,'Welche dieser Städte liegt südlich des Äquators ?','New York','Athen','Moskau','Rio de Janeiro',4,9);
+INSERT INTO `questions` VALUES (462,'Was entsteht, wenn es bei Sonnenschein auch noch regnet ?','Hagel','Gewitter','Regenbogen','Schnee',3,2);
+INSERT INTO `questions` VALUES (463,'Kein Planet ist','Merkur','Neptun','Ganymed','Saturn',3,6);
+INSERT INTO `questions` VALUES (464,'Wie lange braucht das Licht vom Mond bis zur Erde ?','1 Sekunde','10 Sekunden','30 Sekunden','1 Minute',1,10);
+INSERT INTO `questions` VALUES (465,'Wie lange braucht das Licht von der Sonne bis zur Erde ?','2 Minuten','4 Minuten','7 Minuten','8 Minuten',4,13);
+INSERT INTO `questions` VALUES (466,'Was sich liebt, das ... ?','haut sich','neckt sich','schlägt sich','legt sich',2,2);
+INSERT INTO `questions` VALUES (467,'Morgenstund hat ...','Rauch im Mund','Schrott im Mund','Geld im Mund','Gold im Mund',4,1);
+INSERT INTO `questions` VALUES (468,'Wer anderen eine Grube gräbt ...','fällt selbst hinein.
+','schmeißt Obst hinein.
+','stinkt wie ein Schwein.
+','dem fehlt hinterher ein Bein.',1,2);
+INSERT INTO `questions` VALUES (469,'Schuster, bleib bei deinen ...','Stiefeln','Schuhen','Sohlen','Leisten',4,2);
+INSERT INTO `questions` VALUES (470,'Was man nicht im Kopf hat, hat man in','den Armen','den Augen','in der Tasche','den Beinen',4,1);
+INSERT INTO `questions` VALUES (471,'Der Apfel fällt nicht weit vom','Tisch','Baum','Stamm','Ast',3,1);
+INSERT INTO `questions` VALUES (472,'Lügen haben','grosse Beine','lange Beine','kleine Beine','kurze Beine',4,3);
+INSERT INTO `questions` VALUES (473,'Liebe geht durch','den Bauch','den Magen','dick und dünn','Alles',2,3);
+INSERT INTO `questions` VALUES (474,'Wie man sich bettet, so','schläft man','wird man geweckt','liegt man','träumt man',3,2);
+INSERT INTO `questions` VALUES (475,'Es ist noch kein ..... vom Himmel gefallen.','Vogel','Hammer','Geld','Meister',4,2);
+INSERT INTO `questions` VALUES (476,'Wer im ..... sitzt, soll nicht mit Steinen werfen.','Schulbus','Fernsehen','Gefägnis','Glashaus',4,1);
+INSERT INTO `questions` VALUES (477,'Was Hänschen nicht lernt, lernt Hans ...','umso besser','erst recht nicht','nimmermehr','ganz schnell',3,2);
+INSERT INTO `questions` VALUES (478,'Wer einmal lügt,','dem glaubt man nicht.','ist auch sonst nichts wert.','hat sonst immer recht.','spricht sonst die Wahrheit.',1,3);
+INSERT INTO `questions` VALUES (479,'Aller Anfang ist','leicht','schwer','bescheiden','teuer',2,2);
+INSERT INTO `questions` VALUES (480,'Lehrjahre sind','keine Herrenjahre','auch nicht schlecht.','kein Zuckerschlecken','Lebensjahre',1,2);
+INSERT INTO `questions` VALUES (481,'Eine Schwalbe macht noch keinen','Winter','Frühling','Herbst','Sommer',4,4);
+INSERT INTO `questions` VALUES (482,'Ehrlich währt ...','garnicht','am kürzesten','am sichersten','am längsten',4,1);
+INSERT INTO `questions` VALUES (483,'Reden ist Silber, Schweigen ist ...','Eisen','Bronze','Silber','Gold',4,3);
+INSERT INTO `questions` VALUES (484,'Was du heute kannst besorgen, ...','das verschiebe nicht auf morgen.
+','tu am besten übermorgen.
+','wird morgen auch nicht leichter.
+','erledigt sich auch morgen.',1,2);
+INSERT INTO `questions` VALUES (485,'Hochmut kommt vor dem ...','Übermut','Stolz','Fall','Strick',3,3);
+INSERT INTO `questions` VALUES (486,'Wer Wind sät, ...','wird Sturm ernten.
+
+','fliegt leicht davon.
+
+','muss die Läden schließen
+
+','muss die Segel setzen.
+',1,3);
+INSERT INTO `questions` VALUES (487,'Müßiggang ...','bei Lautenklang.
+','ist aller Laster Anfang.','hat noch nie geschadet.
+','ist dem Reichen vorbehalten.',2,3);
+INSERT INTO `questions` VALUES (488,'Mit Speck ...','fängt man Mäuse.','brät es sich leichter.','fängt man die Mäuse.','verdirbt man den Brei.',1,1);
+INSERT INTO `questions` VALUES (489,'Die Zeit ...','hat Gold im Mund.','heilt alle Wunden.
+','ist kostbarer als Gold.','kostet Geld',2,1);
+INSERT INTO `questions` VALUES (490,'Die dümmsten Bauern ...','haben die dicksten Kartoffeln.
+','die meiste Milch.
+','haben die fettesten Schweine.
+
+','haben das meiste Geld.',1,2);
+INSERT INTO `questions` VALUES (491,'Ausnahmen','gibt''s immer.
+','werden nicht gemacht.
+
+','werden selten gemacht.
+','bestätigen die Regel.',4,1);
+INSERT INTO `questions` VALUES (492,'Was der Bauer nicht weiß ...','macht ihn nicht heiß.','bringt ihn in Schweiß.
+','macht ihn ganz heiß.','weiss kein anderer.',1,2);
+INSERT INTO `questions` VALUES (493,'Kleine Geschenke ...','erhalten die Freundschaft.
+','lohnen sich nicht.','kosten nicht viel.','sind eher peinlich.',1,3);
+INSERT INTO `questions` VALUES (494,'Schmiede das Eisen ...','solange es heiß ist.
+','damit es weich wird.
+','bevor es kalt wird.','bevor es weich wird.',1,4);
+INSERT INTO `questions` VALUES (495,'4,6 Meter =','460 mm','460 dm','460 cm','4600 km',1,4);
+INSERT INTO `questions` VALUES (496,'Wie oft gibt es den 29. Februar ?','Alle 3 Jahre','Jedes Jahr','Alle 4 Jahre','Alle 100 Jahre',3,6);
+INSERT INTO `questions` VALUES (497,'Ein Anion hat','mehr Elektronen als Protonen
+','gleich viel Elektronen wie Protonen
+','mehr Protonen als Elektronen','keine Elektronen
+',1,7);
+INSERT INTO `questions` VALUES (498,'Ein Element passt nicht zu den anderen:','Cacium','Lithium','Natrium','Kalium',1,9);
+INSERT INTO `questions` VALUES (499,'Kein Säugetier','Wolf','Wels','Walross','Wisent',2,9);
+INSERT INTO `questions` VALUES (500,'Wachsen unter der Erde','Walnüsse','Paranüsse','Erdnüsse','Haselnüsse',3,8);
+INSERT INTO `questions` VALUES (501,'Giraffe, Elefant, Löwe, Feldhase haben sieben Halswirbel','Stimmt für alle Tiere','Stimmt für 3 Tiere','Stimmt für 1 Tier','Stimmt für 2 Tiere',1,11);
+INSERT INTO `questions` VALUES (502,'Was wird mit der Webtechnik nicht  hergestellt ?','Taft','Gabardine','Drift','Kord',3,12);
+INSERT INTO `questions` VALUES (503,'Was ist eine "Schimäre" ?','eine Gondel','eine phantasievolle Frau','ein grosses Schiff','ein Hirngespinst',4,13);
+INSERT INTO `questions` VALUES (504,'Wie wird die Zeit der deutschen literarischen Hochblüte von 1785-1805 bezeichnet ?','Klassik','Romantik','Stirm & Drang','Barock',1,14);
+INSERT INTO `questions` VALUES (505,'Welcher Stoff wird bei der Lebens- und Genussmitteltechnik nicht fermentiert ?','Tee','Wurstwaren','Tabak','Käse',2,13);
+INSERT INTO `questions` VALUES (506,'Wann wurde der Sage nach Rom erbaut ?','88 v. Chr.','1753 v. Chr.','214 v. Chr.','2091 v. Chr.',2,14);
+INSERT INTO `questions` VALUES (507,'Welches der folgenden Dinge befindet sich manchmal in Austern ?','Silber','Geldstücke','Perlen','Ringe',3,8);
+INSERT INTO `questions` VALUES (508,'Was bedeutet "AOC" ?','Appellation d´Origini Controlée','and other centres','alles ohne Kontrolle
+','Abfüllung ohne Kontrolle
+',1,8);
+INSERT INTO `questions` VALUES (509,'Wie wird ein in spezieller Weise bewehrter Stahlbeton bezeichnet ?','Zugbeton','Magerbeton','Spannbeton','Drahtbeton',3,7);
+INSERT INTO `questions` VALUES (510,'In welchem der folgenden Länder befindet sich die Provinz "Connacht" ?','Belgien','Frankreich','Irland','England',3,10);
+INSERT INTO `questions` VALUES (511,'Die lautesten Meeressäuger der Welt sind die Blauwale. Bis in welche Entfernung kann man ihre "Gesänge" unter Wasser hören ?','bis 100 km','bis 450 km','bis 600 km','bis 850 km',4,12);
+INSERT INTO `questions` VALUES (512,'Welcher Begriff kann nicht  mit einer Werkzeugmaschine zum Drehen iin Verbindung gebracht werden ?','Drehherz','Drehautomat','Drehgestell','Drehbank',3,7);
+INSERT INTO `questions` VALUES (513,'Welche Verkehrsstraße verbindet das Rote Meer mit dem Mittelmeer ?','Suez-Kanal','Kanal von Korinth','Panama-Kanal','Kaiser-Kanal',1,8);
+INSERT INTO `questions` VALUES (514,'Was ist "absolute Kunst" ?','gegenstandslose Kunst','gegenständliche Kunst
+','sehr alte Kunst','unkommerzielle Kunst',1,9);
+INSERT INTO `questions` VALUES (515,'Wie heißt der Erfinder aus Walt Disneys Entenhausen ?','Michael Düsentrieb','Manuel Düsentrieb','Daniel Düsentrieb','David Düsentrieb',3,2);
+INSERT INTO `questions` VALUES (516,'Welches ist das Hauptmerkmal von Wood´schen Metallen ?','leicht schmelzbar','schwer schmelzbar','leicht schmiedbar','nicht löslich in Säuren',1,11);
+INSERT INTO `questions` VALUES (517,'Für was steht der Name "Thin Lizzy" ?','ein Fahrrad','ein Robotertyp','eine Konservenmarke','für ein Auto',4,12);
+INSERT INTO `questions` VALUES (518,'Wen bezeichnet man als einen "Parvenü" ?','einen Emporkömmling','einen Frauenhelden','einen Verräter
+
+','einen eitlen Menschen
+',1,13);
+INSERT INTO `questions` VALUES (519,'Was ist mit einem "Drahtstift" gemeint" ?','eine Heftklammer','ein Nagel','ein Haken','eine Schraube',2,14);
+INSERT INTO `questions` VALUES (520,'Welcher Zug fuhr früher von Paris nach Istanbul ?','der Türkeiexpress','der Okzidentexpress','der Orientexpress','der Sultansexpress',3,2);
+INSERT INTO `questions` VALUES (521,'Was bedeutet der Bestandteil "Mac" in schottischen und irischen Namen ?','Vater','Sohn','Herr','Enkel',2,7);
+INSERT INTO `questions` VALUES (522,'Welcher Baustil ahmte die antiken Bauwerke nach ?','Barock','Biedermeier','Klassizismus','Rokoko',3,10);
+INSERT INTO `questions` VALUES (523,'Wer war "Ganymedes" ?','Mundschenk des Zeus','Feldherr der griechischen Antike
+','Dichter der griechischen Antike
+','Griechischer Halbgott',1,12);
+INSERT INTO `questions` VALUES (524,'Was ist  keine Abkürzung für ein Gesetz oder eine Verordnung im Straßenverkehr ?','StVR','StVW','StVG','StVO',2,5);
+INSERT INTO `questions` VALUES (525,'Wer oder was ist ein "Pallasch" ?','ein Schwertkampf','ein Schwertkämpfer','ein schwerer Degen','ungarische Spezialität',3,7);
+INSERT INTO `questions` VALUES (526,'Welcher der folgenden Vulkane befindet sich auf der Insel Bali ?','der Ararat','der Mauna Kea','der Kilauea','der Agung',4,6);
+INSERT INTO `questions` VALUES (527,'Welcher Widerstand kommt beim Wechselstrom  nicht  vor ?','Kapazitiver Widerstand','Rollwiderstand','Blindwiderstand','Scheinwiderstand',2,7);
+INSERT INTO `questions` VALUES (528,'Aus welcher Oper stammt die Arie "Oh, wie so trügerisch sind Weiberherzen" ?','Carmen','Der Zigeunerbaron','Don Giovanni','Rigoletto',4,8);
+INSERT INTO `questions` VALUES (529,'Was bildet sich der Mensch ein, der unter "Nosomanie" leidet ?','schwer krank ist','überall stinkt','verfolgt wird','nie geliebt wird',1,9);
+INSERT INTO `questions` VALUES (530,'Welches Werk gilt als das Hauptwerk von Stendhal (eig. Marie Henri Beyle) ?','Die Schatzinsel','Fräulein Julie','Die Kartause von Parma','Krieg & Frieden',3,10);
+INSERT INTO `questions` VALUES (531,'In welchem Jahr wurde der Staat Israel gegründet ?','1944','1948','1955','1961',2,11);
+INSERT INTO `questions` VALUES (532,'In welchem Bereich der Physik wird die "Rechte-Hand-Regel" angewendet ?','Kernphysik','Mechanik','Elektrizitätslehre','Akustik',3,12);
+INSERT INTO `questions` VALUES (533,'Welcher Autotunnel liegt  nicht in der Schweiz ?','Katschbergtunnel
+','St.-Bernhard-Tunnel','Lötschbergtunnel','St.-Gotthard-Tunnel
+',1,13);
+INSERT INTO `questions` VALUES (534,'Wie wird eine Vorrichtung zum Festhalten von Werkstücken auf Werkzeugmaschinen bezeichnet ?','Futteral','Spannfutter','Kraftfutter','Fütterung',2,14);
+INSERT INTO `questions` VALUES (535,'Wen oder was führt der Funkstrahl in die gewünschte Richtung ?','Autos','Züge','Schiffe','Flugzeuge',4,11);
+INSERT INTO `questions` VALUES (536,'Womit waren die Masken gefüllt, die die Ärzte im 17. Jahrhundert trugen,um sich vor der Pest zu schützen ?','mit Papier','mit Alkohol','mit Gewürzen','mit Medikamenten',3,10);
+INSERT INTO `questions` VALUES (537,'In welchem Bundesstaat der USA befindet sich der "Bad Lands National Park" ?','Oregon','Colorado','South Dakota','Georgia',3,8);
+INSERT INTO `questions` VALUES (538,'Was wird mit einem "Dosimeter" gemessen ?','radioaktive Strahlung','Strömungsgeschwindigkeit','Sonnenlicht','Luftdruck',1,6);
+INSERT INTO `questions` VALUES (539,'Was bedeutet "Megalomanie" ?','Größenwahn','Angst vor großen Räumen','Angst vor kleinen Räumen','Angst vor großen Tieren',1,13);
+INSERT INTO `questions` VALUES (540,'In wie viele Hauptteile gliedert sich Genesis, das erste Buch des Pentateuch ?','Zwei','Drei','Vier','Einen',1,14);
+INSERT INTO `questions` VALUES (541,'Wann erfand der Friseur Karl L. Nessler die Dauerwelle ?','1888','1906','1927','1935',2,11);
+INSERT INTO `questions` VALUES (542,'Welche der aufgeführten Städte liegt nicht am Rhein ?','Bonn','Basel','Freiburg','Düsseldorf',3,7);
+INSERT INTO `questions` VALUES (543,'Welcher der aufgeführten Stoffe ist "grenzflächenaktiv" ?','Vaseline','Tensid','Karbonat','Borat',2,8);
+INSERT INTO `questions` VALUES (544,'Wie heißt die Hauptstadt des österreichischen Bundeslandes Kärnten ?','Graz','Linz','Klagenfurt','Innsbruck',3,9);
+INSERT INTO `questions` VALUES (545,'Was ist ein "Rekuperator" ?','Fliesswiderstand','Zugkraft','Wärmeaustauscher','Wiedergabe',3,10);
+INSERT INTO `questions` VALUES (546,'In welcher Dekade war der Bürstenhaarschnitt extrem populär ?','70er Jahre','50er Jahre','60er Jahre','40er Jahre',4,11);
+INSERT INTO `questions` VALUES (547,'Welche Nationalflagge trägt folgende Merkmale : Grün-Weiß-Orange, hochgestreift ?','Bulgarien','Irland','Luxemburg','Italien',2,12);
+INSERT INTO `questions` VALUES (548,'Was ist "Askorbinsäure" ?','Vitamin A','Vitamin B1','Vitamin E','Vitamin C',3,13);
+INSERT INTO `questions` VALUES (549,'Worunter leidet Freyja, die nordisch-germanische Liebesgöttin ?','Vergesslichkeit','Sehstörung','Liebeskummer','Verfolgungswahn',3,14);
+INSERT INTO `questions` VALUES (550,'Was wird mit dem "Pyrometer" gemessen ?','Ozongehalt','Wassertiefe','Temperatur','Luftfeuchtigkeit',3,15);
+INSERT INTO `questions` VALUES (551,'Welche der aufgeführten Sachen gehört  nicht zu den so genannten künstlichen Welthilfssprachen ?','Mondial','Esperanto','Gudscharati','Novial',3,10);
+INSERT INTO `questions` VALUES (552,'Welche der folgenden Personen hat die hermeneutische Wissenschaft begründet ?','Wilhelm Dilthey','Hans Robert Jaus','Wolfgang Iser','Noam Chomsky',1,15);
+INSERT INTO `questions` VALUES (553,'Welcher Prozess steht hinter dem Begriff "Sintern" ?','Verflüssigen','Schmelzen','Verdampfen','Zusammenbacken',4,9);
+INSERT INTO `questions` VALUES (554,'In welchem Land wird mit "Sol" bezahlt ?','Brasilien','Peru','Panama','Guatemala',2,7);
+INSERT INTO `questions` VALUES (555,'Was bedeutet "marginal" ?','nebensächlich','unwichtig','hauptsächlich','beeinflussend',1,4);
+INSERT INTO `questions` VALUES (556,'Aus welchem Material wird "Borsalino" hergestellt ?','Hanf','Leinen','Baumwolle','Filz',4,8);
+INSERT INTO `questions` VALUES (557,'Welcher Komponist sagte: "Lieber heiraten als eine Oper schreiben" ?','Richard Wagner','Robert Schumann','Ludwig van Beethoven','Johannes Brahms',4,7);
+INSERT INTO `questions` VALUES (558,'Wer oder was ist ein "Phasenprüfer" ?','Abwasserprüfer','Fliessbandprüfer','Spannungsprüfer','Walzstrassenprüfer',3,3);
+INSERT INTO `questions` VALUES (559,'Für welchen Kanton der Schweiz steht das Autokennzeichen "SH" ?','St. Gallen','Schwyz','Solothurn','Schaffhausen',4,6);
+INSERT INTO `questions` VALUES (560,'Welcher der folgenden Ärzte entwickelte den Rötelimpfstoff ?','Thomas H. Weller','Albert Calmette','Jonas E. Salk','Camille Guérin',1,15);
+INSERT INTO `questions` VALUES (561,'Welcher der folgenden Götter ist der Schöpfungsgott der Maori ?','Nocuma','Boaitja','Tangaroa','Awonawilona',3,15);
+INSERT INTO `questions` VALUES (562,'Wer schuf 1956 mit seinem gleichnamigen Roman "Babydoll" einen Begriff, der sich in der Modewelt durchsetzte ?','Elia Kazan','Henry Miller','Tom Wolfe','J. D. Salinger',1,15);
+INSERT INTO `questions` VALUES (563,'Was bedeutet "Kohärenz" ?','Zusammenhalt','Zusammenhang','Zusammenschluss','Zusammenfügung',2,13);
+INSERT INTO `questions` VALUES (564,'Wer oder was ist der Hinduismus ?','eine Weltreligion
+','Kinderspiel aus Israel','ein ägyptischer Gott','in Afrika lebendes Tier
+',1,6);
+INSERT INTO `questions` VALUES (565,'Was wird in einem Kiesofen geröstet ?','Brot','Karbonate','Holz','Sulfide',4,15);
+INSERT INTO `questions` VALUES (566,'Was versteht man unter einem "People mover" ?','Seilbahn','Zahnradbahn','Miniauto','Fahrradrikscha',2,11);
+INSERT INTO `questions` VALUES (567,'Womit beschäftigt sich die "Karpologie" ?','mit Pflanzen','mit Insekten','mit Früchten','mit Fischen',3,13);
+INSERT INTO `questions` VALUES (568,'In welchem Jahr wurde Athen die Hauptstadt des heutigen modernen Griechenland ?','1654','1720','1834','1912',3,14);
+INSERT INTO `questions` VALUES (569,'Wer waren die Eltern des Hephaistos, dem griechischen Gott des Feuers und der Schmiede ?','Zeus und Hera','Ares und Aphrodite','Apollo und Artemis','Poseidon und Demeter',1,11);
+INSERT INTO `questions` VALUES (570,'Wann entdeckte Christoph Kolumbus Amerika ?','1482','1492','1499','1502',2,10);
+INSERT INTO `questions` VALUES (571,'In welchem Jahr wurde Spanien nach der Vertreibung der letzten Moslems wieder christlich ?','1782','1782','1534','1492',4,15);
+INSERT INTO `questions` VALUES (572,'Welche Grundzutat gehört nicht in die Gewürzmischung Curry ?','Kümmel','Zimt','Paprika','Koriander',3,7);
+INSERT INTO `questions` VALUES (573,'Welcher Radsportler gewann zwischen 1970 und 1972 dreimal hintereinander die Tour de France ?','Eddy Merckx','Guiseppe Saronni','Jean-Pierre Monsère','Bernard Hinault',1,8);
+INSERT INTO `questions` VALUES (574,'Bei welcher Temperatur hat Eis seine größte Ausdehnung ?','1 bis 8 Grad','1 bis 4 Grad','1 bis 12 Grad','1 bis 10 Grad',2,9);
+INSERT INTO `questions` VALUES (575,'In welchem Land erhielten die Frauen erstmalig das volle Wahlrecht ?','Grossbritanien','Frankreich','Neuseeland','Australien',4,10);
+INSERT INTO `questions` VALUES (576,'Was bedeutet der aus dem Niederländischen stammende Begriff "Mannequin" ?','Model','Schaufensterpuppe','elegante Dame','Männchen',4,11);
+INSERT INTO `questions` VALUES (577,'Welche Handwerker benutzt eine "Rakel" ?','der Küfer','der Mälzer','der Drucker','der Schuster',3,12);
+INSERT INTO `questions` VALUES (578,'Was hat mit dem Straßenverkehr  nichts zu tun ?','Verkehrsinfarkt','Verkehrssicherheit','Verkehrswert','Verkehrsnetz',3,8);
+INSERT INTO `questions` VALUES (579,'Wer war bis Ende Juli 2002 Vorstandsvorsitzender der Bertelsmann AG ?','Ron Sommer','Thomas Middelhoff','Ferdinand Piech','Bernd Pietschenrieder',2,14);
+INSERT INTO `questions` VALUES (580,'Wie nennt man den Weg, den Flugzeuge beim Überqueren fremder Staaten nehmen müssen ?','Luftröhre','Luftdiele','Luftraum','Luftkorridor',4,10);
+INSERT INTO `questions` VALUES (581,'Was ist  keine  tropische Frucht ?','Jackfrucht','Litschi','Quitte','Mangostane',3,7);
+INSERT INTO `questions` VALUES (582,'In welchem nordeuropäischen Land werden Stabkirchen gebaut ?','Dänemark','Norwegen','Finnland','Schweden',2,7);
+INSERT INTO `questions` VALUES (583,'Wie viel Liter Rohöl werden als Einheit zu einem Barrel zusammengefasst ?','236 Liter','125 Liter','159 Liter','185 Liter',3,8);
+INSERT INTO `questions` VALUES (584,'Welche Stadt passt nicht zu den anderen ?','Setubal','Braga','Coimbra','Badajoz',4,13);
+INSERT INTO `questions` VALUES (585,'Von wem stammt der Roman "Der Mann mit der eisernen Maske" ?','Alexandre Dumas','Guy de Maupassant','Jules Verne','Honoré de Balzac',1,10);
+INSERT INTO `questions` VALUES (586,'Was sind "Maultaschen" ?','gefüllte Omeletts','gefüllte Cannelloni','gefüllte Nudeltaschen','gefüllte Crèpes',3,6);
+INSERT INTO `questions` VALUES (587,'In welchem Handwerk werden Ruten- und Rundstuhl eingesetzt ?','beim Schreinern','beim Schmieden','beim Weben','beim Fliesenlegen',3,8);
+INSERT INTO `questions` VALUES (588,'Wie viele italienische Städte haben mehr als eine Millionen Einwohner ?','7','4','3','2',3,13);
+INSERT INTO `questions` VALUES (589,'Wie nennt man den letzten Börsentag eines Monats ?','B-Day','Stichtag','Closure','Ultimo',4,9);
+INSERT INTO `questions` VALUES (590,'Für welche Frucht ist "Schattenmorellen" ein anderer Name ?','Schlehen','Sauerkirschen','Aprikosen','Pflaumen',2,10);
+INSERT INTO `questions` VALUES (591,'Welchen Verkehrsweg bearbeiten die Arbeiter, die als Streckenarbeiter bezeichnet werden ?','einen Fahrradweg','ein Autobahnabschnitt','eine Wasserstrasse','ein Schienenabschnitt',4,11);
+INSERT INTO `questions` VALUES (592,'Welchen Rennfahrer holte Michael Schumacher mit seinem fünften Weltmeistertitel in der Rekordliste der Formel 1 ein ?','Niki Lauda','Juan Manuel Fangio','Sterling Moss','Jackie Stewart',2,12);
+INSERT INTO `questions` VALUES (593,'Was bedeutet der Begriff "Tara" ?','Gewicht der Verpackung','Japanische Dichtung
+','Reinigen von Getreide','Ausgestorbenes Wildpferd',1,9);
+INSERT INTO `questions` VALUES (594,'Wer ist für die Instandhaltung von Straßen zuständig ?','Strassenbahner','Strassenjunge','Strassenarbeiter','Strassenmeisterei',4,4);
+INSERT INTO `questions` VALUES (595,'Wer spielte den "braven Soldaten Schweijk" in der gleichnamigen deutschen Verfilmung ?','Heinz Rühmann','Harald Juhnke','Josef Meinrad','Hans Albers',1,6);
+INSERT INTO `questions` VALUES (596,'Bei welchem Handwerk spielt der Begriff "backen"  keine Rolle ?','beim Ziegelbrenner','beim Töpfer','beim Zuckerbäcker','beim Glasbläser',3,6);
+INSERT INTO `questions` VALUES (597,'Wie viel Prozent des Aktienkapitals einer AG müssen gehalten werden, um eine Sperrminorität zu erlangen ?','über 66%','über 50%','über 25%','über 20%',3,12);
+INSERT INTO `questions` VALUES (598,'Wie heißt die Meerenge zwischen Spanien und Afrika ?','Strasse von Tarifa','Strasse von Gibraltar','Strasse von Melilla','Strasse von Ceuta',2,8);
+INSERT INTO `questions` VALUES (599,'Wie nennt man in Fett ausgebackene zylindrische Kartoffelpüree-Stäbchen ?','Korsetts','Kokarden','Korvetten','Kroketten',4,4);
+INSERT INTO `questions` VALUES (600,'Welche Abgabenart wird nicht den generellen Abgaben zugeordnet ?','Zölle','Steuern','Beiträge','Abschöpfungen',3,11);
+INSERT INTO `questions` VALUES (601,'Welches Handwerk befasst sich mit Rauchwaren ?','der Kürschner','der Zigarettenhersteller','der Zigarrendreher','der Bäcker',1,6);
+INSERT INTO `questions` VALUES (602,'Wie wird die Gebühr für die Brücken- und Straßenbenutzung bezeichnet ?','Mall','Maut','Malz','Matur',2,7);
+INSERT INTO `questions` VALUES (603,'Welche Farbe gibt das Gewürz Kurkuma dem Reis ?','braun','rot','grün','gelb',4,8);
+INSERT INTO `questions` VALUES (604,'Welche Sportart betreibt Ronny Ackermann ?','Alpine-Ski','Nordische Kombination','Skilanglauf','Skispringen',2,9);
+INSERT INTO `questions` VALUES (605,'Was ist ein "Dilettant" ?','ein Tyrann','ein Besserwisser','ein Nichtfachmann','ein Nörgler',3,6);
+INSERT INTO `questions` VALUES (606,'Welcher der folgenden Berufe ist ein Handwerksberuf ?','Lehrer','Postbote','Arzt','Schreiner',4,3);
+INSERT INTO `questions` VALUES (607,'Welches der folgenden Gebäude ist das höchste ?','Sears Tower','Toronto Tower','John Hancock Center','Fernsehturm Tokio',2,12);
+INSERT INTO `questions` VALUES (608,'Wer war der Sohn des Laios ?','Herakles','Odin','Poseidon','Ödipus',4,13);
+INSERT INTO `questions` VALUES (609,'Von welchem inneren Organ hat der Mensch gleich zwei ?','Lunge','Niere','Leber','Magen',2,1);
+INSERT INTO `questions` VALUES (610,'Wann löste Jane Fonda mit ihrem Fitness-Video einen wahren Aerobic-Boom aus ?','1982','1987','1990','1975',1,8);
+INSERT INTO `questions` VALUES (611,'Wer ist im Neuen Testament der Beelzebub ?','ein Verräter','ein Anführer der Diebe','der Fürst der Dämonen','ein ungläubiger Sünder',3,'11
+');
+INSERT INTO `questions` VALUES (612,'In welches der folgenden Meere mündet die Donau ?','Atlantik','Nordsee','Kaspisches Meer','Schwarze Meer',4,8);
+INSERT INTO `questions` VALUES (613,'Wie lautet der Vorname des Sängers der deutschen Musikgruppe "Echt" ?','Jim','Kim','Tim','Tom',2,7);
+INSERT INTO `questions` VALUES (614,'Wie lange muss ein Geselle in einem handwerklichen Beruf tätig sein, um zur Meisterprüfung zugelassen zu werden ?','8 Jahre','1 bis 2 Jahre','6 Jahre','3 bis 5 Jahre',4,9);
+INSERT INTO `questions` VALUES (615,'Aus welchem Land stammt der Lyriker Walt Whitman ?','Irland','USA','Australien','Grossbritanien',2,10);
+INSERT INTO `questions` VALUES (616,'Welche Farben haben die Querbinden auf den Vorderflügeln de Tagfalters Admiral ?','rot','grün','blau','gelb',1,12);
+INSERT INTO `questions` VALUES (617,'Was ist  keine Naturwissenschaft ?','Physik','Biologie','Chemie','Philosophie',4,7);
+INSERT INTO `questions` VALUES (618,'Wer war der Anführer der Griechen im Trojanischen Krieg ?','Agamemnon','Herakles','Theseus','Odysseus',1,8);
+INSERT INTO `questions` VALUES (619,'Bei welcher der folgenden Sportarten wird der Begriff "Bodycheck" verwendet ?','Football','Volleyball','Eishockey','Fussball',3,9);
+INSERT INTO `questions` VALUES (620,'Zu welchem der folgenden Kontinente gehört Tansania ?','Amerika','Afrika','Asien','Australien',2,10);
+INSERT INTO `questions` VALUES (621,'Von wem stammt die Musik zu dem Kultfilm  "Harold and Maude" ?','Neil Young','Bob Dylan','Cat Stevens','Donovan',3,11);
+INSERT INTO `questions` VALUES (622,'Welcher der folgenden Fische gilt als der langsamste aller Fische ?','das Seepferdchen','der Fächerfisch','der Flussaal','der Rotbarsch',1,12);
+INSERT INTO `questions` VALUES (623,'Wie viele verschiedene Arten von Bakterien sind bisher bekannt ?','ca. 500','ca. 2000','ca. 3000','ca. 10000',3,13);
+INSERT INTO `questions` VALUES (624,'Welche Krankheit wurde in den früheren Zeiten als der "schwarze Tod" bezeichnet ?','Hepatitis','Lepra','Tuberkulose','Pest',4,14);
+INSERT INTO `questions` VALUES (625,'Welcher der folgenden Seen gilt als der tiefste Binnensee der Erde ?','der Michigansee','der Bodensee','der Baikalsee','der Laacher See',3,13);
+INSERT INTO `questions` VALUES (626,'Welche Kragenform ist typisch für eine Jacke im Mao-Look ?','Kuttenkragen','Klammerkragen','Stehbundkragen','Piccadilly Kragen',3,'8
+');
+INSERT INTO `questions` VALUES (627,'Wie nennt man die Atmungsorgane der Insekten ?','Tracheen','Bronchien','Bracheen','Stracheen',1,7);
+INSERT INTO `questions` VALUES (628,'Wie heißt das Land, in dem die nordisch-germanischen Elfen lebten ?','Agard','Midgard','Alfenheim','Utgard',3,13);
+INSERT INTO `questions` VALUES (629,'Aus wie viel Knochen besteht das menschliche Skelett ?','240 bis 244','208 bis 212','171 bis 175','120 bis 124',2,10);
+INSERT INTO `questions` VALUES (630,'Was bedeutet der lateinische Begriff "Agnus Dei" ?','Untertan Gottes','Sohn Gottes','Vertrauter Gottes','Lamm Gottes',4,10);
+INSERT INTO `questions` VALUES (631,'Aus welchem Land stammt die bislang (2002) jüngste Leichtathletik-Weltrekordlerin ?','England','USA','China','Deutschland',3,11);
+INSERT INTO `questions` VALUES (632,'Wer rettete, nach einem griechischen Mythos, Andromeda vor einem Ungeheuer ?','Theseus','Herakles','Herkules','Perseus',4,10);
+INSERT INTO `questions` VALUES (633,'In welchem Jahr weitete sich der Erste Weltkrieg von einem europäischen zu einem weltweiten Krieg aus ?','1914','1917','1916','1918',2,8);
+INSERT INTO `questions` VALUES (634,'In welchem Land Europas liegen die Apenninen ?','in Italien','in Frankreich','in Spanien','in der Schweiz',1,7);
+INSERT INTO `questions` VALUES (635,'Wie heißt der Vater der Schlümpfe ?','Vater Anton','Vater Abraham','Vater Alberto','Vater Andreas',2,1);
+INSERT INTO `questions` VALUES (636,'In welchem der folgenden Länder befindet sich der Naturpark "Shark Bay" ?','Kenia','USA','Australien','Grossbritanien',3,11);
+INSERT INTO `questions` VALUES (637,'Wer war der Begründer der wissenschaftlichen Medizin ?','Sokrates','Aristoteles','Hippokrates','Pythagoras',3,9);
+INSERT INTO `questions` VALUES (638,'Wie lange dauerte der längste Boxkampf der Sportgeschichte ?','17 Stunden 9 Minuten','13 Stunden 15 Minuten','6 Stunden 9 Minuten','2 Stunden 33 Minuten',1,15);
+INSERT INTO `questions` VALUES (639,'In welchem Jahr fand die erste Oscar-Verleihung statt ?','1939','1929','1941','1937',2,14);
+INSERT INTO `questions` VALUES (640,'Wie heißt die berühmte Meerenge zwischen dem Schwarzen und dem Ägäischen Meer ?','Marmara Meer','Dardanellen','Isthmus','Boporus',4,'7
+');
+INSERT INTO `questions` VALUES (641,'Wie heißt die größte Hotelkette der Welt ?','Riu Hotels','Hilton','Best Western','Sheraton',3,'6
+');
+INSERT INTO `questions` VALUES (642,'Welcher der folgenden Modeschöpfer erfand das "kleine Schwarze" ?','Karl Lagerfeld','Calvin Klein','Coco Chanel','Jean-Paul Gaultier',3,13);
+INSERT INTO `questions` VALUES (643,'Welcher der folgenden Götter hatte nur ein Auge ?','Poseidon','Zeus','Ares','Odin',4,8);
+INSERT INTO `questions` VALUES (644,'Welcher europäische Kleinstaat liegt in den Pyrenäen ?','Luxemburg','Liechtenstein','Andorra','San Marino',3,4);
+INSERT INTO `questions` VALUES (645,'Für welche historische Filmfigur wurde Ben Kingsley mit dem "Oscar" ausgezeichnet ?','John F. Kennedy','Gandhi','Oscar Schindler','Julius Cäsar',2,13);
+INSERT INTO `questions` VALUES (646,'In welchem Jahr erklärte der russische Präsident Boris Jelzin überraschend seinen Rücktritt ?','2001','1999','1997','1996',2,12);
+INSERT INTO `questions` VALUES (647,'Für welche der folgenden Handarbeiten braucht man zwei Nadeln ?','Stricken','Sticken','Häkeln','Nähen',1,5);
+INSERT INTO `questions` VALUES (648,'An welchem Datum wurde die Grenze zur DDR geöffnet ?','08/11/1991','06/11/1988','19/11/1989','07/11/1990',3,8);
+INSERT INTO `questions` VALUES (649,'Was ist keine Sättigungsbeilage ?','Pommes Frites','Kartoffeln','Reis','Steak',4,4);
+INSERT INTO `questions` VALUES (650,'Wie heißt der rote Blutfarbstoff, den die roten Blutkörperchen enthalten ?','Stearin','Insulin','Hämoglobin','Karotin',3,8);
+INSERT INTO `questions` VALUES (651,'Was wird mit dem "Kalorimeter" gemessen ?','die Kraft','die Wärmemenge','die Dichte','die Luftfeuchtigkeit',2,11);
+INSERT INTO `questions` VALUES (652,'Wie nennt man ein lockeres Überkleid, das über einer Hose oder einem Rock getragen wird ?','Totonka','Tonur','Tunika','Tenue',3,7);
+INSERT INTO `questions` VALUES (653,'Wie heißt das Werk Franz Kafkas, in dem die Hauptfigur eines Morgens als Käfer aufwacht ?','Der Prozess','Das Urteil','Das Schloss','Die Verwandlung',4,11);
+INSERT INTO `questions` VALUES (654,'Wer hat Dornröschen wach geküsst ?','ein König','ein Prinz','ein Ritter','ein Bauernjunge',2,5);
+INSERT INTO `questions` VALUES (655,'Wann brach mit dem Einzug des Bikinis die Tradition des einteiligen Badeanzugs ?','1873','1903','1946','1951',3,8);
+INSERT INTO `questions` VALUES (656,'Was versteht man unter einem "Periskop" ?','ein Hörrohr','ein Sehrohr','eine Taschenlampe','ein Prisma',2,6);
+INSERT INTO `questions` VALUES (657,'Wie viele Jahre war Margaret Thatcher Premierministerin von Großbritannien ?','9 Jahre','5 Jahre','10 Jahre','11 Jahre',4,13);
+INSERT INTO `questions` VALUES (658,'Wie hieß die erste Ehefrau des "Modern Talking"- Sängers Thomas Anders ?','Norma','Nora','Laura','Naddel',2,3);
+INSERT INTO `questions` VALUES (659,'In welcher Stadt befindet sich der Sitz des Bundesverfassungsgerichts ?','Düsseldorf','Saarbrücken','Frankfurt am Main','Karlsruhe',4,8);
+INSERT INTO `questions` VALUES (660,'Wie heißt der Ort, in dem Jesus geboren wurde ?','Babylon','Nazareth','Bethlehem','Ninive',3,5);
+INSERT INTO `questions` VALUES (661,'Wie nennt man die Enden eines Stabmagneten ?','Spitzen','Pole','Achsen','Wendungen',2,3);
+INSERT INTO `questions` VALUES (662,'Wann wurde die Europäische Freihandelsgemeinschaft (EFTA) gegründet ?','1960','1955','1967','1951',1,7);
+INSERT INTO `questions` VALUES (663,'Was für ein Tier war der sprichwörtliche Phönix, der aus der Asche stieg ?','ein Pferd','ein Raubtier','ein Vogel','ein Ochse',3,8);
+INSERT INTO `questions` VALUES (664,'Wie nennt man die Bewegung der Erdkrustenplatten ?','Tegment','Textur','Tektonik','Techno',3,9);
+INSERT INTO `questions` VALUES (665,'Was ist ein "Dentist" ?','Hautarzt','Kinderarzt','Tierarzt','Zahnarzt',4,5);
+INSERT INTO `questions` VALUES (666,'Wie bezeichnet man modisches Zubehör zur Ergänzung der Oberbekleidung ?','Accessoire','Bouclé','Arraché','Dungaare',1,4);
+INSERT INTO `questions` VALUES (667,'Welches Element ist keinLeichtmetall ?','Titan','Blei','Aluminium','Lithium',2,12);
+INSERT INTO `questions` VALUES (668,'In welcher Stadt befindet sich der Europäische Rechnungshof ?','Luxemburg','Genf','Brüssel','Frankfurt',1,12);
+INSERT INTO `questions` VALUES (669,'Welcher Begriff stammt  nicht aus der Computertechnik ?','DOS','BIOS','DIN','RAM',3,7);
+INSERT INTO `questions` VALUES (670,'Welcher Begriff gehört  nicht zur Division ?','Dividend','Quotient','Divisor','Potenz',4,8);
+INSERT INTO `questions` VALUES (671,'Wie heißen die beiden Gründer von Rom ?','Cicero & Cato','Jupiter & Juno','Cäsar & Augustus','Romulus & Remus',4,'12
+');
+INSERT INTO `questions` VALUES (672,'In welcher Stadt spielt sich das Geschehen in den meisten Filmen Woody Allens ab ?','New Orleans','Chicago','New York','Los Angeles',3,5);
+INSERT INTO `questions` VALUES (673,'Wie bezeichnet man die gegenseitige Krafteinwirkung beim Zusammenprall zweier Körper ?','Elastizität','Stoss','Wucht','Zug',3,3);
+INSERT INTO `questions` VALUES (674,'Welche ist  keine Bezeichnung für eine Rebsorte ?','Müller-Thurgau','Müller-Lüdenscheid','Riesling','Gutedel',2,10);
+INSERT INTO `questions` VALUES (675,'Wer oder was ist "Mykene" ?','Antike Ruinenstätte','Sage','Göttin','Speise',1,10);
+INSERT INTO `questions` VALUES (676,'Wie nennt man den Modestil, der von Anfang bis Mitte der 1990er Jahre durch äußerliche Schlampigkeit geprägt war ?','Urban Elegance','High Fashion','New Look','Grunge Mode',4,6);
+INSERT INTO `questions` VALUES (677,'Welches der folgenden im Wasser lebenden Tiere ist  kein Fisch ?','Aal','Hai','Delfin','Hecht',3,7);
+INSERT INTO `questions` VALUES (678,'In was wurde der schöne Jüngling Narziss verwandelt, nachdem er alle Lebenskraft verloren hatte ?','in einen Berg','in eine Statue','in eine Blume','in ein Tier',3,8);
+INSERT INTO `questions` VALUES (679,'Welche Hutvariante erfand der Engländer William Coke ?','Zylinder','Melone','Florentiner','Borsalino',2,9);
+INSERT INTO `questions` VALUES (680,'Was ist "Bakken" ?','eine Schanze','ein Fisch','ein Sportgerät','eine Ortschaft',1,10);
+INSERT INTO `questions` VALUES (681,'Wie groß ist die begehrte Filmtrophäe "Oscar" ?','25,7 cm','34,3 cm','46,9 cm','42,8 cm',1,11);
+INSERT INTO `questions` VALUES (682,'Welches der folgenden Zeichen gehört  nicht zur Mathematik ?','Integralzeichen','Divisionszeichen','Gleichheitszeichen','Strassenverkehrszeichen',4,12);
+INSERT INTO `questions` VALUES (683,'Was ist ein "Paternoster" ?','Gebetsbuch','Musikinstrument','Aufzug','Werkzeug',3,13);
+INSERT INTO `questions` VALUES (684,'Wie viele Seiten hat ein Würfel ?','12','4','6','8',3,3);
+INSERT INTO `questions` VALUES (685,'Wie hieß Marilyn Monroes letzter Film ?','Nicht gesellschaftsfähig','Fluss ohne Wiederkehr','Manche mögen''s heiss','Niagara',1,15);
+INSERT INTO `questions` VALUES (686,'Welcher Autor schrieb das Buch "Der Fänger im Roggen" ?','John Steinbeck','Oscar Wilde','Ernest Hemingway','J.D. Salinger',4,13);
+INSERT INTO `questions` VALUES (687,'Wann erfand Levi Strauss die Jeans ?','1851','1873','1908','1937',2,12);
+INSERT INTO `questions` VALUES (688,'Über welche Körperlänge verfügt ein Löwe im Durchschnitt ?','3,5 m','3 m','1,5 m','2 m',4,14);
+INSERT INTO `questions` VALUES (689,'Welche beiden Haustiere hält sich Pippi Langstrumpf ?','Affen & Pferd','Esel & Hamster','Katze & Hund','Ratte & Papagei',1,6);
+INSERT INTO `questions` VALUES (690,'Wohin ist die Zentrifugalkraft gerichtet ?','Nach unten','Nach hinten','Nach aussen','Nach innen',3,7);
+INSERT INTO `questions` VALUES (691,'Welche der folgenden Künstlerinnen sang das Lied "Like a virgin" ?','Kylie Minogue','Cher','Cyndi Lauper','Madonna',4,6);
+INSERT INTO `questions` VALUES (692,'In wie viele Departements ist Frankreich aufgeteilt ?','224','196','158','127',2,12);
+INSERT INTO `questions` VALUES (693,'Für welchen Film wurde Julia Roberts mit dem Oscar für die beste weibliche Hauptrolle ausgezeichnet ?','Die Akte','Pretty Woman','Erin Brockovich','The Mexican',3,8);
+INSERT INTO `questions` VALUES (694,'Welche Temperaturskala wird  nicht in Grad angegeben ?','Celsius','Kalvin','Reaumur','Fahrenheit',4,9);
+INSERT INTO `questions` VALUES (695,'Welcher der Schmiede beschlägt Pferde ?','Hufschmied','Goldschmied','Schwarzschmied','Silberschmied',1,10);
+INSERT INTO `questions` VALUES (696,'Was bedeutet in der Mathematik das Zeichen > ?','grösser gegen','grösser als','kleiner als','kleiner gegen',2,3);
+INSERT INTO `questions` VALUES (697,'Welche Farbe hat der kleine Elefant aus der Sendung mit der Maus ?','gelb','grün','blau','rot',3,'2
+');
+INSERT INTO `questions` VALUES (698,'Welcher Handwerker braucht eine Kelle ?','ein Musiker','ein Schreiner','ein Schuster','ein Maurer',4,1);
+INSERT INTO `questions` VALUES (699,'Welcher Film entstand  nicht unter der Regie von Stanley Kubrick ?','2001','Uhrwerk Orange','A. I.','Spartacus',3,14);
+INSERT INTO `questions` VALUES (700,'Welches der folgenden Theaterstücke stammt  nicht von Eugène Ionesco dem Vertreter des absurden Theaters ?','Die Stühle','Warten auf Godot','Die Nashörner','Der König stirbt',2,15);
+INSERT INTO `questions` VALUES (701,'Wann setzte die Massenproduktion des Lippenstiftes ein ?','1944','1884','1730','1916',3,13);
+INSERT INTO `questions` VALUES (702,'Was ist das Gewinde einer Schraube in der Physik ?','schiefe Ebene','Möbiusband','Anzahl von Kreisen','Spirale',1,4);
+INSERT INTO `questions` VALUES (703,'Welche beiden Länder teilen sich die Insel "Hispaniola" ?','Haiti & Dominikanische Republik','Hawaii & Dominikanische Republik','Hawaii & Haiti','Kuba & Hawai',1,3);
+INSERT INTO `questions` VALUES (704,'Wie heißen die Söhne von Isaak aus dem Alten Testament ?','Lukas & Simon','Jakob & Esau','Kain & Abel','Abraham & Hiob',3,4);
+INSERT INTO `questions` VALUES (705,'Was ist in der Physik  keine einfache Maschine ?','Flaschenzug','Hebel','Seilzug','Ottomotor',4,6);
+INSERT INTO `questions` VALUES (706,'Was versteht man unter der österreichischen Speise Palatschinken ?','eine Pralinenart','ein Eierkuchen','ein gekochten Schinken','ein geräucherter Schinken',2,6);
+INSERT INTO `questions` VALUES (707,'Was braucht ein Maler und ein Tapezierer nicht ?','Forke','Pinsel','Kleister','Tüncher',1,7);
+INSERT INTO `questions` VALUES (708,'Nach welchem Fisch benannte der deutsche Schriftsteller Günter Grass einen seiner Romane ?','Sardine','Butt','Hering','Aal',2,8);
+INSERT INTO `questions` VALUES (709,'Wer war Walther von der Vogelweide ?','ein Maler','ein Sportler','eine Comic Figur','ein Lyriker',4,9);
+INSERT INTO `questions` VALUES (710,'Welches Gebiet gehört nicht zur Physik ?','Optik','Mechanik','Organik','Elektrizitätslehre',3,10);
+INSERT INTO `questions` VALUES (711,'Wie lautet der ehemalige Ländername Myanmars ?','Laos','Borneo','Kambodscha','Birma',4,14);
+INSERT INTO `questions` VALUES (712,'Welches berühmte Musical wurde nicht von Sir Andrew Lloyd Webber komponiert ?','Cats','Starlight Express','My fair Lady','Jesus Christ Superstar',3,12);
+INSERT INTO `questions` VALUES (713,'Was stellt ein Böttcher her ?','Gläser','Rohre','Möbel','Fässer',4,13);
+INSERT INTO `questions` VALUES (714,'Wo findet man das "Deutsche Eck" ?','Aachen','Koblenz','Flensburg','Schaffhausen',2,12);
+INSERT INTO `questions` VALUES (715,'Was ist das Steinhuder Meer ?','See in Niedersachsen','Teil der Nordsee','Berg in Bayern','Nebenmeer der Ostsee',1,10);
+INSERT INTO `questions` VALUES (716,'Was ist in Bayern oder Österreich eine Tuchent ?','Kopftuch','Mehlspeise','Bettdecke','Hosenrock',3,9);
+INSERT INTO `questions` VALUES (717,'Wie heißt die höchste Erhebung im Hunsrück ?','Spinatfelsen','Bohnenschädel','Karottenkegel','Erbeskopf',4,11);
+INSERT INTO `questions` VALUES (718,'Wie heißt der höchste Berg der Rhön ?','Feuerkippe','Wasserkuppe','Erdkappe','Luftkuppe',2,6);
+INSERT INTO `questions` VALUES (719,'Wie entstand das Nördlinger Ries ?','Sprengung','Erdbeben','Meteoriteneinschlag','Fusstritt eines Riesen',3,13);
+INSERT INTO `questions` VALUES (720,'Wie nennt man ein Bild, bei dem viele kleine Papierstückchen übereinander geklebt werden ?','Collage','Kollege','Korsett','Kokosett',1,6);
+INSERT INTO `questions` VALUES (721,'Was versteht man in der Wissenschaft unter Versteinerung ?','Steinsammlung','Hausbau','Reste von Lebewesen','Humorloser Mensch',3,6);
+INSERT INTO `questions` VALUES (722,'Welches Tier trägt sein Junges im Beutel ?','Pelikan','Feldmaus','Wanderratte','Koala',4,7);
+INSERT INTO `questions` VALUES (723,'Wo finden wir die religiösen Lieder,die Psalmen genannt werden ?','Koran','Neues Testament','Altes Testament','Thora',3,8);
+INSERT INTO `questions` VALUES (724,'Wie heißt die Landeshauptstadt von Hessen ?','Kassel','Weisbaden','Darmstadt','Frankfurt/Main',2,9);
+INSERT INTO `questions` VALUES (725,'In welcher deutschen Stadt kann man den Tierpark Hellabrunn besuchen ?','Bochum','Berlin','Hamburg','München',4,10);
+INSERT INTO `questions` VALUES (726,'In welcher Stadt findet man die Straße "Unter den Linden" ?','Bochum','Bremen','Berlin','Bonn',3,11);
+INSERT INTO `questions` VALUES (727,'In Bayreuth gibt es die Festspiele von welchem Komponisten ?','Beethoven','Verdi','Mozart','Wagner',4,12);
+INSERT INTO `questions` VALUES (728,'Welche Militäreinheit reitet auf Pferden ?','Kavallerie','Infanterei','Marine','Grenaderie',1,13);
+INSERT INTO `questions` VALUES (729,'Was ist ein Vakuum ?','Plastiktüte','Zahnfüllung','Metallstange','Luftleerer Raum',4,14);
+INSERT INTO `questions` VALUES (730,'Womit tötete David den Riesen Goliath ?','einem Speer','einer Steinschleuder','seinen Händen','mit einem bösen Blick',2,10);
+INSERT INTO `questions` VALUES (731,'Wie heißt der Komponist des Musicals "Cats" ?','Andrew Lloyd Webber','Albert Lloyd Wappler','Alex Lloyd Weberknecht','Anthony Lloyd Flubber',1,7);
+INSERT INTO `questions` VALUES (732,'Welche ist die größte Nordfriesische Insel ?','Föhr','Pellworm','Amrum','Sylt',4,6);
+INSERT INTO `questions` VALUES (733,'Wie heißt die Landeshauptstadt von Mecklenburg-Vorpommern ?','Greifswald','Rostock','Schwerin','Wismar',3,7);
+INSERT INTO `questions` VALUES (734,'Was essen Bayern und Österreicher, wenn sie Kren auf den Teller haben ?','Senfsosse','Pflaumenmus','Gurkensalat','Meerrettich',4,8);
+INSERT INTO `questions` VALUES (735,'Welche Frucht passt hier nicht dazu ?','Orange','Melone','Zitrone','Grapefruit',2,5);
+INSERT INTO `questions` VALUES (736,'Was heißt "Game over" ?','Spiel ist vorbei','Spiel beginnt','Spiel abgestürzt','Spiel verloren',1,2);
+INSERT INTO `questions` VALUES (737,'Zu welcher Tageszeit ist der Mensch am größten ?','Nachts','Mittags','Morgens','Abends',3,5);
+INSERT INTO `questions` VALUES (738,'Wie heißt der oberste Herrscher in der griechischen Götterwelt ?','Wotan','Hermes','Zeus','Poseidon',3,6);
+INSERT INTO `questions` VALUES (739,'Welche dieser deutschen Nordfriesischen Inseln ist am kleinsten ?','Föhr','Amrum','Nordstrand','Pellworm',2,9);
+INSERT INTO `questions` VALUES (740,'Wie nannte man früher einen Friseur ?','Coiffeur','Gallier','Barbier','Polier',3,7);
+INSERT INTO `questions` VALUES (741,'Wie heißt das Unentschieden beim Schachspiel ?','Forfait','Gleichstand','Remis','Kandis',3,7);
+INSERT INTO `questions` VALUES (742,'Auf welchem Landeswappen befindet sich kein Tier ?','Mecklenburg-Vorpommern','Schleswig-Holstein','Sachsen-Anhalt','Sachsen',4,12);
+INSERT INTO `questions` VALUES (743,'Welches Bundesland grenzt an die Schweiz ?','Hessen','Thüringen','Sachsen','Baden-Württemberg',4,9);
+INSERT INTO `questions` VALUES (744,'In welcher deutschen Stadt kann man das Nymphenburger Schloss besichtigen ?','München','Stuttgart','Münster','Hamburg',1,14);
+INSERT INTO `questions` VALUES (745,'Bei welcher Sportart gibt es Lob, Stopp und Volley ?','Basketball','Polo','Volleyball','Tennis',4,8);
+INSERT INTO `questions` VALUES (746,'Wie nennt man die Trennwand zwischen Brust- und Bauchhöhle ?','Riesenhaut','Königsmuskel','Zwerchfell','Prinzenrolle',3,6);
+INSERT INTO `questions` VALUES (747,'Welcher Fluss wird durch den Assuan - Staudamm gestaut ?','Rhein','Amazonas','Nil','Wolga',3,8);
+INSERT INTO `questions` VALUES (748,'Wie nennt man die Dame, die unsicheren Schauspielern den Text zuflüstert ?','Coiffeuse','Tippse','Souffleuse','Friteuse',3,5);
+INSERT INTO `questions` VALUES (749,'Wie heißt der dritte Buchstabe des griechischen Alphabets ?','Gamma','Delta','Beta','Alpha',1,4);
+INSERT INTO `questions` VALUES (750,'In der Nähe welchen Berges soll die Arche Noah gelandet sein ?','Kilimandscharo','Ölberg','Mount Everest','Ararat',4,9);
+INSERT INTO `questions` VALUES (751,'Wie viele Tage nach dem Ostersonntag ist Christi Himmelfahrt ?','28','39','7','77',2,9);
+INSERT INTO `questions` VALUES (752,'Welcher Fluss in Hamburg ist zu  zwei seenartigen Becken aufgestaut ?','Spree','Oder','Alster','Weichsel',3,7);
+INSERT INTO `questions` VALUES (753,'Wer trifft sich in Deutschland in der Walpurgisnacht ?','Hexen','Tote','Vampire','Verliebte',1,3);
+INSERT INTO `questions` VALUES (754,'Wie heißt die Wissenschaft von der Vererbung ?','Phonetik','Genetik','Athletik','Ästhetik',2,9);
+INSERT INTO `questions` VALUES (755,'Wie viele Fingerglieder hat der Mensch an einer Hand ?','19','17','14','11',3,13);
+INSERT INTO `questions` VALUES (756,'Was sind Rapunzeln ?','Tomaten','Salate','Erdbeeren','Gurken',2,11);
+INSERT INTO `questions` VALUES (757,'Welches Land gehört nicht zu Skandinavien ?','Norwegen','Schweden','Finnland','Belgien',4,10);
+INSERT INTO `questions` VALUES (758,'Wo liegt der Siedepunkt von Wasser ?','80 Grad','90 Grad','100 Grad','110 Grad',3,5);
+INSERT INTO `questions` VALUES (759,'Wie nennt man einen Tierarzt ?','Vetter','Veterinär','Vegetarier','Vegata',2,3);
+INSERT INTO `questions` VALUES (760,'Wie heißt der größte Planet in unserem Sonnensystem ?','Saturn','Jupiter','Mars','Pluto',2,11);
+INSERT INTO `questions` VALUES (761,'Wie heißt der Besitzer des londoner Fussballclubs Chelsea? ','Michail Chodorkowski','Andrei Melnichenko','Roman Abramowitsch','Boris Jelzin',3,7);
+INSERT INTO `questions` VALUES (762,'Von wem wird der rosarote Panther gejagt?','Sam Spade','Sherlock Holmes','Hercule Poirot','Inspektor Clouseau',4,5);
+INSERT INTO `questions` VALUES (763,'Wie heißt die Darstellerin der Dana Scully aus der Serie Akte X?','Mabel Leaf','Ireen Shear','Gillian Anderson','Hester Thomas',3,7);
+INSERT INTO `questions` VALUES (764,'Wie heißt der Bösewicht in der Zeichentrickserie "Die Schlümpfe?"','Garamel','Gremal','Gargemal','Gargamel',4,6);
+INSERT INTO `questions` VALUES (765,'Wie bezeichnet man Wirtschaft noch?','Ökologie','Ökotopie','Ökotante','Ökonomie',4,3);
+INSERT INTO `questions` VALUES (766,'Am 31.12.1998 wurde der Kurs welcher Währung exakt festgelegt?','Dollar','Euro','Yen','Englisches Pfund',2,4);
+INSERT INTO `questions` VALUES (767,'Was legt die OPEC fest?','Arbeitsmarktvorgaben','Bildungspläne','Erdölfördermenge','Gesundheitsmaßnahmen',3,5);
+INSERT INTO `questions` VALUES (768,'Ein Mohrenkopfhersteller warb mit dem Slogan: "Boah, sind die ..."?','Schlankfrau','Fettsohn','Dürrtochter','Dickmann',4,1);
+INSERT INTO `questions` VALUES (769,'Welches Material wird in Meißen zu einem berühmten Produkt verarbeitet?','Porzellan','Glas','Papier','Metall',1,2);
+INSERT INTO `questions` VALUES (770,'In welcher Stadt kann man bei Harrod´s einkaufen?','Paris','London','New York','Madrid',2,4);
+INSERT INTO `questions` VALUES (771,'In welcher Stadt befindet sich die Europäische Zentralbank?','Berlin','Frankfurt am Main','Brügge','Genf',2,6);
+INSERT INTO `questions` VALUES (772,'Wie heißt die amerikanische Technologiebörse?','FTSE-100','NASDAQ','CAC40','Dow Jones 100',2,9);
+INSERT INTO `questions` VALUES (773,'Welche Stadt trug von 330 bis 1930 den Namen Konstantinopel?','Izmir','Ankara','Istanbul','Beirut',3,6);
+INSERT INTO `questions` VALUES (774,'Welcher Städtebund kontrollierte im Mittelalter den Ostseehandel?','Der Dänische Verband','Die Hanse','Der Schwedische Bund','Der finnische Hoark',2,5);
+INSERT INTO `questions` VALUES (775,'Welcher Admiral fiel bei Trafalgar?','Nelson','Spee','Lee','Mölders',1,5);
+INSERT INTO `questions` VALUES (776,'Nach welcher Stadt ist die erste deutsche Republik benannt?','Kiel','Berlin','Weimar','München',3,3);
+INSERT INTO `questions` VALUES (777,'Welcher amerikanische Präsident wurde in Dallas ermordet?','Abraham Lincoln','Richhard Nixon','John F. Kennedy','Robert Washington',3,6);
+INSERT INTO `questions` VALUES (778,'Wer kämpfte vor Troja?','Sidolin','Meister Proper','Der General','Ajax',4,4);
+INSERT INTO `questions` VALUES (779,'Wer war der "Schinderhannes"?','Wahrsager aus dem Bayrischem Wald','Arzt der Adligen Lieselotte der Pfalz','Die altfränkische Bezeichnung für "Gevatter Tod"','Räuber aus Hunsrück der Reichen nahm und Armen gab',4,10);
+INSERT INTO `questions` VALUES (780,'Wann wurde das erste Vatikanische Konzil einberufen?','1769','1669','1869','1569',3,12);
+INSERT INTO `questions` VALUES (781,'Wie nennt man einen Arzt der Sprachheilkunde ?','Logopäde','Chirurg','Dentist','Othologe',1,13);
+INSERT INTO `questions` VALUES (782,'Welche dieser Nordfriesischen Inseln gehört nicht zu Deutschland, sondern zu Dänemark ?','Pellworm','Nordstrand','Föhr','Römö',4,10);
+INSERT INTO `questions` VALUES (783,'Welche dieser Inseln liegt in der Deutschen Bucht ?','Mallorca','Rügen','Helgoland','Mainau',3,9);
+INSERT INTO `questions` VALUES (784,'Der Zoo welcher deutschen Stadt heißt Wilhelma ?','Wilhelmshaven','Stuttgart','Berlin','Frankfurt',2,8);
+INSERT INTO `questions` VALUES (785,'Wie lautet die Abkürzung für den Deutschen Aktienindex ?','Wiesel','Marder','Luchs','Dax',4,3);
+INSERT INTO `questions` VALUES (786,'In welchem Monat beginnt jedes Jahr in München das Oktoberfest ?','August','Oktober','September','Juli',3,2);
+INSERT INTO `questions` VALUES (787,'Wie lautet die bayrisch - österreichische Bezeichnung für Sahne ?','Obers','Unters','Milch','Creme',1,4);
+INSERT INTO `questions` VALUES (788,'Wie viele Wochen dauert die Trächtigkeit bei Hunden ?','3','9','5','11',2,8);
+INSERT INTO `questions` VALUES (789,'Welcher weltberühmte Maler schnitt sich einen Teil seines linken Ohres ab ?','Dürer','Hals','Rübens','van Gogh',4,11);
+INSERT INTO `questions` VALUES (790,'In welcher Einheit misst man die Geschwindigkeit eines Schiffes ?','Schleifen','Knoten','Maschen','Ketten',2,1);
+INSERT INTO `questions` VALUES (791,'Was ergeben mehrere Gemüsearten zusammengemischt ?','Berliner Durcheinander','Dresdner Chaos','Magdeburger Mischmasch','Leipziger Allerlei',4,4);
+INSERT INTO `questions` VALUES (792,'Welche Süßigkeit wird aus der Wurzel der Süßholzstaude gemacht ?','Gummibären','Lakritze','Negerkuss','Zuckerwatte',2,3);
+INSERT INTO `questions` VALUES (793,'Wie nennt man den Wasserstrahl eines Springbrunnens ?','Fontanelle','Lava','Fontäne','Fondue',3,1);
+INSERT INTO `questions` VALUES (794,'Womit misst man den Luftdruck ?','Thermometer','Zentimeter','Chronometer','Barometer',4,2);
+INSERT INTO `questions` VALUES (795,'Wie nennt man die Adern, die vom Herzen wegführen ?','Arterien','Kanaren','Balearen','Bermudas',1,3);
+INSERT INTO `questions` VALUES (796,'Welches Tier ist auf dem Landeswappen von Brandenburg ?','weisse Maus','roter Adler','grüner Frosch','gelber Hund',2,9);
+INSERT INTO `questions` VALUES (797,'In welcher Stadt findet alljährlich die größte Buchmesse im deutschen Sprachraum statt ?','Frankfurt/Main','Zürich','Berlin','Wien',1,13);
+INSERT INTO `questions` VALUES (798,'Zu welchem Gebirge gehört der Schneeberg ?','Hunsrück','Fichtelgebirge','Westerwald','Rhön',2,14);
+INSERT INTO `questions` VALUES (799,'Welches Tier ist der Vater eines Maulesels ?','Esel','Maulwurf','Maulbrüter','Pferd',4,12);
+INSERT INTO `questions` VALUES (800,'Welche Sprache wird in der Toskana gesprochen ?','Französisch','Toskanisch','Italienisch','Spanisch',3,4);
+INSERT INTO `questions` VALUES (801,'Wohin kommt man, wenn man auf der Erde immer in Richtung Polarstern fährt ?','Amerika','Polen','Niemandsland','Nordpol',4,3);
+INSERT INTO `questions` VALUES (802,'Eine Comicserie über die Wikinger heißt "Hägar der ... " ','Jäger','Schreckliche','Grausame','Hinterhältige',2,4);
+INSERT INTO `questions` VALUES (803,'Mit welcher Wolle kann man weder stricken noch häkeln ?','Baumwolle','Schnurwolle','Holzwolle','Schafswolle',3,5);
+INSERT INTO `questions` VALUES (804,'Wie nennt man einen Facharzt für innere Krankheiten noch ?','Interno','Interner','Internist','Innerist',3,6);
+INSERT INTO `questions` VALUES (805,'Welche Bedeutung hat der Drache für die Chinesen ?','Feuerwerk','Kampf','Tod','Glück',4,12);
+INSERT INTO `questions` VALUES (806,'Was ist eine Schattenmorelle ?','Kirsche','Speisefisch','Palme','Schnecke',1,9);
+INSERT INTO `questions` VALUES (807,'Welche ostdeutsche Stadt ist berühmt für ihre Christstollen ?','Jena','Magdeburg','Frankfurt','Dresden',4,10);
+INSERT INTO `questions` VALUES (808,'Wie wird das Heidekraut in Deutschland noch bezeichnet ?','Claudia','Petra','Erika','Klara',3,11);
+INSERT INTO `questions` VALUES (809,'Was ist keine Verbindung zwischen Ost- und Nordsee ?','Kleiner Belt','Grosser Belt','Öresund','Beringsstrasse',4,12);
+INSERT INTO `questions` VALUES (810,'Auf welchem Kontinent liegt Syrien ?','Afrika','Asien','Australien','Europa',2,13);
+INSERT INTO `questions` VALUES (811,'Was ist ein "Orca" ?','Killerwal','Hai','Rochen','Deflin',1,5);
+INSERT INTO `questions` VALUES (812,'Wie lautet der Segen, den der Papst jedes Jahr zu Ostern erteilt ?','Ora et labora','Ave Maria','Urbi et orbi','Mette',3,6);
+INSERT INTO `questions` VALUES (813,'Was ist ein Prädikat ?','Satzteil','Formel','Satzzeichen','Konsonant',1,7);
+INSERT INTO `questions` VALUES (814,'Was ist die "Blaue Mauritius" ?','Schnecke','Briefmarke','Münze','Orchidee',2,8);
+INSERT INTO `questions` VALUES (815,'Durch die Drehung welchen Himmelskörpers entsteht der Wechsel zwischen Tag und Nacht ?','Sonne','Mond','Erde','Mars',3,5);
+INSERT INTO `questions` VALUES (816,'Ein Minotaurus ist ein Zwitterwesen aus Mensch und ... ?','Löwe','Stier','Adler','Ziege',2,4);
+INSERT INTO `questions` VALUES (817,'Wie heißt der längste Fluss in Europa ?','Rhein','Donau','Wolga','Seine',3,9);
+INSERT INTO `questions` VALUES (818,'Welche Farbe gehört nicht zu den Grundfarben ?','rot','grün','blau','gelb',2,4);
+INSERT INTO `questions` VALUES (819,'Womit atmet eine Muschel ?','Lunge','Kiemen','Perle','Saugfuss',2,9);
+INSERT INTO `questions` VALUES (820,'In welcher deutschen Stadt lebten die Fugger ?','Stuttgart','Augsburg','Kempten','Bochum',2,10);
+INSERT INTO `questions` VALUES (821,'Was sieht man auf dem Landeswappen von Hamburg ?','Burg','Pferd','Ritterhelm','Schiff',1,7);
+INSERT INTO `questions` VALUES (822,'Welche dieser Tiere sind Primaten ?','Hunde','Vögel','Affen','Pferde',3,6);
+INSERT INTO `questions` VALUES (823,'Welchen Wert hat die römische Ziffer "D" ?','1','100','500','1000',3,11);
+INSERT INTO `questions` VALUES (824,'Ottawa ist die Hauptstadt von ... ?','China','Kanada','Brasilien','Peru',2,8);
+INSERT INTO `questions` VALUES (825,'Welche ist keine Musikstil-Epoche ?','Barock','Kommunismus','Klassik','Romantik',2,7);
+INSERT INTO `questions` VALUES (826,'Wer war nie amerikanischer Präsident ?','George Bush','Ronald Reagen','Jimmy Carter','John Wayne',4,6);
+INSERT INTO `questions` VALUES (827,'Dublin ist die Hauptstadt von ... ?','Schottland','Irland','Dänemark','Finnland',2,5);
+INSERT INTO `questions` VALUES (828,'Wie heißt der germanische Gott des Donners ?','Rumms','Thor','Thonet','Dhonar',2,10);
+INSERT INTO `questions` VALUES (829,'Wie viele Rippenpaare hat der Mensch ?','4','8','12','14',3,11);
+INSERT INTO `questions` VALUES (830,'Was versteht man unter dem Begriff "Lapsus" ?','Faulheit','Fehler','Umarmung','kleiner Lappen',2,12);
+INSERT INTO `questions` VALUES (831,'Was war Herbert von Karajan ?','Sänger','Dirigent','Sportler','Politiker',2,13);
+INSERT INTO `questions` VALUES (832,'Welches Land gehört nicht zu den Beneluxstaaten ?','Frankreich','Niderlande','Belgien','Luxemburg',1,14);
+INSERT INTO `questions` VALUES (833,'Welches Land gehört nicht zu Skandinavien ?','Schweden','Norwegen','Finnland','Polen',4,9);
+INSERT INTO `questions` VALUES (834,'Welche ist die höchste männliche Gesangstimme ?','Bass','Sopran','Bariton','Tenor',4,11);
+INSERT INTO `questions` VALUES (835,'Wie heißt die alljährlich in Hannover stattfindende größte Computermesse der Welt ?','CeBIT','DeBIT','eBIT','OrBIT',1,1);
+INSERT INTO `questions` VALUES (836,'Der Deutsche Theodor Storm war ein berühmter ... ?','Seefahrer','Koch','Schriftsteller','Maler',3,12);
+INSERT INTO `questions` VALUES (837,'Woher stammt die Tomate ?','Asien','Australien','Südamerika','Afrika',3,11);
+INSERT INTO `questions` VALUES (838,'Von welchem deutschen Schriftsteller stammt der "Herr von Ribbeck" ?','Böll','Thoma','Fontane','Schiller',3,15);
+INSERT INTO `questions` VALUES (839,'Womit hat in Deutschland die GEZ zu tun ?','Rundfunkgebühr','Tierschutz','Bundeswehr','Ebbe & Flut',1,8);
+INSERT INTO `questions` VALUES (840,'Wie heißt der Mond der Venus ?','Brutus','Kein Mond','Eros','Nero',2,11);
+INSERT INTO `questions` VALUES (841,'Wie darf sich ein Moslem nennen, der eine Pilgerfahrt nach Mekka absolviert hat ?','Hadschi','Ladschi','Radschi','Padschi',1,12);
+INSERT INTO `questions` VALUES (842,'Wie heißt z.B. in einem Internet - Chat eine künstliche dreidimensionale Figur, die man sich aussuchen kann ?','Adebar','Sansibar','Altar','Avatar',4,7);
+INSERT INTO `questions` VALUES (843,'Was hat der Aktionskünstler Christo 1995 mit dem ehemaligen Reichstagsgebäude in Berlin gemacht ?','verhüllt','angemalt','verkauft','gesprengt',1,6);
+INSERT INTO `questions` VALUES (844,'Welcher deutsche Bundeskanzler erhielt den Friedensnobelpreis ?','Kohl','Brandt','Schmidt','Schröder',2,9);
+INSERT INTO `questions` VALUES (845,'Auf welchem Kontinent fließt der Mississippi ?','Europa','Amerika','Asien','Australien',2,8);
+INSERT INTO `questions` VALUES (846,'Welche Modefirma kam durch ihre provokante Werbung in Verruf?','Esprit','Benetton','Betty Barklay','Calvin Klein',2,7);
+INSERT INTO `questions` VALUES (847,'Welcher Fluss gilt als die Wiege des Blues?','Missouri','Rio Grande','Mississippi','Amazonas',3,5);
+INSERT INTO `questions` VALUES (848,'Wer tanzt "in unserm Haus herum, fidibum" ?','Bi-Ba-Butzemann','Ri-Ra-Rasselzwerg','Li-La-Launebär','Di-Da-Diddlemaus',1,3);
+INSERT INTO `questions` VALUES (849,'Wer erfand den kleinen Drachen Tabaluga?','Gunther Gabriel','Peter Maffay','Roger Wittaker','Drafi Deutscher',2,5);
+INSERT INTO `questions` VALUES (850,'Die "Pet Shop Boys" sangen ...?','Go West','Settle North','Avoid South','Leave East',1,2);
+INSERT INTO `questions` VALUES (851,'Welches Land gab es wirklich im Reichsrat der Weimarer Republik ?','Ohr','Mund','Lippe','Nase',3,9);
+INSERT INTO `questions` VALUES (852,'Was beförderte die Familie Thurn und Taxis jahrhundertelang in Preußen ?','Post','Getreide','Eisen','Kohle',1,8);
+INSERT INTO `questions` VALUES (853,'Welchen Kaiser ließ "Benito Garcia Juarez" in Mexiko 1867 erschießen ?','Leopold','Maximilian','Alexander','Rudolf',3,12);
+INSERT INTO `questions` VALUES (854,'Welches Herrscherhaus verfuhr nach dem Motto "Bella gerant alii, tu felix Austria nube" ?','Windsor','Steufer','Habsburg','Hohenzollern',3,13);
+INSERT INTO `questions` VALUES (855,'Wann landete die erste bemannte russische Raumsonde auf dem Mond ?','08.12.1970','09.08.1971','11.07.1972','gar nicht',4,6);
+INSERT INTO `questions` VALUES (856,'In welcher Stadt wird die "Wenzelskrone" aufbewahrt ?','Pilsen','Warschau','Krakau','Prag',4,9);
+INSERT INTO `questions` VALUES (857,'Wie hieß Kaiser Augustus vor seiner Krönung ?','Antonius','Octavian','Germanicus','Crassus',2,7);
+INSERT INTO `questions` VALUES (858,'Wann und wo fand der Boxeraufstand statt ?','1913 - Chicago','1899 - Südafrika','1844 - Schlesien','1900 - China',4,11);
+INSERT INTO `questions` VALUES (859,'Als Archimedes rief "Heureka" war er...','nackt','betrunken','gefangen','erregt',1,5);
+INSERT INTO `questions` VALUES (860,'Welcher König dankte ab, um die Amerikanerin Wallis Simpson zu heiraten zu können ?','Friedrich II','Eduard VIII','Wilhelm II','Heinrich VIII',2,9);
+INSERT INTO `questions` VALUES (861,'Gegen welche ital. Stadt führte Venedig im 13.+14.Jahrhundert wiederholt Kriege ?','Triest','Rom','Genua','Messina',3,12);
+INSERT INTO `questions` VALUES (862,'In welchem Fahrzeug wurde Mika Häkkinen 1998 Fahrerweltmeister der Formel 1 ?','Bennetton-Ford','McLaren-Mercedes','Williams-Renault','Jordan-Mugen-Honda',2,5);
+INSERT INTO `questions` VALUES (863,'Wie heißt die Insel Ceylon heute ?','Siliguri','Sri Lanka','Goa','Srinagar',2,6);
+INSERT INTO `questions` VALUES (864,'Welchen Namen trägt der internationale Airport von München ?','Franz Joseff Strauss','Franz Beckenbauer','Hallbergmoos','Karl Velentin',1,4);
+INSERT INTO `questions` VALUES (865,'An welchem Fluss liegt Kalkutta ?','Mississippi','Nil','Wolga','Ganges',4,6);
+INSERT INTO `questions` VALUES (866,'Wie nennen die Japaner ihren Staat ?','Noppon','Nippon','Nappon','Neppon',2,2);
+INSERT INTO `questions` VALUES (867,'Welche Flüsse bilden die deutsch - polnische Grenze ?','Weichsel/Warthe','Oder/Neisse','Bug/San','Rhein/Ruhr',2,4);
+INSERT INTO `questions` VALUES (868,'Welchen dieser Seen gibt es wirklich in Kasachstan ?','Aralsee','Dieselsee','Shellsee','Essosee',1,2);
+INSERT INTO `questions` VALUES (869,'Wie nennt man eine Gruppe Wildschweine ?','Masse','Flotte','Rotte','Runde',3,9);
+INSERT INTO `questions` VALUES (870,'Welche Stadt hat Romulus der Sage nach gegründet ?','Neapel','Pisa','Rom','Rimini',3,1);
+INSERT INTO `questions` VALUES (871,'Was ist eine "Schwarze Witwe" ?','Libelle','Spinne','Vogel','alte Frau',2,2);
+INSERT INTO `questions` VALUES (872,'Was ist "Harley Davidson" ?','Motorradmarke','Segelschiff','Nähmaschine','Popgruppe',1,1);
+INSERT INTO `questions` VALUES (873,'Welche Figur gibt es nicht beim Schach ?','Bäcker','Bauer','Turm','Pferd',1,3);
+INSERT INTO `questions` VALUES (874,'Was steht auf den Kennzeichen von Kraftfahrzeugen der Stadt Frankfurt am Main ?','FAM','FFM','F','FM',3,4);
+INSERT INTO `questions` VALUES (875,'Wie heißt der Star aus der ZDF - Kultserie "Löwenzahn" ?','Otto Ernst','Peter Lustig','Kerl Freudig','Hans Spassig',2,2);
+INSERT INTO `questions` VALUES (876,'An welchem Tag wird jedes Jahr die deutsche Einheit gefeiert ?','22. März','14. Februar','3. November','3. Oktober',4,1);
+INSERT INTO `questions` VALUES (877,'Was bedeutet "merci" ?','Guten Tag','Bitte','Danke','Schade',3,1);
+INSERT INTO `questions` VALUES (878,'Für welche Leckerei ist die Stadt Nürnberg berühmt ?','Käse','Marzipan','Lebkuchen','Sprotten',3,3);
+INSERT INTO `questions` VALUES (879,'Welches Fabeltier nennt man Isegrimm ?','Fuchs','Wolf','Bär','Hase',2,4);
+INSERT INTO `questions` VALUES (880,'Zu wem gehört das Pokémon Mauzi ?','Misty','Ash','Team Rocket','Rocko',3,6);
+INSERT INTO `questions` VALUES (881,'Auf welchem Belag wird in Wimbledon Tennis gespielt ?','Beton','Sand','Rasen','Kunststoff',3,4);
+INSERT INTO `questions` VALUES (882,'Wie heißen die Nachbarn von Fred Feuerstein ?','Mülleimer','Geröllheimer','Heimmüller','Gröllmeier',2,7);
+INSERT INTO `questions` VALUES (883,'Welcher dieser Buchstaben ist ein Vokal ?','A','B','C','D',1,1);
+INSERT INTO `questions` VALUES (884,'Welches Tier ist ein Afghane ?','Vogel','Affe','Hund','Pferd',3,8);
+INSERT INTO `questions` VALUES (885,'Zu welchem Land gehört Sibirien ?','Polen','Rumänien','Italien','Russland',4,3);
+INSERT INTO `questions` VALUES (886,'Wie heißt die größte deutsche Autofahrerorganisation ?','AUDI','BMW','DLRG','ADAC',4,1);
+INSERT INTO `questions` VALUES (887,'Wie viele Meter hat ein Kilometer ?','10','100','1000','10000',3,1);
+INSERT INTO `questions` VALUES (888,'An welchem Tag erscheint immer die neue Micky Maus ?','Freitag','Donnerstag','Montag','Mittwoch',2,6);
+INSERT INTO `questions` VALUES (889,'Aus wie vielen ineinander verschlungenen Ringen besteht das Markenzeichen der deutschen Automarke AUDI ?','2','4','6','5',2,3);
+INSERT INTO `questions` VALUES (890,'In welchem Intervall finden Olympische Spiele statt ?','8 Jahre','4 Jahre','2 Jahre','6 Jahre',2,2);
+INSERT INTO `questions` VALUES (891,'Wie sagen die Bayern und Österreicher zu Quark ?','Soja','Käse','Joghurt','Topfen',4,3);
+INSERT INTO `questions` VALUES (892,'Auf welchem Tier ritt Jesus, als er am Palmsonntag in Jerusalem einzog ?','Kamel','Ochse','Esel','Pferd',3,6);
+INSERT INTO `questions` VALUES (893,'Welches Tier ziert das Emblem des 1. FC Köln ?','Löwe','Schlange','Geissbock','Tiger',3,5);
+INSERT INTO `questions` VALUES (894,'Aus wie vielen Zähnen besteht das vollständige menschliche Milchgebiss ?','36','32','24','20',4,10);
+INSERT INTO `questions` VALUES (895,'Welche Sportart gehört nicht zu einem Triathlon ?','Schwimmen','Laufen','Rudern','Radfahren',3,4);
+INSERT INTO `questions` VALUES (896,'Wie heißt die heilige Schrift der Muslime ?','Iran','Membran','Koran','Meran',3,7);
+INSERT INTO `questions` VALUES (897,'Welches Volk wusste schon im 7. Jahrhundert, wie man Porzellan herstellt ?','Japaner','Chinesen','Inder','Portugiesen',2,11);
+INSERT INTO `questions` VALUES (898,'Von welchem Organ geht das Seitenstechen aus ?','Galle','Milz','Leber','Lunge',2,12);
+INSERT INTO `questions` VALUES (899,'Welcher Forscher entdeckte zuerst die Gebirge des Mondes ?','Johannes Kepler','Galileo Galilei','Friedrich Schiller','Johann Sebastian Bach',1,9);
+INSERT INTO `questions` VALUES (900,'Woraus bestehen die Ringe des Saturn ?','Luft','Gas','Nebel','Gestein, Eis, Staub',4,6);
+INSERT INTO `questions` VALUES (901,'Welcher Planet ist am weitesten von der Sonne entfernt ?','Titan','Pluto','Merkur','Mars',2,5);
+INSERT INTO `questions` VALUES (902,'Wie heißt der Begleiter der Erde ?','Charon','Mond','Miranda','Triton',2,1);
+INSERT INTO `questions` VALUES (903,'Welcher Planet unseres Sonnensystems ist der kleinste ?','Uranus','Mond','Merkur','Pluto',4,4);
+INSERT INTO `questions` VALUES (904,'Welches Sternzeichen gibt es nicht ?','Zwilling','Fisch','Ochse','Stier',3,3);
+INSERT INTO `questions` VALUES (905,'Wie groß ist der Durchmesser von einem Pol zum anderen Pol ?','25 875 km','12 756 km','6 072 km','6 913 km',2,8);
+INSERT INTO `questions` VALUES (906,'Wie hoch ist der höchste Wasserfall der Welt ?','876 m','1756 m','979 m','1087 m',3,10);
+INSERT INTO `questions` VALUES (907,'Die Polarweide ist der kleinste Baum der Welt. Wie groß wird er ?','1 cm','2 bis 3 cm','ca. 5 cm','etwa 12 cm',2,11);
+INSERT INTO `questions` VALUES (908,'Der Saguaro ist ein riesiger Kaktus, der 200 Jahre alt werden kann. Wie groß wird er ?','ca. 5 m','ca. 11 m','ca. 15 m','ca. 9 m.',3,12);
+INSERT INTO `questions` VALUES (909,'Wie heißt die kälteste aller Wüsten ?','Gobi','Kalahari','Atacama','Sahara',1,13);
+INSERT INTO `questions` VALUES (910,'Wie lang ist die größte Schlucht der Erde ?','ca. 211 km','ca, 446 km','ca. 357 km.','ca. 109 km',2,14);
+INSERT INTO `questions` VALUES (911,'Wie breit ist die größte Schlucht der Erde im Durchschnitt ?','3 km','16 km','7 km','10 km',2,15);
+INSERT INTO `questions` VALUES (912,'Wie lang ist der Felsblock "Ayers Rock" in Australien ?','1,3 km','3,1 km','2,4 km','4,2 km',2,15);
+INSERT INTO `questions` VALUES (913,'Wann wurde das Lottospiel in Deutschland eingeführt?','1897','1967','1976','1956',4,13);
+INSERT INTO `questions` VALUES (914,'Welche Schachfiguren außer den Bauern können den ersten Zug in einem Spiel machen?','Die Damen','Die Läufer','Die Springer','Die Türme',3,3);
+INSERT INTO `questions` VALUES (915,'Wem wird die Erfindung des "Kleinen Schwarzen" zugeschrieben?','Coco Chanel','Christian Dior','Yves Saint Laurent','Gianni Versace',1,4);
+INSERT INTO `questions` VALUES (916,'Was sollte man nicht im Sack kaufen?','Hund','Vogel','Katze','Bär',3,1);
+INSERT INTO `questions` VALUES (917,'Wer schrieb "Tristan"?','Wolfram von Eschenbach','Ludwig von Waldhelm','Konrad von Würzburg','Gottfried von Straßburg',4,15);
+INSERT INTO `questions` VALUES (918,'Was ist ein "Kaventsmann"?','Bewohner des Kavendelgebirges','Große Welle','Felsmassiv im Harz','Bremsvorrichtung bei der Eisenbahn',2,9);
+INSERT INTO `questions` VALUES (919,'Was ist "Oriflamme"?','Leuchterscheinung im Gewitter','Einschluss in Ergussgesteinen','Zierpflanze','Kriegsfahne der franz. Könige im Mittelalter',4,8);
+INSERT INTO `questions` VALUES (920,'Durch welche Tätigkeit wurde der Däne Bille August weltbekannt?','Modeschöpfer','Filmregisseur','Atomphysiker','Fussballtorwart',2,9);
+INSERT INTO `questions` VALUES (921,'Wer oder was ist Kagura?','Frucht','Bauform','Tanz','Sprache',3,14);
+INSERT INTO `questions` VALUES (922,'Die Burg "Eppenstein" ist eine mittelalterliche Burgruine in...','Deutschland','Österreich','Schweiz','Luxemburg',2,12);
+INSERT INTO `questions` VALUES (923,'Rod Evans war Sänger und Grüdungsmitglied welcher bekannten Rockband?','ACDC','Toto','Deep Purple','Kiss',3,10);
+INSERT INTO `questions` VALUES (924,'Invisible Touch ist der Name des 1986 erschienenen 13. Albums welcher Band?','Genesis','Status Quo','Queen','Chicago',1,11);
+INSERT INTO `questions` VALUES (925,' "Anonyme Architektur" bezeichnet ein Segment des Bauens welches...?','..geheim ist','..nicht sichtbar ist','..ohne Architekt auskommt','..es nicht gibt',3,13);
+INSERT INTO `questions` VALUES (926,'Ethnologie beschreibt der Volksmund auch als?','Religionswissenschaft','Menschenrecht','Erdkunde','Völkerkunde',4,12);
+INSERT INTO `questions` VALUES (927,'Das Wort Kutsche leitet sich vom ungarischen Kocsi ab. Für was steht Kocsi?','Name des Enstehungsortes Kosc','Material der Kutschenrades','Erfindername','Für "Gespann"',1,11);
+INSERT INTO `questions` VALUES (928,'Was ist Xenophobie?','Fremdenfeindlichkeit','Angst vor Licht','Platzangst','schwere Depression',1,9);
+INSERT INTO `questions` VALUES (929,'Baptistenkirchen sind ...','evangelisch','katholisch','orthodox','ökumenisch',1,10);
+INSERT INTO `questions` VALUES (930,'Welcher dieser Kantone gehört nicht in die Schweiz?','Glarus','Tessin','Waadt','Stans',4,9);
+INSERT INTO `questions` VALUES (931,'Wie wird Ascorbinsäure noch bezeichnet?','Strichnin','Vitamin C','Salpeter','Essig',2,6);
+INSERT INTO `questions` VALUES (932,'Aus was besteht eine Panade?','Mehl','Griess','Brot','Haferflocken',3,7);
+INSERT INTO `questions` VALUES (933,'Wie heisst das erste Mobiltelefon der Firma Apple?','iPod','iPod Nano','iPhone','iHandy',3,5);
+INSERT INTO `questions` VALUES (934,'Die Bezeichnung GMT steht für?','Great Middle Time','Grown Mall Time','General Mean Time','Greenwich Mean Time',4,6);
+INSERT INTO `questions` VALUES (935,'Die Farbe Rosa wird gemischt aus?','gleb und grün','rot und grün','rot und gelb','rot und weiss',4,3);
+INSERT INTO `questions` VALUES (936,'Wie ist das Symbol für Eisen?','Ei','Vo','Fe','En',3,5);
+INSERT INTO `questions` VALUES (937,'Kupfer ist eine Legierung welcher Materialien?','Kupfer und Eisen','Zinn und Eisen','Zinn und Kupfer','Kupfer und Zink',4,9);
+INSERT INTO `questions` VALUES (938,'Die Oktanzahl für Kraftstoffe wird angegeben in?','ROZ','POZ','OKT','DIN',1,6);
+INSERT INTO `questions` VALUES (939,'Wie heisst der Bär in der Sesamstrasse?','Montecor','Knut','Samson','Flocke',3,2);
+INSERT INTO `questions` VALUES (940,'Wie heisst das Moster von Lochness?','Kelly','Nessie','Sissi','Lissi',2,2);
+INSERT INTO `questions` VALUES (941,'Ein Männlein steht im Walde ganz...','ruhig und dumm','still und stumm','taub und stumm','klein und dumm',2,1);
+INSERT INTO `questions` VALUES (942,'Der Liedermacher Reinhard Mey sang einst: Über den...','Alpen','Grenzen','Wolken','Leuten',3,1);
+INSERT INTO `questions` VALUES (943,'Für was steht das "D" in DSL?','Daten','Digital','Deutsche','Durchgangskanal',2,3);
+INSERT INTO `questions` VALUES (944,'Stromstärke wird gemessen in?','Ampere','Ohm','Volt','Farrad',1,7);
+INSERT INTO `questions` VALUES (945,'In welchem Film spielt Sylvester Stallone keine Rolle? ','Demolition Man ','Staying Alive','Driven','Head Hunter',4,8);
+INSERT INTO `questions` VALUES (946,'Wo wurde Albert Einstein geboren?','Hamm','Duisburg','Ulm','München',3,6);
+INSERT INTO `questions` VALUES (947,'Ein Bundesland der Bundesrepublik ist...?','Baden Württenberg','Baden Würtemberg','Baden Würtenberg','Baden Württemberg',4,8);
+INSERT INTO `questions` VALUES (948,'Wie heisst die bekannte Hotelerbin Hilton mit Vornamen?','London','Paris
+','Rome','Nizza',2,1);
+INSERT INTO `questions` VALUES (949,'Welcher Vokal fehlt? a,e,u,i...','o','f','k','b',1,3);
+INSERT INTO `questions` VALUES (950,'Wie nennt man eine männliche Ente?','Scherpel','Erpel','Enterich','Hahn',2,2);
+INSERT INTO `questions` VALUES (951,'Wer trieb Ende des 19. Jhd. sein Unwesen in London ?','Jack Johnson','Jack Daniels','Jack the Ripper','Black Jack',3,3);
+INSERT INTO `questions` VALUES (952,'Wo hat die UNO ihren Hauptsitz ?','Genf','Brüssel','Paris','New York',4,7);
+INSERT INTO `questions` VALUES (953,'Ein Androloge beschäftigt sich hauptsächlich mit...','Männern','Sternennebel','Uhren','UFOs',1,14);
+INSERT INTO `questions` VALUES (954,'"Es tanzt ein Bi-Ba- ..."','Putzemann','Butzemann','Trutzemann','Wuzemann',2,3);
+INSERT INTO `questions` VALUES (955,'Wer gehört nicht zur berühmtesten gelben Familie ?','Bart','Homer','Lisa','Sabrina',4,4);
+INSERT INTO `questions` VALUES (956,'Konstantinopel wurde von den Griechen gegründet und heißt jetzt:','Athen','Ephesos','Istanbul','Catania',3,7);
+INSERT INTO `questions` VALUES (957,'Was ist das Wahrzeichen von Köln?','Containerhafen','Dom','Fernsehturm','Sternwarte',2,5);
+INSERT INTO `questions` VALUES (958,'Welcher Staat liegt auf dem Äquator?','USA','Ägypten','Malediven','Australien',3,6);
+INSERT INTO `questions` VALUES (959,'Nordrhein-Westfalen grenzt an ... ','Bremen','Bayern','Baden-Württemberg','Hessen',4,6);
+INSERT INTO `questions` VALUES (960,'Das erste Mobiltelefon der Firma Apple heißt ...','iBook','iPhone','iPod','iGelb',2,1);
+INSERT INTO `questions` VALUES (961,'Wie heißt die Insel Ceylon heute ?','Madagascar','Malta','Sri Lanka','Puerto Rico',3,9);
+INSERT INTO `questions` VALUES (962,'"Norma Jeane Mortenson" ist der bürgerliche Name von...','Marilyn Monroe','Janet Jackson','Mary J. Blige','Jane Fonda',1,11);
+INSERT INTO `questions` VALUES (963,'Als die "Stadt der Liebe" bezeichnet man ...','Berlin','Rom','Paris','Moskau',3,3);
+INSERT INTO `questions` VALUES (964,'Welche Religion hat weltweit die meisten Anhänger ?','Islam','Buddhismus','Judentum','Christentum',4,10);
+INSERT INTO `questions` VALUES (965,'Wenn man Hunger hat, knurrt der...','Magen','Kopf','Verstand','Nachbar',1,1);
+INSERT INTO `questions` VALUES (966,'1440 Minuten sind ...','Eine Stunde','Ein Tag','Eine Woche','Ein Monat',2,2);
+INSERT INTO `questions` VALUES (967,'1000 Meter sind ...','Ein Quadratmeter','Ein Kilometer','Eine Meile','Ein Hektar',2,3);
+INSERT INTO `questions` VALUES (968,'Was ist die Hauptstadt von Sizilien?','Neapel','Mailand','Vittoria','Palermo',4,6);
+INSERT INTO `questions` VALUES (969,'Zu Ostern suchen Kinder traditionell gefärbte ...','Hasen','Eier','Hühner','Kücken',2,2);
+INSERT INTO `questions` VALUES (970,'In welcher Einheit gibt man Temperaturen und Winkel an ?','Krumm','Lang','Grad','Gebogen',3,2);
+INSERT INTO `questions` VALUES (971,'Welche Schule hat keine Schüler?','Grundschule','Realschule','Hauptschule','Baumschule',4,1);
+INSERT INTO `questions` VALUES (972,'1024 Kilobyte sind ein ...','Gigabyte','Megabyte','Terrabyte','Tetrabyte',2,4);
+INSERT INTO `questions` VALUES (973,'Dagobert Duck ist der Onkel von...','Donald','Frieda','Daniel Düsentrieb','Quack',1,3);
+INSERT INTO `questions` VALUES (974,'Welches ist keine deutsche Automarke?','VW','Ford','Audi','BMW',2,3);
+INSERT INTO `questions` VALUES (975,'Welches Unternehmen hat seinen Hauptsitz in Redmond?','McDonalds','Coca Cola','Microsoft','Dodge',3,4);
+INSERT INTO `questions` VALUES (976,'Wenn ein Amerikaner von "TAX" spricht, meint er...','Busse','Haltestellen','Steuern','Mietwagen',3,6);
+INSERT INTO `questions` VALUES (977,'Der Rhein mündet in...','Die Nordsee','Die Ostsee','Das Mittelmeer','Die Donau',1,6);
+INSERT INTO `questions` VALUES (978,'Die "Tube" bezeichnet in London ...','Die Themse','Eine Autobahn','Die U-Bahn','Die Königin',3,7);
+INSERT INTO `questions` VALUES (979,'Darth Vader ist der Vater von...','George Lucas','Han Solo','Yoda','Luke Skywalker',4,5);
+INSERT INTO `questions` VALUES (980,'Chihuahua ist nicht nur eine Hunderasse, sondern auch ein...','Bundesstaat in Mexiko','Klassischer Tanzstil','Planetenname','Panzertyp der USA',1,11);
+INSERT INTO `questions` VALUES (981,'Welche Insel liegt in der Karibik?','Madagascar','Hispaniola','Hawaii','Bali',2,9);
+INSERT INTO `questions` VALUES (982,'Welches Land ist kein Mitglied der EU?','Luxemburg','Polen','Türkei','Österreich',3,5);
+INSERT INTO `questions` VALUES (983,'Der erste Deutsche PayTV-Sender ...','D+/Taquilla','Kabel D.','Premiere','ORF',3,1);
+INSERT INTO `questions` VALUES (984,'Wie hieß das Forschungsschiff von Charles Darwin?','Dolphin','Calypso','Beagle','Dove',3,15);
+INSERT INTO `questions` VALUES (985,'Welche Oper wurde zur Eröffnung des Suez-Kanals aufgeführt?','Nambucco','Aida','Rigoletto','Fidelio',2,6);
+INSERT INTO `questions` VALUES (986,'Welcher Geheimdienst versenkte das Greenpeace Schiff "Rainbow Warrior"?','Libyens','Großbritaniens','Iraks','Frankreichs',4,8);
+INSERT INTO `questions` VALUES (987,'In welchem Monat wurde mit dem Bau der Berliner Mauer begonnen?','September','Juli','November','August',4,9);
+INSERT INTO `questions` VALUES (988,'Welcher deutsche Bundeskanzler erholte sich beim Boccia spielen?','Adenauer','Schmidt','Kohl','Brandt',1,11);
+INSERT INTO `questions` VALUES (989,'Wo starb Napoleon Bonaparte?','Elba','Sardinien','St. Helena','Sizilien',3,7);
+INSERT INTO `questions` VALUES (990,'Welche Nr. hat das Apollo-Raumschiff, mit dem Neil Amstrong zum Mond flog?','10','13','11','8',3,8);
+INSERT INTO `questions` VALUES (991,'Wo ist der Hauptsitz der Beate Uhse GmbH?','Hamburg','Flensburg','Brüssel','München',2,8);
+INSERT INTO `questions` VALUES (992,'Welche Automarke ist nicht im DAX vertreten?','DaimlerChrysler','BMW','VW','Porsche',4,7);
+INSERT INTO `questions` VALUES (993,'Welcher Name steht hinter der Firma Kodak?','Westman','Northman','Eastman','Southman',3,11);
+INSERT INTO `questions` VALUES (994,'Was ist Krill?','ein Krebstier','eine Algenart','ein Tintenfisch','eine Seegurkenart',1,6);
+INSERT INTO `questions` VALUES (995,'Wer schrieb die Nesthäkchenromane?','Else Ury','Rosamunde Pilcher','Astrid Lindgren','Hera Lind',1,12);
+INSERT INTO `questions` VALUES (996,'Wen bezeichnet man als "Pfeffersack" ?','Großkaufmann','Imbisskoch','Reeder','Kunstmäzen',1,8);
+INSERT INTO `questions` VALUES (997,'Wann ist die Walpurgisnacht?','In der Nacht zum 1. November','an Halloween','In der Nacht zum 1. Mai','In der Nacht zum 30. März',3,6);
+INSERT INTO `questions` VALUES (998,'Was ist Olivetti?','ein Schreibmaschinenhersteller','eine Olivenöl-Sorte','Griechischer Gott','Schriftsteller',2,7);
+INSERT INTO `questions` VALUES (999,'Wer oder Was ist "Amati"?','Oldtimer-Auto','Geigenbauerfamilie','Wassertier','Stadt in Griechenland',2,9);
+INSERT INTO `questions` VALUES (1000,'Welche Leute beschäftigt die berühmte Agentur Pinkerton?','Detektive','Top-Models','Komparsen','Journalisten',1,10);
+COMMIT;
