@@ -19,7 +19,7 @@ import lombok.ToString;
  */
 @ToString
 @Entity
-@Table(name = "user")
+@Table(name = "admin")
 @EqualsAndHashCode(of = "id")
 public class Admin implements Serializable {
 
