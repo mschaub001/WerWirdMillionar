@@ -37,15 +37,15 @@ public class FragenController implements Serializable {
         this.level = level;
     }
 
-    public List<Fragen> getFragen() {
-        fragen = new FragenDAO().getFragenNachLevel(5);
+    public List<Fragen> getFragen(int level) {
+        fragen = new FragenDAO().getFragenNachLevel(level);
         return fragen;
     }
 
-    public Fragen getFrage() {
+    public Fragen getFrage(int level) {
         Random foo = new Random();
-        int randomNumber = foo.nextInt(getFragen().size() - 1) + 1;
-        frage = getFragen().get(randomNumber);
+        int randomNumber = foo.nextInt(getFragen(level).size() - 1) + 1;
+        frage = getFragen(level).get(randomNumber);
         return frage;
     }
 
@@ -53,4 +53,21 @@ public class FragenController implements Serializable {
         this.frage = frage;
     }
 
+    public List<String> getAntworten() {
+        return antworten;
+    }
+
+    public void setAntworten(List<String> antworten) {
+        this.antworten = antworten;
+    }
+
+    public String testAntwort(int antwort, Fragen frage){
+        if(frage.getFragenRichtigeAntwort()==antwort){
+            return "/login.xhtml";
+        }else{
+             return "/falsch";
+        }
+       
+        
+    }
 }
