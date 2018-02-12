@@ -10,6 +10,8 @@ import javax.enterprise.context.SessionScoped;
 import java.io.Serializable;
 import java.util.List;
 import java.util.Random;
+import javax.faces.application.FacesMessage;
+import javax.faces.context.FacesContext;
 import objects.Fragen;
 
 /**
@@ -23,7 +25,7 @@ public class FragenController implements Serializable {
     /**
      * Creates a new instance of FragenController
      */
-    private int level;
+    private int level = 1;
 
     private List<Fragen> fragen;
     private List<String> antworten;
@@ -42,10 +44,12 @@ public class FragenController implements Serializable {
         return fragen;
     }
 
-    public Fragen getFrage(int level) {
+    public Fragen getFrage() {
         Random foo = new Random();
-        int randomNumber = foo.nextInt(getFragen(level).size() - 1) + 1;
-        frage = getFragen(level).get(randomNumber);
+        int randomNumber = foo.nextInt(getFragen(getLevel()).size() - 1) + 1;
+        frage = getFragen(getLevel()).get(randomNumber);
+       FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_WARN, "getfrage!" + frage.getFragenBody() + "  " + frage.getFragenAntworten() + frage.getFragenRichtigeAntwort(), null));
+
         return frage;
     }
 
@@ -61,13 +65,17 @@ public class FragenController implements Serializable {
         this.antworten = antworten;
     }
 
-    public String testAntwort(int antwort, Fragen frage){
-        if(frage.getFragenRichtigeAntwort()==antwort){
-            return "/login.xhtml";
-        }else{
-             return "/falsch";
+    public String testAntwort(int antwort, Fragen fraget) {
+        if (antwort == fraget.getFragenRichtigeAntwort()) {
+            setLevel(getLevel() + 1);
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_WARN, "RICHTI!" + fraget.getFragenBody() + "  " + fraget.getFragenAntworten() + fraget.getFragenRichtigeAntwort(), null));
+
+            return "/index.xhtml";
+        } else {
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_WARN, "falsch!" + fraget.getFragenBody() + "  " + fraget.getFragenAntworten() + fraget.getFragenRichtigeAntwort(), null));
+
+            return "/falsch.xhtml";
         }
-       
-        
+
     }
 }
