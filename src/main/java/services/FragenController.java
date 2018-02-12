@@ -9,6 +9,7 @@ import javax.inject.Named;
 import javax.enterprise.context.SessionScoped;
 import java.io.Serializable;
 import java.util.List;
+import java.util.Random;
 import objects.Fragen;
 
 /**
@@ -22,8 +23,11 @@ public class FragenController implements Serializable {
     /**
      * Creates a new instance of FragenController
      */
-    
     private int level;
+
+    private List<Fragen> fragen;
+    private List<String> antworten;
+    private Fragen frage;
 
     public int getLevel() {
         return level;
@@ -32,11 +36,21 @@ public class FragenController implements Serializable {
     public void setLevel(int level) {
         this.level = level;
     }
-            
+
     public List<Fragen> getFragen() {
-        return new FragenDAO().getFragenNachLevel(1);
+        fragen = new FragenDAO().getFragenNachLevel(5);
+        return fragen;
     }
-    
-    
-    
+
+    public Fragen getFrage() {
+        Random foo = new Random();
+        int randomNumber = foo.nextInt(getFragen().size() - 1) + 1;
+        frage = getFragen().get(randomNumber);
+        return frage;
+    }
+
+    public void setFrage(Fragen frage) {
+        this.frage = frage;
+    }
+
 }
