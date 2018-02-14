@@ -65,14 +65,16 @@ public class FragenController implements Serializable {
         this.antworten = antworten;
     }
 
-    public String testAntwort(int antwort, Fragen fraget) {
-        if (antwort == fraget.getFragenRichtigeAntwort()) {
+    public String testAntwort(int antwort, int fraget) {
+        FragenDAO fragenDAO = new FragenDAO(); 
+        Fragen frageFromDb = fragenDAO.getFragenNachId(fraget);
+        if (antwort == frageFromDb.getFragenId()) {
             setLevel(getLevel() + 1);
-            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_WARN, "RICHTI!" + fraget.getFragenBody() + "  " + fraget.getFragenAntworten() + fraget.getFragenRichtigeAntwort(), null));
+           FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_WARN, "RICHTI!" + frageFromDb.getFragenBody() + "  " + frageFromDb.getFragenAntworten() + frageFromDb.getFragenRichtigeAntwort(), null));
 
             return "/index.xhtml";
         } else {
-            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_WARN, "falsch!" + fraget.getFragenBody() + "  " + fraget.getFragenAntworten() + fraget.getFragenRichtigeAntwort(), null));
+         FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_WARN, "falsch!" + frageFromDb.getFragenBody() + "  " + frageFromDb.getFragenAntworten() + frageFromDb.getFragenRichtigeAntwort(), null));
 
             return "/falsch.xhtml";
         }
