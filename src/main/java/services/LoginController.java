@@ -59,7 +59,7 @@ public class LoginController implements Serializable {
         if (this.admin != null) {
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_WARN, "judihui "+adminName+"   "+adminPassword, null));
            // LOGGER.log(Level.INFO, "BBB InsecureApp login attempt successful, access granted. IP:{0}, username:{1}, user agent:{2}", new Object[]{LoggerHelper.getRemoteAddr(), username, LoggerHelper.getUserAgent()});
-            return "/index.xhtml";
+            return "/secured/AdminBackend.xhtml";
         }
         FacesContext.getCurrentInstance().getExternalContext().getFlash().setKeepMessages(true);
         FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_WARN, "Login failed! "+adminName+"   "+adminPassword, null));

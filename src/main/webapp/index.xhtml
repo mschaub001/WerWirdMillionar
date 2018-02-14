@@ -8,18 +8,23 @@
     </h:head>
     <h:body>
         <h:outputText>Test</h:outputText>
-        <ui:repeat value="#{fragenController.getFrage(6)}" var="fragenitem">                    
+        <ui:repeat value="#{fragenController.frage}" var="frageitem">                    
 
             <div class="panel-heading">
-                <h3 class="panel-title">#{fragenitem.fragenBody}  </h3>
+                <h3 class="panel-title">#{frageitem.fragenBody}  </h3>
+            </div>
+             <div class="panel-heading">
+                <h3 class="panel-title">#{frageitem.fragenRichtigeAntwort}  </h3>
+            </div>
+            <div class="panel-heading">
+                <h3 class="panel-title">#{frageitem.fragenLevel}  </h3>
             </div>
             
-            
             <h:form>
-                <h:commandButton  value="#{fragenitem.fragenAntworten.get(0)}" action="#{fragenController.testAntwort(1,fragenitem)}"/> 
-                <h:commandButton  value="#{fragenitem.fragenAntworten.get(1)}" action="#{fragenController.testAntwort(2,fragenitem)}"/> 
-                <h:commandButton  value="#{fragenitem.fragenAntworten.get(2)}" action="#{fragenController.testAntwort(3,fragenitem)}"/> 
-                <h:commandButton  value="#{fragenitem.fragenAntworten.get(3)}" action="#{fragenController.testAntwort(4,fragenitem)}"/> 
+                <h:commandButton  value="#{frageitem.fragenAntworten.get(0)}" action="#{fragenController.testAntwort(1,frageitem.getFragenId())}"/> 
+                <h:commandButton  value="#{frageitem.fragenAntworten.get(1)}" action="#{fragenController.testAntwort(2,frageitem.getFragenId())}"/> 
+                <h:commandButton  value="#{frageitem.fragenAntworten.get(2)}" action="#{fragenController.testAntwort(3,frageitem.getFragenId())}"/> 
+                <h:commandButton  value="#{frageitem.fragenAntworten.get(3)}" action="#{fragenController.testAntwort(4,frageitem.getFragenId())}"/> 
             </h:form>
 
         </ui:repeat>

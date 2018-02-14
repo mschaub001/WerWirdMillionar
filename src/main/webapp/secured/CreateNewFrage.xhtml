@@ -1,0 +1,32 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+    <h:head>
+        <title>test2 Title</title>
+    </h:head>
+    <h:body>
+     
+            <h1>Create News</h1>
+
+            <h:form >
+
+                <p></p>
+                <h:inputText  value="#{adminController.current.fragenBody}" />
+                <p></p>
+                <h:inputTextarea  value="#{adminController.current.fragenAntwortA}" />
+                <h:inputTextarea  value="#{adminController.current.fragenAntwortB}" />
+                <h:inputTextarea  value="#{adminController.current.fragenAntwortC}" />
+                <h:inputTextarea  value="#{adminController.current.fragenAntwortD}" />
+                <h:inputTextarea  value="#{adminController.current.fragenRichtigeAntwort}" />
+                <h:inputTextarea  value="#{adminController.current.fragenLevel}" />
+
+
+                <h:commandButton class="btn btn-default" value="Create" action="#{adminController.create()}"/>
+
+            </h:form>
+      
+    </h:body>
+</html>
+

@@ -98,6 +98,10 @@ public class Fragen implements Serializable {
     @Setter
     private int fragenLevel;
 
+    public Fragen() {
+        
+    }
+
     public int getFragenId() {
         return fragenId;
     }
