@@ -4,33 +4,21 @@
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
     <h:head>
-        <title>test Title</title>
+        <title>Wer wird Millionär?</title>
     </h:head>
     <h:body>
-        <h:outputText>Test</h:outputText>
-        <ui:repeat value="#{fragenController.frage}" var="frageitem">                    
-
-            <div class="panel-heading">
-                <h3 class="panel-title">#{frageitem.fragenBody}  </h3>
-            </div>
-             <div class="panel-heading">
-                <h3 class="panel-title">#{frageitem.fragenRichtigeAntwort}  </h3>
-            </div>
-            <div class="panel-heading">
-                <h3 class="panel-title">#{frageitem.fragenLevel}  </h3>
-            </div>
-            
-            <h:form>
+        <h:form>
+            <h:outputText>Frage</h:outputText>
+            <ui:repeat value="#{fragenController.frage}" var="frageitem">                    
+                <div class="panel-heading">
+                    <h3 class="panel-title">#{frageitem.fragenBody}  </h3>
+                </div>
                 <h:commandButton  value="#{frageitem.fragenAntworten.get(0)}" action="#{fragenController.testAntwort(1,frageitem.getFragenId())}"/> 
                 <h:commandButton  value="#{frageitem.fragenAntworten.get(1)}" action="#{fragenController.testAntwort(2,frageitem.getFragenId())}"/> 
                 <h:commandButton  value="#{frageitem.fragenAntworten.get(2)}" action="#{fragenController.testAntwort(3,frageitem.getFragenId())}"/> 
                 <h:commandButton  value="#{frageitem.fragenAntworten.get(3)}" action="#{fragenController.testAntwort(4,frageitem.getFragenId())}"/> 
-            </h:form>
-
-        </ui:repeat>
-       
-
-
+            </ui:repeat>
+        </h:form>
     </h:body>
 </html>
 
