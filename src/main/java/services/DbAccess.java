@@ -17,7 +17,7 @@ public class DbAccess {
 
     private final static String ADMIN_DB;
     private static volatile Connection connection;
-   // private final static Logger LOGGER = Logger.getLogger(DbAccess.class.getName());
+    private final static Logger LOGGER = Logger.getLogger(DbAccess.class.getName());
 
     static {
         String path = FacesContext.getCurrentInstance().getExternalContext().getRealPath("/");
@@ -33,7 +33,7 @@ public class DbAccess {
                 String url = "jdbc:mysql://localhost:3306/sampledb";
                 connection = DriverManager.getConnection(url,"userWG3","nvlpyywP1vMGA8Hp");
             } catch (SQLException e) {
-                //LOGGER.log(Level.SEVERE, "BBB InsecureApp Cannot connect to database, giving up.", e);
+                LOGGER.log(Level.SEVERE, "BBB InsecureApp Cannot connect to database, giving up.", e);
             }
         }
     }
@@ -52,7 +52,7 @@ public class DbAccess {
             exists = tables.next();
 
         } catch (SQLException e) {
-            //LOGGER.log(Level.SEVERE, "BBB InsecureApp Cannot check if table exists, giving up.", e);
+            LOGGER.log(Level.SEVERE, "BBB InsecureApp Cannot check if table exists, giving up.", e);
         }
         return exists;
     }
