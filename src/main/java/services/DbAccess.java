@@ -32,7 +32,7 @@ public class DbAccess {
                 Class.forName("com.mysql.jdbc.Driver");
                 String url = "jdbc:mysql://mysql-mschaub007.193b.starter-ca-central-1.openshiftapps.com/:3306/sampledb";
                 connection = DriverManager.getConnection(url,"userWG3","nvlpyywP1vMGA8Hp");
-            } catch (SQLException e) {
+            } catch (SQLException | java.lang.ClassNotFoundException e) {
                 LOGGER.log(Level.SEVERE, "BBB InsecureApp Cannot connect to database, giving up.", e);
             }
         }
