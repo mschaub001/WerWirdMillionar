@@ -33,7 +33,7 @@ public class DbAccess {
                 String url = "jdbc:mysql://localhost:3306/sampledb";
                 connection = DriverManager.getConnection(url,"userWG3","nvlpyywP1vMGA8Hp");
             } catch (SQLException | ClassNotFoundException e) {
-                LOGGER.log(Level.SEVERE, "BBB InsecureApp Cannot connect to database, giving up.", e);
+                //LOGGER.log(Level.SEVERE, "BBB InsecureApp Cannot connect to database, giving up.", e);
             }
         }
     }
