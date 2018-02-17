@@ -13,7 +13,7 @@ import java.util.Random;
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
 import objects.Fragen;
-import static com.sun.xml.internal.ws.spi.db.BindingContextFactory.LOGGER;
+import java.util.logging.Logger;
 import java.util.logging.Level;
 /**
  *
@@ -26,6 +26,7 @@ public class FragenController implements Serializable {
     /**
      * Creates a new instance of FragenController
      */
+    private final static Logger LOGGER = Logger.getLogger(FragenController.class.getName());
     private int level = 1;
 
     private List<Fragen> fragen;
