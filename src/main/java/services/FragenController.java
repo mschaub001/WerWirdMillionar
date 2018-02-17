@@ -13,7 +13,8 @@ import java.util.Random;
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
 import objects.Fragen;
-
+import static com.sun.xml.internal.ws.spi.db.BindingContextFactory.LOGGER;
+import java.util.logging.Level;
 /**
  *
  * @author Noah
@@ -44,12 +45,19 @@ public class FragenController implements Serializable {
         return fragen;
     }
 
-    public Fragen getFrage() {
+    private void naechsteFrage() {
+        LOGGER.log(Level.SEVERE, "naechsteFrage");
         Random foo = new Random();
         int randomNumber = foo.nextInt(getFragen(getLevel()).size() - 1) + 1;
         frage = getFragen(getLevel()).get(randomNumber);
+        LOGGER.log(Level.SEVERE, "naechsteFrage: "+getLevel()+"/"+frage.getFragenId()+"/"+frage.getFragenBody());
        FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_WARN, "getfrage!" + frage.getFragenBody() + "  " + frage.getFragenAntworten() + frage.getFragenRichtigeAntwort(), null));
+    }
+    
+    public Fragen getFrage() {
 
+        if (frage == null)
+            naechsteFrage();
         return frage;
     }
 
@@ -66,15 +74,18 @@ public class FragenController implements Serializable {
     }
 
     public String testAntwort(int antwort, int fraget) {
+        LOGGER.log(Level.SEVERE, "testAntwort: "+antwort+", "+fraget);
         FragenDAO fragenDAO = new FragenDAO(); 
         Fragen frageFromDb = fragenDAO.getFragenNachId(fraget);
-        if (antwort == frageFromDb.getFragenId()) {
+        LOGGER.log(Level.SEVERE, "testAntwort: "+antwort+", "+frageFromDb.getFragenLevel()+"/"+fraget+"/"+frageFromDb.getFragenBody());
+        if (antwort == frageFromDb.getFragenRichtigeAntwort()) {
             setLevel(getLevel() + 1);
-           FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_WARN, "RICHTI!" + frageFromDb.getFragenBody() + "  " + frageFromDb.getFragenAntworten() + frageFromDb.getFragenRichtigeAntwort(), null));
+            naechsteFrage();
+           FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_WARN, "RICHTIG!" + frageFromDb.getFragenBody() + "  " + frageFromDb.getFragenAntworten() + frageFromDb.getFragenRichtigeAntwort(), null));
 
             return "/index.xhtml";
         } else {
-         FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_WARN, "falsch!" + frageFromDb.getFragenBody() + "  " + frageFromDb.getFragenAntworten() + frageFromDb.getFragenRichtigeAntwort(), null));
+         FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_WARN, "FALSCH!" + frageFromDb.getFragenBody() + "  " + frageFromDb.getFragenAntworten() + frageFromDb.getFragenRichtigeAntwort(), null));
 
             return "/falsch.xhtml";
         }
