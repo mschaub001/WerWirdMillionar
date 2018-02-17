@@ -29,8 +29,8 @@ public class DbAccess {
     private static void connect() {
         if (connection == null) {
             try {
-                //Class.forName("com.mysql.jdbc.Driver");
-                String url = "jdbc:mysql://localhost:3306/sampledb";
+                Class.forName("com.mysql.jdbc.Driver");
+                String url = "jdbc:mysql://mysql-mschaub007.193b.starter-ca-central-1.openshiftapps.com/:3306/sampledb";
                 connection = DriverManager.getConnection(url,"userWG3","nvlpyywP1vMGA8Hp");
             } catch (SQLException e) {
                 LOGGER.log(Level.SEVERE, "BBB InsecureApp Cannot connect to database, giving up.", e);
